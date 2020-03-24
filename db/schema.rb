@@ -10,9 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_03_24_113512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "booking_applicants", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_booking_applicants_on_booking_id"
+    t.index ["user_id"], name: "index_booking_applicants_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "status"
+    t.bigint "favour_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favour_id"], name: "index_bookings_on_favour_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "favours", force: :cascade do |t|
+    t.string "category"
+    t.string "title"
+    t.text "description"
+    t.string "address"
+    t.string "important_info"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_favours_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "mobile"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "booking_applicants", "bookings"
+  add_foreign_key "booking_applicants", "users"
+  add_foreign_key "bookings", "favours"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "favours", "users"
 end

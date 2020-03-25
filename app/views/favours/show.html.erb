@@ -1,0 +1,9 @@
+<h1>Favour</h1>
+
+<p>Category: <%= @favour.category %></p>
+<p>Posted by: <%= @favour.recipient.first_name %></p>
+<p>Title: <%= @favour.title %></p>
+<p>Description: <%= @favour.description %></p>
+<p>Location: <%= @favour.address %></p>
+
+<%= link_to "Back to all favours", favours_path, class: 'btn btn-primary' %>

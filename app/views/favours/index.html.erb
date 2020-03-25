@@ -1,0 +1,9 @@
+<h1>All Favours</h1>
+
+<% @favours.each do |favour| %>
+	<%= link_to favour_path(favour) do %>
+	<div class="card">
+		<%= favour.title %>
+	</div>
+	<% end %>
+<% end %>

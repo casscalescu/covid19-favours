@@ -3,5 +3,5 @@ class Favour < ApplicationRecord
   belongs_to :helper, :class_name => 'User'
 
   has_many :reviews
-  has_many :flavour_applications
+  has_many :favour_applications
 end

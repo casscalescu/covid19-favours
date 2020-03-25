@@ -10,28 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_113512) do
+ActiveRecord::Schema.define(version: 2020_03_25_040838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "booking_applicants", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "booking_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_booking_applicants_on_booking_id"
-    t.index ["user_id"], name: "index_booking_applicants_on_user_id"
-  end
-
-  create_table "bookings", force: :cascade do |t|
-    t.string "status"
+  create_table "favour_applications", force: :cascade do |t|
     t.bigint "favour_id"
-    t.bigint "user_id"
+    t.bigint "applicant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["favour_id"], name: "index_bookings_on_favour_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["applicant_id"], name: "index_favour_applications_on_applicant_id"
+    t.index ["favour_id"], name: "index_favour_applications_on_favour_id"
   end
 
   create_table "favours", force: :cascade do |t|
@@ -39,11 +29,27 @@ ActiveRecord::Schema.define(version: 2020_03_24_113512) do
     t.string "title"
     t.text "description"
     t.string "address"
-    t.string "important_info"
-    t.bigint "user_id"
+    t.string "status"
+    t.bigint "recipient_id"
+    t.bigint "helper_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_favours_on_user_id"
+    t.index ["helper_id"], name: "index_favours_on_helper_id"
+    t.index ["recipient_id"], name: "index_favours_on_recipient_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "type"
+    t.integer "rating"
+    t.text "description"
+    t.bigint "recipient_id"
+    t.bigint "helper_id"
+    t.bigint "favour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favour_id"], name: "index_reviews_on_favour_id"
+    t.index ["helper_id"], name: "index_reviews_on_helper_id"
+    t.index ["recipient_id"], name: "index_reviews_on_recipient_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,9 +68,11 @@ ActiveRecord::Schema.define(version: 2020_03_24_113512) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "booking_applicants", "bookings"
-  add_foreign_key "booking_applicants", "users"
-  add_foreign_key "bookings", "favours"
-  add_foreign_key "bookings", "users"
-  add_foreign_key "favours", "users"
+  add_foreign_key "favour_applications", "favours"
+  add_foreign_key "favour_applications", "users", column: "applicant_id"
+  add_foreign_key "favours", "users", column: "helper_id"
+  add_foreign_key "favours", "users", column: "recipient_id"
+  add_foreign_key "reviews", "favours"
+  add_foreign_key "reviews", "users", column: "helper_id"
+  add_foreign_key "reviews", "users", column: "recipient_id"
 end

@@ -1,7 +1,21 @@
 class Favour < ApplicationRecord
-  belongs_to :recipient, :class_name => 'User'
-  belongs_to :helper, :class_name => 'User'
+  CATEGORY = %w[Groceries Gardening Pets Other]
+  
+  # Associations
+  belongs_to :recipient, :class_name => 'User', optional: true
+  belongs_to :helper, :class_name => 'User', optional: true
 
   has_many :reviews
   has_many :favour_applications
+
+  # Validations
+  validates :category, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :address, presence: true
+
+  # Simple form collections
+  def categories
+  	CATEGORY
+  end
 end

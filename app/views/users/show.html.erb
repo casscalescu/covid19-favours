@@ -1,7 +1,1 @@
-<h1>Hello <%= @user.first_name %> <%= @user.last_name.split("").first.capitalize %>!</h1>
-
-<% if user_signed_in? == @user %>
-  <p>This is your account</p>
-<% else %>
-	<p>This is not your account</p>
-<% end %>
+<h1>Hi <%= @user.first_name %> <%= @user.last_name.split("").first.capitalize %>!</h1>

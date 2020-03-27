@@ -1,6 +1,7 @@
 class Favour < ApplicationRecord
   CATEGORY = %w[Groceries Gardening Pets Other]
-  
+  STATUS = %w[Open Accepted Done Closed]
+
   # Associations
   belongs_to :recipient, :class_name => 'User', optional: true
   belongs_to :helper, :class_name => 'User', optional: true

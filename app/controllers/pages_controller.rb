@@ -5,5 +5,12 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @helper_accepted =
+    @helper_open =
+    @helper_archived =
+
+    @recipient_accepted =
+    @recipient_open =
+    @recipient_archived =
   end
 end

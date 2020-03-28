@@ -1,13 +1,30 @@
 <h1>Dashboard</h1>
 
 <div class="container">
-  <div class="accepted-favours">
+  <% if current_user.helper? %>
+    <div class="helper-favours">
+      <div class="accepted-favours">
 
-  </div>
-  <div class="new-favours">
+      </div>
+      <div class="open-favours">
 
-  </div>
-  <div class="archived-favours">
+      </div>
+      <div class="archived-favours">
 
-  </div>
+      </div>
+    </div>
+  <% end %>
+  <% if current_user.recipient? %>
+    <div class="recipient-favours">
+      <div class="accepted-favours">
+
+      </div>
+      <div class="open-favours">
+
+      </div>
+      <div class="archived-favours">
+
+      </div>
+    </div>
+  <% end %>
 </div>

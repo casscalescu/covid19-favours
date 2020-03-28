@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :favours_asked, :class_name => 'Favour', :foreign_key => 'recipient_id'
   has_many :favours_done, :class_name => 'Favour', :foreign_key => 'helper_id'
+
+  has_one_attached :photo
 end

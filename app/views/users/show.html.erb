@@ -1,0 +1,28 @@
+<div class="container">
+	<!-- Display name -->
+	<% if current_user == @user %>
+		<h1>Hi <%= @user.first_name %> <%= @user.last_name.split("").first.capitalize %>!</h1>
+	<% else %>
+		<h1>Hi, I'm <%= @user.first_name %> <%= @user.last_name.split("").first.capitalize %>!</h1>
+	<% end %>
+
+	<!-- Profile picture -->
+	<% if @user.photo.attachment.nil? %>
+	  <%= image_tag "placeholder.png", alt: "Profile Picture", :style => "height: 300px; width: 300px; object-fit: cover; border-radius: 50%" %>
+	<% else %>
+	  <%= cl_image_tag @user.photo.key, :style => "height: 300px; width: 300px; object-fit: cover; border-radius: 50%" %>
+	<% end %>
+
+	<!-- Edit profile -->
+	<% if current_user == @user %>
+		<%= render 'users/edit' %>
+	<% end %>
+	
+	<!-- Display contact details if current_user has helped @user with favour -->
+	<% if @user.favours_asked.where(helper_id: current_user.id).exists? %>
+		<h3>Contact:</h3>
+		<%= @user.mobile %>
+		<h3>Location:</h3>
+		<%= @user.address %>
+	<% end %>
+</div>

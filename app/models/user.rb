@@ -19,4 +19,5 @@ class User < ApplicationRecord
   def recipient?
     favours = Favour.where(recipient: self)
     favours.length > 0 ? true : false
+  end
 end

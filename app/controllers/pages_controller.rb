@@ -5,12 +5,31 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @helper_accepted =
-    @helper_open =
-    @helper_archived =
+    @helper_accepted = Favour
+      .where(helper: current_user, status: 'Accepted')
 
-    @recipient_accepted =
-    @recipient_open =
-    @recipient_archived =
+    @helper_open = Favour
+      .joins(:favour_applications)
+      .where(favour_applications: { applicant: current_user, status: 'Pending' })
+
+    @helper_archived = Favour
+      .joins(:favour_applications)
+      .where(helper: current_user, status: 'Done')
+      .or(Favour
+        .joins(:favour_applications)
+        .where(helper: current_user, status: 'Closed'))
+      .or(Favour
+        .joins(:favour_applications)
+        .where(favour_applications: { applicant: current_user, status: 'Rejected' }))
+
+    @recipient_accepted = Favour
+      .where(recipient: current_user, status: 'Accepted')
+
+    @recipient_open = Favour
+      .where(recipient: current_user, status: 'Open')
+
+    @recipient_archived = Favour
+      .where(recipient: current_user, status: 'Done')
+      .or(Favour.where(recipient: current_user, status: 'Closed'))
   end
 end

@@ -4,26 +4,82 @@
   <% if current_user.helper? %>
     <div class="helper-favours">
       <div class="accepted-favours">
-
+        <h4>Accepted Favours</h4>
+        <% @helper_accepted.each do |favour| %>
+          <div class="card">
+            <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.description %></p>
+            <p><%= favour.address %></p>
+            <p><%= favour.recipient.first_name %></p>
+            <p><%= favour.recipient.mobile %></p>
+          </div>
+        <% end %>
       </div>
       <div class="open-favours">
-
+        <h4>Applied Favours</h4>
+        <% @helper_open.each do |favour| %>
+          <div class="card">
+            <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.description %></p>
+            <p><%= favour.address %></p>
+            <p><%= favour.recipient.first_name %></p>
+          </div>
+        <% end %>
       </div>
       <div class="archived-favours">
-
+        <h4>Archived Favours</h4>
+        <% @helper_archived.each do |favour| %>
+          <div class="card">
+            <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.description %></p>
+            <p><%= favour.address %></p>
+            <p><%= favour.recipient.first_name %></p>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
   <% if current_user.recipient? %>
     <div class="recipient-favours">
       <div class="accepted-favours">
-
+        <h4>Accepted Favours</h4>
+        <% @recipient_accepted.each do |favour| %>
+          <div class="card">
+            <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.description %></p>
+            <p><%= favour.address %></p>
+            <p><%= favour.helper.first_name %></p>
+            <p><%= favour.helper.mobile %></p>
+          </div>
+        <% end %>
       </div>
       <div class="open-favours">
-
+        <h4>Open Favours</h4>
+        <% @recipient_accepted.each do |favour| %>
+          <div class="card">
+            <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.description %></p>
+            <p><%= favour.address %></p>
+            <h6>Applicants:</h6>
+            <ul>
+            <% favour.applicants.each do |applicant| %>
+              <li>applicant.first_name</li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
       </div>
       <div class="archived-favours">
-
+        <h4>Archived Favours</h4>
+        <% @recipient_archived.each do |favour| %>
+          <div class="card">
+            <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.description %></p>
+            <p><%= favour.address %></p>
+            <p><%= favour.helper.first_name %></p>
+            <p><%= favour.helper.mobile %></p>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>

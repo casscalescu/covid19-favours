@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_one_attached :photo
 
   has_many :favour_applications_sent, class_name: 'FavourApplication', foreign_key: 'applicant_id'
@@ -19,5 +19,10 @@ class User < ApplicationRecord
   def recipient?
     favours = Favour.where(recipient: self)
     favours.length > 0 ? true : false
+  end
+
+  def applied?(favour)
+    applications = FavourApplication.where(applicant: self, favour: favour)
+    applications.length > 0 ? true : false
   end
 end

@@ -1,28 +1,49 @@
 <div class="container">
 	<!-- Display name -->
-	<% if current_user == @user %>
-		<h1>Hi <%= @user.first_name %> <%= @user.last_name.split("").first.capitalize %>!</h1>
-	<% else %>
-		<h1>Hi, I'm <%= @user.first_name %> <%= @user.last_name.split("").first.capitalize %>!</h1>
-	<% end %>
+	<h1>
+		<%= @user.first_name.capitalize %>
+		<% if @shared_task || @user == current_user %>
+		  <%= @user.last_name.capitalize %>
+		<% end %>
+	</h1>
 
 	<!-- Profile picture -->
 	<% if @user.photo.attachment.nil? %>
-	  <%= image_tag "placeholder.png", alt: "Profile Picture", :style => "height: 300px; width: 300px; object-fit: cover; border-radius: 50%" %>
-	<% else %>
-	  <%= cl_image_tag @user.photo.key, :style => "height: 300px; width: 300px; object-fit: cover; border-radius: 50%" %>
+		  <%= image_tag "placeholder.png", alt: "Profile Picture", :style => "height: 300px; width: 300px; object-fit: cover; border-radius: 50%" %>
+		<% else %>
+		  <%= cl_image_tag @user.photo.key, :style => "height: 300px; width: 300px; object-fit: cover; border-radius: 50%" %>
+	<% end %>
+	
+	<!-- Details -->
+	<h4>Bio:</h4>
+	<%= @user.bio %>
+
+	<% if @user == current_user || @shared_task %>
+		<h4>Mobile:</h4>
+		<%= @user.mobile %>
+		<h4>Location:</h4>
+		<%= @user.address %>
 	<% end %>
 
 	<!-- Edit profile -->
 	<% if current_user == @user %>
-		<%= render 'users/edit' %>
+		<%= link_to "Edit profile", edit_user_path, class: 'btn btn-primary' %>
 	<% end %>
-	
-	<!-- Display contact details if current_user has helped @user with favour -->
-	<% if @user.favours_asked.where(helper_id: current_user.id).exists? %>
-		<h3>Contact:</h3>
-		<%= @user.mobile %>
-		<h3>Location:</h3>
-		<%= @user.address %>
+
+	<!-- Favours -->
+	<% if @user.favours_asked.exists? && @user != current_user %>
+		<h4>Favours:</h4>
+		<% @open_favours.each do |favour| %>
+			<%= link_to favour_path(favour) do %>
+				<div class="card">
+					<p>Category: <%= favour.category %></p>
+					<p>Title: <%= favour.title %></p>
+					<p>Description: <%= favour.description %></p>
+				</div>
+			<% end %>
+		<% end %>
 	<% end %>
+
+	<!-- Reviews -->
+	<h4>Reviews:</h4>
 </div>

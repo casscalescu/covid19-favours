@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @shared_task = @user.favours_asked.where(helper_id: current_user.id).exists? || @user.favours_done.where(recipient_id: current_user.id).exists?
+    @open_favours = @user.favours_asked.where(status: "Open")
   end
 
   private
@@ -19,6 +21,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-  	params.require(:user).permit(:photo, :first_name, :last_name, :mobile, :address)
+  	params.require(:user).permit(:photo, :first_name, :last_name, :mobile, :address, :bio)
   end
 end

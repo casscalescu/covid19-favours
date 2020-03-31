@@ -1,4 +1,6 @@
 class FavoursController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def new
 	  @favour = Favour.new
 	  @recipient_id = current_user
@@ -22,6 +24,6 @@ class FavoursController < ApplicationController
 	private
 
 	def favour_params
-    params.require(:favour).permit(:title, :description, :address, :category)
+    params.require(:favour).permit(:title, :description, :address, :category, :completion_date)
   end
 end

@@ -1,6 +1,7 @@
 <h1>Create a favour</h1>
 
 <%= simple_form_for @favour do |f| %>
+  <%= f.input :completion_date, as: :date, html5: true %>
   <%= f.input :category, as: :radio_buttons, collection: @favour.categories %>
   <%= f.input :title %>
   <%= f.input :description %>

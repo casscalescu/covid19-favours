@@ -107,7 +107,8 @@ bob_favour_1 = Favour.create!(
   description: "#{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}.",
   address: "#{bob.address}",
   status: "Open",
-  recipient: bob
+  recipient: bob,
+  completion_date: Faker::Date.between(from: Date.today, to: 1.year.from_now)
 )
 
 bob_favour_2 = Favour.create!(
@@ -117,7 +118,8 @@ bob_favour_2 = Favour.create!(
   address: "#{bob.address}",
   status: "Accepted",
   recipient: bob,
-  helper: ameya
+  helper: ameya,
+  completion_date: Faker::Date.between(from: Date.today, to: 1.year.from_now)
 )
 
 jane_favour_1 = Favour.create!(
@@ -127,7 +129,8 @@ jane_favour_1 = Favour.create!(
   address: "#{jane.address}",
   status: "Done",
   recipient: jane,
-  helper: nikolai
+  helper: nikolai,
+  completion_date: Faker::Date.between(from: Date.today, to: 1.year.from_now)
 )
 
 jane_favour_2 = Favour.create!(
@@ -137,7 +140,8 @@ jane_favour_2 = Favour.create!(
   address: "#{jane.address}",
   status: "Done",
   recipient: jane,
-  helper: cassandra
+  helper: cassandra,
+  completion_date: Faker::Date.between(from: Date.today, to: 1.year.from_now)
 )
 
 jane_favour_3 = Favour.create!(
@@ -146,7 +150,8 @@ jane_favour_3 = Favour.create!(
   description: "#{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}.",
   address: "#{jane.address}",
   status: "Open",
-  recipient: jane
+  recipient: jane,
+  completion_date: Faker::Date.between(from: Date.today, to: 1.year.from_now)
 )
 
 emily_favour_1 = Favour.create!(
@@ -155,7 +160,8 @@ emily_favour_1 = Favour.create!(
   description: "#{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}.",
   address: "#{emily.address}",
   status: "Open",
-  recipient: emily
+  recipient: emily,
+  completion_date: Faker::Date.between(from: Date.today, to: 1.year.from_now)
 )
 
 emily_favour_2 = Favour.create!(
@@ -164,7 +170,8 @@ emily_favour_2 = Favour.create!(
   description: "#{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}.",
   address: "#{emily.address}",
   status: "Open",
-  recipient: emily
+  recipient: emily,
+  completion_date: Faker::Date.between(from: Date.today, to: 1.year.from_now)
 )
 
 emily_favour_3 = Favour.create!(
@@ -173,7 +180,8 @@ emily_favour_3 = Favour.create!(
   description: "#{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}. #{Faker::Movie.quote}.",
   address: "#{emily.address}",
   status: "Open",
-  recipient: emily
+  recipient: emily,
+  completion_date: Faker::Date.between(from: Date.today, to: 1.year.from_now)
 )
 
 puts 'Creating Favour Applications...'

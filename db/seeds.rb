@@ -1,3 +1,4 @@
+require "open-uri"
 require 'faker'
 
 # This file should contain all the record creation needed to seed the database with its default values.
@@ -36,6 +37,8 @@ nikolai = User.create!(
   password: "password",
   password_confirmation: "password"
 )
+file = URI.open("https://source.unsplash.com/featured/?man")
+nikolai.photo.attach(io: file, filename: 'nikolai.png', content_type: 'image/png')
 
 cassandra = User.create!(
   first_name: "Cassandra",
@@ -46,6 +49,8 @@ cassandra = User.create!(
   password: "password",
   password_confirmation: "password"
 )
+file = URI.open("https://source.unsplash.com/featured/?woman")
+cassandra.photo.attach(io: file, filename: 'cassandra.png', content_type: 'image/png')
 
 ameya = User.create!(
   first_name: "Ameya",
@@ -56,6 +61,8 @@ ameya = User.create!(
   password: "password",
   password_confirmation: "password"
 )
+file = URI.open("https://source.unsplash.com/featured/?man")
+ameya.photo.attach(io: file, filename: 'ameya.png', content_type: 'image/png')
 
 bob = User.create!(
   first_name: "Bob",
@@ -66,6 +73,8 @@ bob = User.create!(
   password: "password",
   password_confirmation: "password"
 )
+file = URI.open("https://source.unsplash.com/featured/?man")
+bob.photo.attach(io: file, filename: 'bob.png', content_type: 'image/png')
 
 jane = User.create!(
   first_name: "Jane",
@@ -76,6 +85,8 @@ jane = User.create!(
   password: "password",
   password_confirmation: "password"
 )
+file = URI.open("https://source.unsplash.com/featured/?woman")
+jane.photo.attach(io: file, filename: 'jane.png', content_type: 'image/png')
 
 emily = User.create!(
   first_name: "Emily",
@@ -86,6 +97,8 @@ emily = User.create!(
   password: "password",
   password_confirmation: "password"
 )
+file = URI.open("https://source.unsplash.com/featured/?woman")
+emily.photo.attach(io: file, filename: 'emily.png', content_type: 'image/png')
 
 puts 'Creating Favours...'
 bob_favour_1 = Favour.create!(

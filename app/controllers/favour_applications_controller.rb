@@ -1,0 +1,2 @@
+class FavourApplicationsController < ApplicationController
+end

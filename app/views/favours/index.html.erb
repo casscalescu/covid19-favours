@@ -1,9 +1,26 @@
 <h1>All Favours</h1>
 
 <% @favours.each do |favour| %>
-	<%= link_to favour_path(favour) do %>
-	<div class="card">
-		<%= favour.title %>
-	</div>
-	<% end %>
+  <div class="card">
+  	<p>Title: <%= link_to favour.title, favour_path(favour) %></p>
+    <p>Category: <%= favour.category %></p>
+    <p>Completion Date: Pending - Add Field</p>
+    <p>Description: <%= favour.description %></p>
+    <%= cl_image_tag(favour.recipient.photo.key, width: 80, height: 80, crop: :thumb, gravity: :face) %>
+    <% if user_signed_in? %>
+		  <p>Posted By: <%= link_to favour.recipient.first_name, user_path(favour.recipient) %></p>
+		<% else %>
+		  <p>Posted by: <%= favour.recipient.first_name %></p>
+		<% end %>
+    <p>Recipient Rating: Pending - Review</p>
+    <p>Postcode: Pending - Geocoding</p>
+
+    <% if user_signed_in? %>
+      <% unless current_user.applied?(favour)%>
+        <a href="#" class="btn btn-primary">Apply [Pending - Favour Application]</a>
+      <% end %>
+    <% else %>
+      <a href="#" class="btn btn-primary">Apply [Pending - Favour Application]</a>
+    <% end %>
+  </div>
 <% end %>

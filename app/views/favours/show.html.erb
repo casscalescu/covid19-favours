@@ -24,7 +24,7 @@
     <p class="badge badge-success">You've already applied!</p>
   <% end %>
   <!-- Edit favour -->
-  <% if @favour.recipient == current_user %>
+  <% if favour.recipient == current_user && favour.favour_applications.nil? %>
     <%= link_to "Edit Favour", edit_favour_path, class: 'btn btn-primary' %>
   <% end %>
 <!-- Apply button for users not signed in (redirects to sign in page first) -->

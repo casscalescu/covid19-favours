@@ -19,6 +19,7 @@ class FavoursController < ApplicationController
 
 	def index
 		@favours = Favour.all
+		@open_favours = Favour.where(status: "Open")
 	end
 
 	private

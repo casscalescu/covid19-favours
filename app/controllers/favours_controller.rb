@@ -1,5 +1,6 @@
 class FavoursController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_favour, only: [:edit, :update, :show]
 
   def new
 	  @favour = Favour.new
@@ -14,7 +15,6 @@ class FavoursController < ApplicationController
 	end
 
 	def show
-		@favour = Favour.find(params[:id])
 	end
 
 	def index
@@ -22,7 +22,19 @@ class FavoursController < ApplicationController
 		@open_favours = Favour.where(status: "Open")
 	end
 
+	def edit
+	end
+
+	def update
+		@favour.update(favour_params)
+		redirect_to favour_path(@favour)
+	end
+
 	private
+
+	def set_favour
+  	@favour = Favour.find(params[:id])
+  end
 
 	def favour_params
     params.require(:favour).permit(:title, :description, :address, :category, :completion_date)

@@ -16,7 +16,7 @@
     <p>Postcode: Pending - Geocoding</p>
 
     <% if user_signed_in? %>
-      <% unless current_user.applied?(favour)%>
+      <% unless current_user.applied?(favour) || favour.recipient == current_user %>
         <a href="#" class="btn btn-primary">Apply [Pending - Favour Application]</a>
       <% end %>
     <% else %>

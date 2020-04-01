@@ -1,6 +1,6 @@
 <h1>All Favours</h1>
 
-<% @favours.each do |favour| %>
+<% @open_favours.each do |favour| %>
   <div class="card">
   	<p>Title: <%= link_to favour.title, favour_path(favour) %></p>
     <p>Category: <%= favour.category %></p>

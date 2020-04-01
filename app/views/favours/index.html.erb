@@ -19,6 +19,9 @@
       <% unless current_user.applied?(favour) || favour.recipient == current_user %>
         <a href="#" class="btn btn-primary">Apply [Pending - Favour Application]</a>
       <% end %>
+      <% if current_user.applied?(favour) %>
+        <p class="badge badge-success">You've already applied!</p>
+      <% end %>
     <% else %>
       <a href="#" class="btn btn-primary">Apply [Pending - Favour Application]</a>
     <% end %>

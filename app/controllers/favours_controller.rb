@@ -4,12 +4,12 @@ class FavoursController < ApplicationController
 
   def new
 	  @favour = Favour.new
-	  @recipient_id = current_user
 	end
 
 	def create
 		@favour = Favour.new(favour_params)
 		@favour.recipient = current_user
+		@favour.status = "Open"
 		@favour.save
 		redirect_to favour_path(@favour)
 	end

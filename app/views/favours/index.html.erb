@@ -19,11 +19,21 @@
     <% if user_signed_in? %>
       <!-- Apply for favour -->
       <% unless current_user.applied?(favour) || favour.recipient == current_user %>
-        <a href="#" class="btn btn-primary">Apply [Pending - Favour Application]</a>
+        <%= link_to "Apply to Help", new_favour_favour_application_path(favour), class: 'btn btn-primary' %>
       <% end %>
       <!-- Already applied for favour -->
       <% if current_user.applied?(favour) %>
-        <p class="badge badge-success">You've already applied!</p>
+        <!-- Applied and pending -->
+        <% if current_user.application_status(favour) == "Pending" %>
+          <p class="badge badge-success">You've already applied!</p>
+          <%= link_to "Withdraw Application", favour_application_path(favour.favour_applications.where(applicant: current_user).take), method: :delete, class: 'btn btn-primary' %>
+        <!-- Applied and withdrawn -->
+        <% elsif current_user.application_status(favour) == "Withdrawn" %>
+          <p class="badge badge-warning">You've withdrawn your application</p>
+        <!-- Applied and rejected -->
+        <% elsif current_user.application_status(favour) == "Rejected" %>
+          <p class="badge badge-warning">Your application was rejected</p>
+        <% end %>
       <% end %>
       <!-- Edit favour -->
       <% if favour.recipient == current_user && favour.favour_applications.nil? %>

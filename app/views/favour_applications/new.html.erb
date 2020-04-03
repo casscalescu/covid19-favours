@@ -1,0 +1,12 @@
+<h1>Apply to help <%= @favour.recipient.first_name %></h1>
+
+<h2>Title: <%= @favour.title %></h2>
+
+<p>Category: <%= @favour.category %></p>
+<p>Completion Date: <%= @favour.completion_date %></p>
+<p>Postcode: Pending - Geocoding</p>
+
+<%= simple_form_for [@favour, @favour_application] do |f| %>
+  <%= f.input :message %>
+  <%= f.button :submit, 'Apply', class: "btn btn-primary" %>
+<% end %>

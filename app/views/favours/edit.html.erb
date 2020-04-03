@@ -1,0 +1,10 @@
+<h1>Edit Favour</h1>
+
+<%= simple_form_for @favour do |f| %>
+  <%= f.input :category %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :completion_date, as: :date, html5: true %>
+  <%= f.button :submit, 'Update', class: "btn btn-primary" %>
+<% end %>

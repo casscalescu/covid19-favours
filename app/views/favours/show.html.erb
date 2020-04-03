@@ -39,7 +39,7 @@
   <% end %>
 <!-- Apply button for users not signed in (redirects to sign in page first) -->
 <% else %>
-		<a href="#" class="btn btn-primary">Apply [Pending - Favour Application]</a>
+		<%= link_to "Apply to Help", new_favour_favour_application_path(favour), class: 'btn btn-primary' %>
 <% end %>
 
 <%= link_to "Back to all favours", favours_path, class: 'btn btn-primary' %>

@@ -26,7 +26,10 @@
         <!-- Applied and pending -->
         <% if current_user.application_status(favour) == "Pending" %>
           <p class="badge badge-success">You've already applied!</p>
-          <%= link_to "Withdraw Application", favour_application_path(favour.favour_applications.where(applicant: current_user).take), method: :delete, class: 'btn btn-primary' %>
+          <%= simple_form_for [favour, favour.favour_applications.where(applicant: current_user).take] do |f| %>
+            <%= f.hidden_field :status, value: "Withdrawn" %>
+            <%= f.button :submit, 'Withdraw Application', class: "btn btn-primary" %>
+          <% end %>
         <!-- Applied and withdrawn -->
         <% elsif current_user.application_status(favour) == "Withdrawn" %>
           <p class="badge badge-warning">You've withdrawn your application</p>
@@ -36,7 +39,7 @@
         <% end %>
       <% end %>
       <!-- Edit favour -->
-      <% if favour.recipient == current_user && favour.favour_applications.nil? %>
+      <% if favour.recipient == current_user && favour.favour_applications.empty? %>
         <%= link_to "Edit Favour", edit_favour_path(favour), class: 'btn btn-primary' %>
       <% end %>
     <!-- Apply button for users not signed in (redirects to sign in page first) -->

@@ -1,5 +1,6 @@
 class FavourApplicationsController < ApplicationController
-  before_action :set_favour, only: [:new, :create, :index]
+  before_action :set_favour, only: [:new, :create, :index, :update]
+  before_action :set_favour_application, only: [:update]
 
   def new
     @favour_application = FavourApplication.new
@@ -15,14 +16,11 @@ class FavourApplicationsController < ApplicationController
   end
 
   def index
-
   end
 
-  def destroy
-    @favour_application = FavourApplication.find(params[:id])
-    @favour_application.status = "Withdrawn"
-    @favour_application.save
-    redirect_to favour_path(@favour_application.favour)
+  def update
+    @favour_application.update(favour_application_params)
+    redirect_to favour_path(@favour)
   end
 
   private
@@ -31,7 +29,11 @@ class FavourApplicationsController < ApplicationController
     @favour = Favour.find(params[:favour_id])
   end
 
+  def set_favour_application
+    @favour_application = FavourApplication.find(params[:id])
+  end
+
   def favour_application_params
-    params.require(:favour_application).permit(:message)
+    params.require(:favour_application).permit(:message, :status)
   end
 end

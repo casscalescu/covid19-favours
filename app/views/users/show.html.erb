@@ -44,6 +44,11 @@
 		<% end %>
 	<% end %>
 
+  <!-- Leave a review -->
+  <% if @shared_task %>
+    <%= link_to 'Leave a review', new_user_review_path(@user), class: 'btn btn-primary' %>
+  <% end %>
+
 	<!-- Reviews -->
 	<h4>Reviews:</h4>
 </div>

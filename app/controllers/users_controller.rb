@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
     @shared_task = @user.favours_asked.where(helper_id: current_user.id).exists? || @user.favours_done.where(recipient_id: current_user.id).exists?
     @open_favours = @user.favours_asked.where(status: "Open")
+    raise
   end
 
   private

@@ -19,4 +19,6 @@ class Favour < ApplicationRecord
   def categories
   	CATEGORY
   end
+
+  # Add a check method whether theres a review for the helper or recipient yet
 end

@@ -27,4 +27,9 @@ class User < ApplicationRecord
     applications = FavourApplication.where(applicant: self, favour: favour)
     applications.length > 0 ? true : false
   end
+
+  def application_status(favour)
+    applications = FavourApplication.where(applicant: self, favour: favour)
+    applications[0].status
+  end
 end

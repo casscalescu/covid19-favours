@@ -2,7 +2,7 @@
 
 <!-- Review notification -->
 <div class="container">
-  <% if current_user.helper? %>
+  <% if current_user == @favour.helper? %>
     <% @helper_done_favours.each do |favour| %>
       <% unless favour.reviews.where(subject: "Helper").exists? %>
         <div class="card">
@@ -13,7 +13,7 @@
       <% end %>
     <% end %>
   <% end %>
-  <% if current_user.recipient? %>
+  <% if current_user == @favour.recipient? %>
     <% @recipient_done_favours.each do |favour| %>
       <% unless favour.reviews.where(subject: "Recipient").exists? %>
         <div class="card">

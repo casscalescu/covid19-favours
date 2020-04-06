@@ -7,12 +7,13 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @favour = Favour.find(params[:favour_id])
-    @review.favour_id = @favour.id
-    if current_user.helper?
+    @review.favour_id = @favour
+    if current_user == @favour.helper?
     	@review.helper_id = current_user.id
     	@review.recipient_id = @favour.recipient.id
       @review.subject = "Helper"
-    elsif current_user.recipient?
+    end
+    if current_user == @favour.recipient?
     	@review.recipient_id = current_user.id
     	@review.helper_id = @favour.helper.id
       @review.subject = "Recipient"

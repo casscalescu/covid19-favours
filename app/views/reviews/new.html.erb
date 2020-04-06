@@ -1,7 +1,11 @@
-<h2>Leave a review</h2>
+<% if current_user.recipient? %>
+  <h2>Leave a review for <%= @favour.helper.first_name %></h2>
+<% end %>
+<% if current_user.helper? %>
+  <h2>Leave a review for <%= @favour.recipient.first_name %></h2>
+<% end %>
 
-<%= simple_form_for [ @user, @review ] do |f| %>
-  <%= f.input :subject %>
+<%= simple_form_for [ @favour, @review ] do |f| %>
   <%= f.input :description %>
   <%= f.input :rating, collection: 1..5 %>
   <%= f.submit "Submit review", class: "btn btn-primary" %>

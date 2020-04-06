@@ -2,7 +2,7 @@
 	<!-- Display name -->
 	<h1>
 		<%= @user.first_name.capitalize %>
-		<% if @shared_task || @user == current_user %>
+		<% if current_user.shared_tasks?(@user) || @user == current_user %>
 		  <%= @user.last_name.capitalize %>
 		<% end %>
 	</h1>
@@ -18,7 +18,7 @@
 	<h4>Bio:</h4>
 	<%= @user.bio %>
 
-	<% if @user == current_user || @shared_task %>
+	<% if @user == current_user || current_user.shared_tasks?(@user) %>
 		<h4>Mobile:</h4>
 		<%= @user.mobile %>
 		<h4>Location:</h4>
@@ -33,7 +33,7 @@
 	<!-- Favours -->
 	<% if @user.favours_asked.exists? && @user != current_user %>
 		<h4>Favours:</h4>
-		<% @open_favours.each do |favour| %>
+		<% @user.open_favours.each do |favour| %>
 			<%= link_to favour_path(favour) do %>
 				<div class="card">
 					<p>Category: <%= favour.category %></p>
@@ -43,11 +43,6 @@
 			<% end %>
 		<% end %>
 	<% end %>
-
-  <!-- Leave a review -->
-  <% if @shared_task %>
-    <%= link_to 'Leave a review', new_user_review_path(@user), class: 'btn btn-primary' %>
-  <% end %>
 
 	<!-- Reviews -->
 	<h4>Reviews:</h4>

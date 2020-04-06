@@ -31,5 +31,14 @@ class PagesController < ApplicationController
     @recipient_archived = Favour
       .where(recipient: current_user, status: 'Done')
       .or(Favour.where(recipient: current_user, status: 'Closed'))
+    
+    @recipient_done_favours = Favour
+      .where(recipient: current_user, status: 'Done')
+      .or(Favour
+        .where(recipient: current_user, status: 'Closed'))
+    @helper_done_favours = Favour
+      .where(helper: current_user, status: 'Done')
+      .or(Favour
+        .where(helper: current_user, status: 'Closed'))
   end
 end

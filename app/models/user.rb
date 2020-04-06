@@ -32,4 +32,17 @@ class User < ApplicationRecord
     applications = FavourApplication.where(applicant: self, favour: favour)
     applications[0].status
   end
+
+  def shared_tasks(user)
+    Favour.where(recipient: self, helper: user).or(Favour.where(helper: self, recipient: user))
+  end
+
+  def shared_tasks?(user)
+    shared = Favour.where(recipient: self, helper: user).or(Favour.where(helper: self, recipient: user))
+    shared.empty? ? false : true
+  end
+
+  def open_favours
+    Favour.where(status: "Open", recipient: self)
+  end
 end

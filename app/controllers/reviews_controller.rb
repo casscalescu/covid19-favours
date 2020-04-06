@@ -1,21 +1,24 @@
 class ReviewsController < ApplicationController
   def new
-    @user = User.find(params[:user_id])
+    @favour = Favour.find(params[:favour_id])
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
-    @user = User.find(params[:user_id])
-    if @user.helper?
-    	@review.helper_id = @user.id
-    	@review.recipient_id = current_user.id
-    elsif @user.recipient?
-    	@review.recipient_id = @user.id
+    @favour = Favour.find(params[:favour_id])
+    @review.favour_id = @favour.id
+    if current_user.helper?
     	@review.helper_id = current_user.id
+    	@review.recipient_id = @favour.recipient.id
+      @review.subject = "Helper"
+    elsif current_user.recipient?
+    	@review.recipient_id = current_user.id
+    	@review.helper_id = @favour.helper.id
+      @review.subject = "Recipient"
     end
     @review.save
-    redirect_to user_path(@user)
+    redirect_to dashboard_path
   end
 
   private

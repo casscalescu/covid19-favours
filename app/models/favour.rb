@@ -19,4 +19,12 @@ class Favour < ApplicationRecord
   def categories
   	CATEGORY
   end
+
+  def accepted
+    self.favour_applications.each do |app|
+      app.status == "Rejected" unless app.status == "Accepted"
+    end
+
+    self.status = "Accepted"
+  end
 end

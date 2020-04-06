@@ -1,0 +1,31 @@
+<h1>All Applications</h1>
+
+<p>Favour: <%= link_to @favour.title, favour_path(@favour) %></p>
+<p>Category: <%= @favour.category %></p>
+<p>Completion Date: <%= @favour.completion_date %></p>
+<h2>Open Applications:</h2>
+<% @open_applications.each do |app| %>
+  <div class="card">
+    <p>Applicant: <%= link_to "#{app.applicant.first_name}", user_path(app.applicant) %></p>
+    <%= cl_image_tag(app.applicant.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face) %>
+    <p>Rating: Pending</p>
+    <p>Message: <%= app.message %></p>
+    <%= simple_form_for [@favour, app] do |f| %>
+      <%= f.hidden_field :status, value: 'Accepted' %>
+      <%= f.button :submit, 'Accept', class: "btn btn-primary" %>
+    <% end %>
+    <%= simple_form_for [@favour, app] do |f| %>
+      <%= f.hidden_field :status, value: 'Rejected' %>
+      <%= f.button :submit, 'Reject', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% end %>
+<h2>Rejected Applications:</h2>
+<% @rejects.each do |app| %>
+  <div class="card">
+    <p>Applicant: <%= link_to "#{app.applicant.first_name}", user_path(app.applicant) %></p>
+    <%= cl_image_tag(app.applicant.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face) %>
+    <p>Rating: Pending</p>
+    <p>Message: <%= app.message %></p>
+  </div>
+<% end %>

@@ -16,10 +16,15 @@ class FavourApplicationsController < ApplicationController
   end
 
   def index
+    @open_applications = FavourApplication
+      .where(favour: @favour).where.not(status: "Withdrawn")
+      .or(FavourApplication.where(favour: @favour).where.not(status: "Rejected"))
+    @rejects = FavourApplication.where(favour: @favour).where(status: "Rejected")
   end
 
   def update
     @favour_application.update(favour_application_params)
+    @favour.accepted if @favour_application.status == "Accepted"
     redirect_to favour_path(@favour)
   end
 

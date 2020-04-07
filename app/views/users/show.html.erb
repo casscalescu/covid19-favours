@@ -46,4 +46,38 @@
 
 	<!-- Reviews -->
 	<h4>Reviews:</h4>
+	<!-- Recipient reviews -->
+	<% if @user.recipient? %>
+		<% if @user.recipient_reviews.empty? %>
+			<p>No reviews yet</p>
+		<% else %>
+			<% @user.recipient_reviews.where(subject: "Helper").each do |review| %>
+				<p><%= review.description %></p>
+				<p>Rating: <%= review.rating %></p>
+				<p>Reviewed by: <%= review.helper.first_name %></p>
+				<hr/>
+			<% end %>
+		<% end %>
+	<% end %>
+	<!-- Helper reviews -->
+	<% if @user.helper? %>
+		<% if @user.helper_reviews.empty? %>
+			<p>No reviews yet</p>
+		<% else %>
+			<% @user.helper_reviews.where(subject: "Recipient").each do |review| %>
+				<p><%= review.description %></p>
+				<p>Rating: <%= review.rating %></p>
+				<p>Reviewed by: <%= review.recipient.first_name %></p>
+				<hr/>
+			<% end %>
+		<% end %>
+	<% end %>
 </div>
+
+
+
+
+
+
+
+

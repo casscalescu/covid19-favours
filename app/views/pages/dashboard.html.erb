@@ -2,7 +2,8 @@
 
 <!-- Review notification -->
 <div class="container">
-  <% if current_user == @favour.helper? %>
+  <!-- User as a helper -->
+  <% if current_user.helper? %>
     <% @helper_done_favours.each do |favour| %>
       <% unless favour.reviews.where(subject: "Helper").exists? %>
         <div class="card">
@@ -13,7 +14,8 @@
       <% end %>
     <% end %>
   <% end %>
-  <% if current_user == @favour.recipient? %>
+  <!-- User as a recipient -->
+  <% if current_user.recipient? %>
     <% @recipient_done_favours.each do |favour| %>
       <% unless favour.reviews.where(subject: "Recipient").exists? %>
         <div class="card">
@@ -26,8 +28,9 @@
   <% end %>
 </div>
 
-
+<!-- Dashboard -->
 <div class="container">
+  <!-- User as a helper -->
   <% if current_user.helper? %>
     <div class="helper-favours">
       <div class="accepted-favours">
@@ -66,6 +69,7 @@
       </div>
     </div>
   <% end %>
+  <!-- User as a recipient -->
   <% if current_user.recipient? %>
     <div class="recipient-favours">
       <div class="accepted-favours">

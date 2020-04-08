@@ -4,7 +4,7 @@
   <div class="card">
   	<p>Title: <%= link_to favour.title, favour_path(favour) %></p>
     <p>Category: <%= favour.category %></p>
-    <p>Completion Date: Pending - Add Field</p>
+    <p>Completion Date: <%= favour.completion_date %></p>
     <p>Description: <%= favour.description %></p>
     <%= cl_image_tag(favour.recipient.photo.key, width: 80, height: 80, crop: :thumb, gravity: :face) %>
     <!-- link to recipients profile -->

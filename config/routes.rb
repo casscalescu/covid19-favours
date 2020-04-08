@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :show]
   resources :favours do
     resources :favour_applications, only: [:new, :create, :update, :index]
+    resources :reviews, only: [ :new, :create ]
   end
 end

@@ -1,0 +1,7 @@
+<h2>Edit Favour Completion Date</h2>
+<p>Your Favour completion date is in 1 day...extend the date</p>
+
+<%= simple_form_for @favour do |f| %>
+  <%= f.input :completion_date, as: :date, html5: true %>
+  <%= f.button :submit, 'Update', class: "btn btn-primary" %>
+<% end %>

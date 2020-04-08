@@ -2,7 +2,7 @@
 	<!-- Display name -->
 	<h1>
 		<%= @user.first_name.capitalize %>
-		<% if @shared_task || @user == current_user %>
+		<% if current_user.shared_tasks?(@user) || @user == current_user %>
 		  <%= @user.last_name.capitalize %>
 		<% end %>
 	</h1>
@@ -18,7 +18,7 @@
 	<h4>Bio:</h4>
 	<%= @user.bio %>
 
-	<% if @user == current_user || @shared_task %>
+	<% if @user == current_user || current_user.shared_tasks?(@user) %>
 		<h4>Mobile:</h4>
 		<%= @user.mobile %>
 		<h4>Location:</h4>
@@ -33,7 +33,7 @@
 	<!-- Favours -->
 	<% if @user.favours_asked.exists? && @user != current_user %>
 		<h4>Favours:</h4>
-		<% @open_favours.each do |favour| %>
+		<% @user.open_favours.each do |favour| %>
 			<%= link_to favour_path(favour) do %>
 				<div class="card">
 					<p>Category: <%= favour.category %></p>
@@ -46,4 +46,38 @@
 
 	<!-- Reviews -->
 	<h4>Reviews:</h4>
+	<!-- Recipient reviews -->
+	<% if @user.recipient? %>
+		<% if @user.recipient_reviews.empty? %>
+			<p>No reviews yet</p>
+		<% else %>
+			<% @user.recipient_reviews.where(subject: "Helper").each do |review| %>
+				<p><%= review.description %></p>
+				<p>Rating: <%= review.rating %></p>
+				<p>Reviewed by: <%= review.helper.first_name %></p>
+				<hr/>
+			<% end %>
+		<% end %>
+	<% end %>
+	<!-- Helper reviews -->
+	<% if @user.helper? %>
+		<% if @user.helper_reviews.empty? %>
+			<p>No reviews yet</p>
+		<% else %>
+			<% @user.helper_reviews.where(subject: "Recipient").each do |review| %>
+				<p><%= review.description %></p>
+				<p>Rating: <%= review.rating %></p>
+				<p>Reviewed by: <%= review.recipient.first_name %></p>
+				<hr/>
+			<% end %>
+		<% end %>
+	<% end %>
 </div>
+
+
+
+
+
+
+
+

@@ -39,8 +39,12 @@
         <% end %>
       <% end %>
       <!-- Edit favour -->
-      <% if favour.recipient == current_user && favour.favour_applications.empty? %>
-        <%= link_to "Edit Favour", edit_favour_path(favour), class: 'btn btn-primary' %>
+      <% if favour.recipient == current_user %>
+        <% if favour.favour_applications.empty? %>
+          <%= link_to "Edit Favour", edit_favour_path(favour), class: 'btn btn-primary' %>
+        <% else %>
+          <%= link_to "View Applications", favour_favour_applications_path(favour), class: 'btn btn-primary' %>
+        <% end %>
       <% end %>
     <!-- Apply button for users not signed in (redirects to sign in page first) -->
     <% else %>

@@ -20,5 +20,11 @@ class Favour < ApplicationRecord
   	CATEGORY
   end
 
-  # Add a check method whether theres a review for the helper or recipient yet
+  def accepted
+    self.favour_applications.each do |app|
+      app.status == "Rejected" unless app.status == "Accepted"
+    end
+
+    self.status = "Accepted"
+  end
 end

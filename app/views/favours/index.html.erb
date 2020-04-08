@@ -1,5 +1,11 @@
 <h1>All Favours</h1>
 
+<%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
+  <%= f.input :location, input_html: {value: "", id: "address-input"} %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
+<%= "No favours nearby..." unless @nearby_favours %>
 <% @open_favours.each do |favour| %>
   <div class="card">
   	<p>Title: <%= link_to favour.title, favour_path(favour) %></p>

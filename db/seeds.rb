@@ -68,7 +68,7 @@ bob = User.create!(
   first_name: "Bob",
   last_name: "Smith",
   mobile: "0444 111 111",
-  address: "1 Swanston Street, Melbourne, 3000, VIC",
+  address: "1 Elonera Avenue, Greensborough, VIC 3088",
   email: "bob@user.com",
   password: "password",
   password_confirmation: "password"
@@ -80,7 +80,7 @@ jane = User.create!(
   first_name: "Jane",
   last_name: "Doe",
   mobile: "0444 222 222",
-  address: "1 La Trobe Street, Melbourne, 3000, VIC",
+  address: "1 Pyalong Avenue, Rosanna VIC 3084",
   email: "jane@user.com",
   password: "password",
   password_confirmation: "password"
@@ -92,7 +92,7 @@ emily = User.create!(
   first_name: "Emily",
   last_name: "Johnston",
   mobile: "0444 333 333",
-  address: "1 Russell Street, Melbourne, 3000, VIC",
+  address: "90 Boundary St, Paddington NSW 2021",
   email: "emily@user.com",
   password: "password",
   password_confirmation: "password"

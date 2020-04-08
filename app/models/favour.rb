@@ -2,6 +2,9 @@ class Favour < ApplicationRecord
   CATEGORY = %w[Groceries Gardening Pets Other]
   STATUS = %w[Open Accepted Done Expired Deleted]
 
+  # Geocoded
+  geocoded_by :address
+
   # Associations
   belongs_to :recipient, :class_name => 'User', optional: true
   belongs_to :helper, :class_name => 'User', optional: true
@@ -14,6 +17,8 @@ class Favour < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :address, presence: true
+
+  after_validation :geocode, if: :will_save_change_to_address?
 
   # Simple form collections
   def categories

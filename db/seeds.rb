@@ -161,7 +161,7 @@ emily_favour_1 = Favour.create!(
   address: "#{emily.address}",
   status: "Open",
   recipient: emily,
-  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now)
+  completion_date: Faker::Date.between(from: Date.today, to: 1.day.from_now)
 )
 
 emily_favour_2 = Favour.create!(

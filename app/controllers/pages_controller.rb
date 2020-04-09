@@ -31,10 +31,14 @@ class PagesController < ApplicationController
     @recipient_archived = Favour
       .where(recipient: current_user, status: 'Done')
       .or(Favour.where(recipient: current_user, status: 'Closed'))
-    
+
     @recipient_done_favours = Favour
       .where(recipient: current_user, status: 'Done')
     @helper_done_favours = Favour
       .where(helper: current_user, status: 'Done')
+
+    @recipient_favours_expiring = Favour
+      .where(recipient: current_user, status: 'Open')
+      .where('completion_date < ?', Date.today + 2)
   end
 end

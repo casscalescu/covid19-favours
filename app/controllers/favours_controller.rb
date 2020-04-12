@@ -19,8 +19,17 @@ class FavoursController < ApplicationController
 	end
 
 	def index
-		@favours = Favour.all
-		@open_favours = Favour.where(status: "Open")
+    if params[:query].present?
+      @open_favours = Favour.where(status: "Open").near(params[:query][:location], 50, units: :km, order: 'distance')
+      @nearby_favours = true
+      if @open_favours.empty?
+        @open_favours = Favour.where(status: "Open")
+        @nearby_favours = false
+      end
+    else
+      @nearby_favours = true
+      @open_favours = Favour.where(status: "Open")
+    end
 	end
 
 	def edit

@@ -28,6 +28,19 @@
   <% end %>
 </div>
 
+<!-- Favour about to expire notification -->
+<% unless @recipient_favours_expiring.empty? %>
+  <div class="container">
+    <h4>Favours about to expire:</h4>
+    <% @recipient_favours_expiring.each do |favour| %>
+      <div class="card">
+        <%= link_to "#{favour.title}", favour_path(favour) %>
+        <%= render 'favours/edit-date', favour: favour %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 <!-- Dashboard -->
 <div class="container">
   <!-- User as a helper -->
@@ -38,9 +51,11 @@
         <% @helper_accepted.each do |favour| %>
           <div class="card">
             <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.completion_date %></p>
             <p><%= favour.description %></p>
             <p><%= favour.address %></p>
             <p><%= favour.recipient.first_name %></p>
+            <%= cl_image_tag(favour.recipient.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face) %>
             <p><%= favour.recipient.mobile %></p>
           </div>
         <% end %>
@@ -50,9 +65,15 @@
         <% @helper_open.each do |favour| %>
           <div class="card">
             <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.completion_date %></p>
             <p><%= favour.description %></p>
             <p><%= favour.address %></p>
             <p><%= favour.recipient.first_name %></p>
+            <%= cl_image_tag(favour.recipient.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face) %>
+            <%= simple_form_for [favour, favour.favour_applications.where(user: current_user).take] do |f| %>
+              <%= f.hidden_field :status, value: "Withdrawn" %>
+              <%= f.button :submit, 'Withdraw Application', class: "btn btn-primary" %>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -61,9 +82,12 @@
         <% @helper_archived.each do |favour| %>
           <div class="card">
             <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.completion_date %></p>
+            <p><%= favour.status %></p>
             <p><%= favour.description %></p>
             <p><%= favour.address %></p>
             <p><%= favour.recipient.first_name %></p>
+            <%= cl_image_tag(favour.recipient.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face) %>
           </div>
         <% end %>
       </div>
@@ -77,24 +101,26 @@
         <% @recipient_accepted.each do |favour| %>
           <div class="card">
             <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.completion_date %></p>
             <p><%= favour.description %></p>
             <p><%= favour.address %></p>
             <p><%= favour.helper.first_name %></p>
+            <%= cl_image_tag(favour.helper.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face) %>
             <p><%= favour.helper.mobile %></p>
           </div>
         <% end %>
       </div>
       <div class="open-favours">
         <h4>Open Favours</h4>
-        <% @recipient_accepted.each do |favour| %>
+        <% @recipient_open.each do |favour| %>
           <div class="card">
             <%= link_to "#{favour.title}", favour_path(favour) %>
             <p><%= favour.description %></p>
             <p><%= favour.address %></p>
-            <h6>Applicants:</h6>
-            <ul>
-            <% favour.applicants.each do |applicant| %>
-              <li>applicant.first_name</li>
+            <% if favour.favour_applications.empty? %>
+              <%= link_to "Edit Favour", edit_favour_path(favour), class: 'btn btn-primary' %>
+            <% else %>
+              <%= link_to "View Applications (#{favour.favour_applications.count})", favour_favour_applications_path(favour), class: 'btn btn-primary' %>
             <% end %>
             </ul>
           </div>
@@ -105,6 +131,8 @@
         <% @recipient_archived.each do |favour| %>
           <div class="card">
             <%= link_to "#{favour.title}", favour_path(favour) %>
+            <p><%= favour.completion_date %></p>
+            <p><%= favour.status %></p>
             <p><%= favour.description %></p>
             <p><%= favour.address %></p>
             <p><%= favour.helper.first_name %></p>

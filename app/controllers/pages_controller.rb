@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def style_guide
+  end
+
   def dashboard
     @helper_accepted = Favour
       .where(helper: current_user, status: 'Accepted')

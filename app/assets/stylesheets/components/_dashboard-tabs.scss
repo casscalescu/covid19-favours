@@ -1,0 +1,28 @@
+
+
+.dashboard-section {
+  width: 900px;
+  margin: 48px auto;
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .tabs {
+    margin: 18px 0 32px 0;
+
+    .tab-label {
+      margin-right: 36px;
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        color: gray;
+      }
+
+      &.active {
+        border-bottom: 2px solid black;
+      }
+    }
+  }
+}

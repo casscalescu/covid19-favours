@@ -309,14 +309,14 @@ jane_review_2 = Review.create!(
   helper: cassandra
 )
 
-nikolai_review_1 = Review.create!(
-  favour: jane_favour_1,
-  subject: "Helper",
-  rating: 4,
-  description: "#{Faker::Movie.quote}. #{Faker::Movie.quote}.",
-  recipient: jane,
-  helper: nikolai
-)
+# nikolai_review_1 = Review.create!(
+#   favour: jane_favour_1,
+#   subject: "Helper",
+#   rating: 4,
+#   description: "#{Faker::Movie.quote}. #{Faker::Movie.quote}.",
+#   recipient: jane,
+#   helper: nikolai
+# )
 
 cassandra_review_1 = Review.create!(
   favour: jane_favour_2,

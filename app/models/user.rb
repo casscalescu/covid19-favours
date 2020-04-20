@@ -11,8 +11,8 @@ class User < ApplicationRecord
   has_many :favours_asked, class_name: 'Favour', foreign_key: 'recipient_id'
   has_many :favours_done, class_name: 'Favour', foreign_key: 'helper_id'
 
-  has_many :recipient_reviews, class_name: 'Review', foreign_key: 'recipient_id'
-  has_many :helper_reviews, class_name: 'Review', foreign_key: 'helper_id'
+  has_many :recipient_reviews, -> {where subject: "Recipient"}, class_name: 'Review', foreign_key: 'recipient_id'
+  has_many :helper_reviews, -> {where subject: "Helper"}, class_name: 'Review', foreign_key: 'helper_id'
 
   def helper?
     applications = FavourApplication.where(applicant: self)
@@ -47,7 +47,20 @@ class User < ApplicationRecord
     Favour.where(status: "Open", recipient: self)
   end
 
-  # get all the ratings
-  # calculate two averages
-  # update the average when new review
+  def reviews_recipient_average
+    array = self.recipient_reviews.map do |review|
+      review.rating
+    end
+    self.recipient_rating_average = (array.inject{ |sum, el| sum + el }.to_f / array.size).round(1)
+    self.save
+  end
+
+  def reviews_helper_average
+    array = self.helper_reviews.map do |review|
+      review.rating
+    end
+    self.helper_rating_average = (array.inject{ |sum, el| sum + el }.to_f / array.size).round(1)
+    self.save
+  end
 end
+

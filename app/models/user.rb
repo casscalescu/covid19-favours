@@ -46,4 +46,8 @@ class User < ApplicationRecord
   def open_favours
     Favour.where(status: "Open", recipient: self)
   end
+
+  # get all the ratings
+  # calculate two averages
+  # update the average when new review
 end

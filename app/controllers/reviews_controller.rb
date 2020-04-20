@@ -20,6 +20,8 @@ class ReviewsController < ApplicationController
     end
     @review.save
     redirect_to dashboard_path
+
+    # when new review - update average
   end
 
   private

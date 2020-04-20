@@ -3,11 +3,21 @@
   <%# f.submit "Search", class: "primary-button" %>
 <% end %>
 
-<%= "No favours nearby..." unless @nearby_favours %>  
+<%= "No favours nearby..." unless @nearby_favours %>
 
-<div class="favours-index-container">
+<div class="favours-container">
 <% @open_favours.each do |favour| %>
-  <div class="favour-index-card">
+  <div class="favour-index-card js-favour-index-card"
+    data-toggle="modal"
+    data-target="#favourIndexModal"
+    data-favour-recipient-photo="<%= favour.recipient.photo.key %>"
+    data-favour-recipient-name="<%= favour.recipient.first_name %>"
+    data-favour-completion="<%= favour.completion_date %>"
+    data-favour-category="<%= favour.category %>"
+    data-favour-title="<%= favour.title %>"
+    data-favour-description="<%= favour.description %>"
+  >
+
     <div class="favour-index-header">
       <!-- Favour User -->
       <%= cl_image_tag(favour.recipient.photo.key, width: 80, height: 80, crop: :thumb, gravity: :face, class: "card-user-image") %>
@@ -30,7 +40,7 @@
     <!-- Favour Content -->
     <div class="favour-index-content">
       <h4><%= favour.title %></h4>
-      <p><%= favour.description %></p>
+      <p><%= truncate(favour.description, :length => 160) %></p>
     </div>
     <!-- Favour buttons -->
     <div class="favour-index-footer">
@@ -72,3 +82,17 @@
   </div>
 <% end %>
 </div>
+
+<!-- Modal -->
+<%= render "favour-index-modal" %>
+<!-- <div class="favour-index-modal js-favour-index-modal">
+  <div class="modal-content">
+    <div class="close-modal">+</div>
+    <p class="js-favour-recipient-name"></p>
+    <img class="js-favour-recipient-photo card-user-image">
+    <p class="js-favour-completion"></p>
+    <p class="js-favour-category"></p>
+    <p class="js-favour-title"></p>
+    <p class="js-favour-description"></p>
+  </div>
+</div> -->

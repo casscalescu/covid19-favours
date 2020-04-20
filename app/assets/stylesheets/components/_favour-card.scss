@@ -1,5 +1,5 @@
 // Favour index card
-.favours-index-container {
+.favours-container {
 	display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
@@ -30,6 +30,8 @@
   overflow-x: scroll;
   h4 {
     padding: 10px 0px;
+    font-size: 18px;
+    font-weight: bold;
   }
 }
 .favour-index-footer {

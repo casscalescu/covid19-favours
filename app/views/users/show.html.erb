@@ -13,7 +13,7 @@
 		<% else %>
 		  <%= cl_image_tag @user.photo.key, :style => "height: 300px; width: 300px; object-fit: cover; border-radius: 50%" %>
 	<% end %>
-	
+
 	<!-- Details -->
 	<h4>Bio:</h4>
 	<%= @user.bio %>
@@ -51,12 +51,16 @@
 		<% if @user.recipient_reviews.empty? %>
 			<p>No reviews yet</p>
 		<% else %>
-			<% @user.recipient_reviews.where(subject: "Helper").each do |review| %>
+			<% @user.recipient_reviews.each do |review| %>
 				<p><%= review.description %></p>
 				<p>Rating: <%= review.rating %></p>
 				<p>Reviewed by: <%= review.helper.first_name %></p>
 				<hr/>
 			<% end %>
+
+      <p>Average:</p>
+      <%= @user.recipient_rating_average %>
+
 		<% end %>
 	<% end %>
 	<!-- Helper reviews -->
@@ -64,12 +68,16 @@
 		<% if @user.helper_reviews.empty? %>
 			<p>No reviews yet</p>
 		<% else %>
-			<% @user.helper_reviews.where(subject: "Recipient").each do |review| %>
+			<% @user.helper_reviews.each do |review| %>
 				<p><%= review.description %></p>
 				<p>Rating: <%= review.rating %></p>
 				<p>Reviewed by: <%= review.recipient.first_name %></p>
 				<hr/>
 			<% end %>
+
+      <p>Average:</p>
+      <%= @user.helper_rating_average %>
+
 		<% end %>
 	<% end %>
 </div>

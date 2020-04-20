@@ -7,18 +7,21 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @favour = Favour.find(params[:favour_id])
-    @review.favour_id = @favour
-    if current_user == @favour.helper?
-    	@review.helper_id = current_user.id
-    	@review.recipient_id = @favour.recipient.id
-      @review.subject = "Helper"
-    end
-    if current_user == @favour.recipient?
-    	@review.recipient_id = current_user.id
-    	@review.helper_id = @favour.helper.id
+    @review.favour = @favour
+    if current_user == @favour.helper
+    	@review.helper = current_user
+    	@review.recipient = @favour.recipient
       @review.subject = "Recipient"
+      @review.save
+      @review.recipient.reviews_recipient_average
     end
-    @review.save
+    if current_user == @favour.recipient
+    	@review.recipient = current_user
+    	@review.helper = @favour.helper
+      @review.subject = "Helper"
+      @review.save
+      @review.helper.reviews_helper_average
+    end
     redirect_to dashboard_path
   end
 

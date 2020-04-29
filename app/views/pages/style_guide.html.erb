@@ -106,4 +106,14 @@
       </div>
     </div>
   </div>
+  <h1 style="margin-top:20px;">Avatar</h1>
+  <br>
+  <h3>Base:</h3>
+  <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar dropdown-toggle") %>
+  <h1 style="margin-top:20px;">Logo</h1>
+  <h3 style="margin-top:20px;">Base:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <img class="logo">
+  </div>
+  <br>
 </div>

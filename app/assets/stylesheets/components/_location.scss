@@ -1,0 +1,16 @@
+.location {
+  display: flex;
+  align-itens: center;
+
+  &__icon {
+    content: asset-url('location-icon.svg');
+    height: 10px;
+    margin-right: 4px;
+  }
+
+  &__address {
+    font-size: 8px;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+}

@@ -1,11 +1,9 @@
-
-
 .dashboard-section {
   width: 900px;
   margin: 48px auto;
 
   h1 {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   .tabs {
@@ -15,6 +13,7 @@
       margin-right: 36px;
       text-decoration: none;
       color: black;
+      font-size: 14px;
 
       &:hover {
         color: gray;
@@ -25,4 +24,98 @@
       }
     }
   }
+
+  .tab-content {
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 10px;
+    width: 900px;
+
+    &.active {
+      display: grid;
+    }
+  }
+}
+
+
+// Favour index card
+// .favours-index-container {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   justify-items: center;
+//   grid-gap: 48px;
+//   padding: 24px;
+//   width: 984px;
+//   margin: 0 auto;
+// }
+.dashboard-card {
+  width: 240px;
+  height: 350px;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 0 5px #ccc;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-header {
+  position: relative;
+  .dashboard-card-user-image {
+    margin-right: 16px;
+  }
+}
+.dashboard-card-content {
+  padding: 12px;
+  flex-grow: 1;
+  overflow-x: scroll;
+  h4 {
+    padding: 10px 0px;
+  }
+}
+.dashboard-card-footer {
+  margin-top: 10px;
+}
+
+// Elements for both index and dashboard cards
+.dashboard-card-user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.dashboard-card-completion-date {
+  border: solid black 1px;
+  display: inline;
+  padding: 6px 24px;
+  border-radius: 16px;
+}
+
+.dashboard-favour-category {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.groceries {
+    background-color: $yellow;
+  }
+  &.pets {
+    background-color: $blue;
+  }
+  &.gardening {
+    background-color: $green;
+  }
+  &.medicines {
+    background-color: $red;
+  }
+  &.other {
+    background-color: $purple;
+  }
+}
+.dashboard-favour-category-image {
+  height: 38px;
 }

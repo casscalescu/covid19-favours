@@ -1,46 +1,109 @@
-<div class="container">
-	<!-- Buttons -->
-	<section>
-		<h4>Buttons</h4>
-		<div class="primary-button">
-			Help out
-		</div>
-	</section>
-	
-	<hr/>
-
-	<!-- Category Icons -->
-	<section>
-		<h4>Category Icons</h4>
-		<%= render "shared/groceries-icon" %>
-		<%= render "shared/pets-icon" %>
-		<%= render "shared/gardening-icon" %>
-		<%= render "shared/medicine-icon" %>
-		<%= render "shared/other-icon" %>
-	</section>
-	
-	<hr/>
-
-	<!-- Favour index card -->
-	<section>
-		<h4>Favour Index Card</h4>
-		<div class="favour-index-card">
-			<div class="favour-index-header">
-				<img class="card-user-image" src="https://source.unsplash.com/user/erondu">
-				<div class="card-completion-date">ASAP</div>
-				<div class="card-category groceries"></div>
-			</div>
-			<div class="favour-index-content">
-				<h4>Need help with my gardening</h4>
-				<p>Basic gardening - mowing front lawn and weed removal</p>
-			</div>
-			<div class="favour-index-footer">
-				<div class="primary-button float-right">Help out</div>
-			</div>
-		</div>
-
-	</section>
-
-	<hr/>
-
+<div class="main-container">
+  <h1>Category</h1>
+  <br>
+  <h3>Base:</h3>
+  <div class="category">
+    <div class="category__circle">
+      <img class="category__icon">
+    </div>
+  </div>
+  <h3 style="margin-top:20px;">Outline Black:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="category category--type--groceries category--outline--black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pharmacy category--outline--black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pets category--outline--black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--gardening category--outline--black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--chat category--outline--black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--other category--outline--black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+  </div>
+  <h3 style="margin-top:20px;">Outline Colour:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="category category--type--groceries category--outline--orange">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pharmacy category--outline--dark-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pets category--outline--light-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--gardening category--outline--green">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--chat category--outline--yellow">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--other category--outline--red">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+  </div>
+  <h3 style="margin-top:20px;">Fill Colour:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="category category--type--groceries category--fill--orange">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pharmacy category--fill--dark-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pets category--fill--light-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--gardening category--fill--green">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--chat category--fill--yellow">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--other category--fill--red">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+  </div>
 </div>

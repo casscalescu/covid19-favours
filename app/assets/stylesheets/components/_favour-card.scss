@@ -1,0 +1,55 @@
+.favour-card {
+  height: 335px;
+  width: 224px;
+  border-radius: 8px;
+  background-color: white;
+  position: relative;
+  // display: flex;
+  flex-direction: column;
+
+  &__category {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+  }
+
+  &__header {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__avatar {
+    margin: 0 8px;
+  }
+
+  &__pill {
+    margin: 0 8px;
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: 700;
+    height: 36px;
+    margin: 8px 22px 4px 22px;
+  }
+
+  &__location {
+    margin: 0 22px;
+  }
+
+  &__description {
+    font-size: 12px;
+    margin: 14px 22px;
+    flex: 1 0 auto;
+  }
+
+  &__button {
+    margin: 8px;
+  }
+
+  &--shadow {
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.09);
+  }
+}

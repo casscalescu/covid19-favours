@@ -1,10 +1,14 @@
 .pill {
   font-size: 14px;
+  height: 26px;
   border-radius: 12px;
-  padding: 1px 14px;
+  padding: 0px 14px;
   display: inline-block;
   border: 1px solid;
   color: white;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
   // Filled
   &--fill-yellow {
     background-color: $yellow;
@@ -12,7 +16,7 @@
   }
   &--fill-orange {
     background-color: $orange;
-    border-color: $yellow;
+    border-color: $orange;
   }
   &--fill-red {
     background-color: $red;
@@ -30,9 +34,9 @@
     background-color: $dark-blue;
     border-color: $dark-blue;
   }
-  &--fill-dark-gray {
-    background-color: $dark-gray;
-    border-color: $dark-gray;
+  &--fill-mid-gray {
+    background-color: $mid-gray;
+    border-color: $mid-gray;
     }
   // Outline
   &--outline-black {
@@ -63,8 +67,8 @@
     border-color: $dark-blue;
     color: $dark-blue;
   }
-  &--outline-dark-gray {
-    border-color: $dark-gray;
-    color: $dark-gray;
+  &--outline-mid-gray {
+    border-color: $mid-gray;
+    color: $mid-gray;
   }
 }

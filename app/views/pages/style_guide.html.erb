@@ -1,4 +1,5 @@
 <div class="main-container">
+
 	<!-- Buttons -->
 	<section>
     <h4>Buttons</h4>
@@ -57,5 +58,136 @@
   </section>
 
   <hr/>
+
+  <h1>Category</h1>
+  <br>
+  <h3>Base:</h3>
+  <div class="category">
+    <div class="category__circle">
+      <img class="category__icon">
+    </div>
+  </div>
+  <h3 style="margin-top:20px;">Outline Black:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="category category--type--groceries category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pharmacy category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pets category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--gardening category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--chat category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--other category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+  </div>
+  <h3 style="margin-top:20px;">Outline Colour:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="category category--type--groceries category--outline-orange">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pharmacy category--outline-dark-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pets category--outline-light-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--gardening category--outline-green">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--chat category--outline-yellow">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--other category--outline-red">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+  </div>
+  <h3 style="margin-top:20px;">Fill Colour:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="category category--type--groceries category--fill-orange">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pharmacy category--fill-dark-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pets category--fill-light-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--gardening category--fill-green">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--chat category--fill-yellow">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--other category--fill-red">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+  </div>
+  <h1 style="margin-top:20px;">Avatar</h1>
+  <br>
+  <h3>Base:</h3>
+  <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar dropdown-toggle") %>
+  <h1 style="margin-top:20px;">Logo</h1>
+  <h3 style="margin-top:20px;">Base:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <img class="logo">
+  </div>
+  <h1 style="margin-top:20px;">Logo</h1>
+  <h3 style="margin-top:20px;">Base:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="location">
+      <img class="location__icon">
+      <p class="location__address">Greensborough, VIC 3088</p>
+    </div>
+  </div>
+  <h1 style="margin-top:20px;">Link</h1>
+  <h3 style="margin-top:20px;">Base:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <a class= "link" href="#">View Favour</a>
+  </div>
+  <br>
 
 </div>

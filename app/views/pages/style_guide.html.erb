@@ -1,4 +1,64 @@
 <div class="main-container">
+
+	<!-- Buttons -->
+	<section>
+    <h4>Buttons</h4>
+    <div class="button">Base Button</div>
+    <div class="button button--primary-fill">Button</div>
+    <div class="button button--primary-outline">Button</div>
+	</section>
+
+	<hr/>
+
+  <!-- Pills -->
+  <section>
+    <h4>Pills</h4>
+    <div class="pill">BASE PILL</div>
+    <div class="pill pill--fill-yellow">YELLOW</div>
+    <div class="pill pill--fill-orange">ORANGE</div>
+    <div class="pill pill--fill-red">RED</div>
+    <div class="pill pill--fill-green">GREEN</div>
+    <div class="pill pill--fill-light-blue">LIGHT BLUE</div>
+    <div class="pill pill--fill-dark-blue">DARK BLUE</div>
+    <div class="pill pill--fill-dark-gray">GRAY</div>
+
+    <div class="pill pill--outline-black">BLACK</div>
+    <div class="pill pill--outline-yellow">YELLOW</div>
+    <div class="pill pill--outline-orange">ORANGE</div>
+    <div class="pill pill--outline-red">RED</div>
+    <div class="pill pill--outline-green">GREEN</div>
+    <div class="pill pill--outline-light-blue">LIGHT BLUE</div>
+    <div class="pill pill--outline-dark-blue">DARK BLUE</div>
+    <div class="pill pill--outline-dark-gray">GRAY</div>
+  </section>
+
+  <hr/>
+
+  <!-- Rating -->
+  <section>
+    <h4>Rating</h4>
+    <div class="rating">
+      <div class="rating__icon rating__icon--yellow"></div>
+      <p class="rating__text">5.0 (23)</p>
+    </div>
+    <div class="rating">
+      <div class="rating__icon rating__icon--gray"></div>
+      <p class="rating__text">No reviews</p>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- Search -->
+  <section>
+    <h4>Search</h4>
+    <%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
+    <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search"} %>
+  <% end %>
+  </section>
+
+  <hr/>
+
   <h1>Category</h1>
   <br>
   <h3>Base:</h3>
@@ -129,4 +189,5 @@
     <a class= "link" href="#">View Favour</a>
   </div>
   <br>
+
 </div>

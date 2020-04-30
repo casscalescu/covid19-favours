@@ -1,0 +1,70 @@
+.pill {
+  font-size: 14px;
+  border-radius: 12px;
+  padding: 1px 14px;
+  display: inline-block;
+  border: 1px solid;
+  color: white;
+  // Filled
+  &--fill-yellow {
+    background-color: $yellow;
+    border-color: $yellow;
+  }
+  &--fill-orange {
+    background-color: $orange;
+    border-color: $yellow;
+  }
+  &--fill-red {
+    background-color: $red;
+    border-color: $red;
+  }
+  &--fill-green {
+    background-color: $green;
+    border-color: $green;
+  }
+  &--fill-light-blue {
+    background-color: $light-blue;
+    border-color: $light-blue;
+  }
+  &--fill-dark-blue {
+    background-color: $dark-blue;
+    border-color: $dark-blue;
+  }
+  &--fill-dark-gray {
+    background-color: $dark-gray;
+    border-color: $dark-gray;
+    }
+  // Outline
+  &--outline-black {
+    border-color: black;
+    color: black;
+  }
+  &--outline-yellow {
+    border-color: $yellow;
+    color: $yellow;
+  }
+  &--outline-orange {
+    border-color: $orange;
+    color: $orange;
+  }
+  &--outline-red {
+    border-color: $red;
+    color: $red;
+  }
+  &--outline-green {
+    border-color: $green;
+    color: $green;
+  }
+  &--outline-light-blue {
+    border-color: $light-blue;
+    color: $light-blue;
+  }
+  &--outline-dark-blue {
+    border-color: $dark-blue;
+    color: $dark-blue;
+  }
+  &--outline-dark-gray {
+    border-color: $dark-gray;
+    color: $dark-gray;
+  }
+}

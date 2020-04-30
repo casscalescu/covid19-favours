@@ -1,0 +1,18 @@
+.rating {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  &__icon {
+    content: url(asset_path('star-icon.svg'));
+    &--yellow {
+    filter: invert(96%) sepia(24%) saturate(6171%) hue-rotate(311deg) brightness(106%) contrast(105%);
+    }
+    &--gray {
+    filter: invert(46%) sepia(1%) saturate(1217%) hue-rotate(315deg) brightness(98%) contrast(98%);
+    }
+  }
+  &__text {
+    margin-left: 4px;
+    margin-bottom: 0;
+  }
+}

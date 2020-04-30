@@ -41,7 +41,7 @@
     font-weight: 300;
     margin: 0px 20px;
     flex-grow: 1;
-    overflow: scroll;
+    overflow-y: auto;
   }
   &__buttons {
     display: flex;

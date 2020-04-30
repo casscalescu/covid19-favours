@@ -1,25 +1,27 @@
 .button {
-  font-size: 13px;
+  font-size: 12px;
+  height: 26px;
+  width: 100%;
   border-radius: 8px;
-  padding: 8px;
+  padding: 0px;
   text-align: center;
-  cursor: pointer;
+  border: 1px solid $dark-blue;
+  &:hover {
+    border-color: $light-blue;
+    transition: 0.3s;
+  }
   &--primary-fill {
     background-color: $dark-blue;
     color: white;
     &:hover {
       background-color: $light-blue;
-      transition: 0.3s;
     }
   }
   &--primary-outline {
     background-color: white;
     color: $dark-blue;
-    border: 1px solid $dark-blue;
     &:hover {
       border-color: $light-blue;
-      color: $light-blue;
-      transition: 0.3s;
     }
   }
 }

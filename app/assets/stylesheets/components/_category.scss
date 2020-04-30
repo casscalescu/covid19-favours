@@ -15,43 +15,43 @@
     filter: invert(100%) sepia(0%) saturate(7449%) hue-rotate(325deg) brightness(107%) contrast(111%);
   }
 
-  &--fill--dark-blue {
+  &--fill-dark-blue {
     & .category__circle {
       background-color: $dark-blue;
     }
   }
 
-  &--fill--light-blue {
+  &--fill-light-blue {
     & .category__circle {
       background-color: $light-blue;
     }
   }
 
-  &--fill--red {
+  &--fill-red {
     & .category__circle {
       background-color: $red;
     }
   }
 
-  &--fill--orange {
+  &--fill-orange {
     & .category__circle {
       background-color: $orange;
     }
   }
 
-  &--fill--yellow {
+  &--fill-yellow {
     & .category__circle {
       background-color: $yellow;
     }
   }
 
-  &--fill--green {
+  &--fill-green {
     & .category__circle {
       background-color: $green;
     }
   }
 
-  &--outline--dark-blue {
+  &--outline-dark-blue {
     & .category__circle {
       border: 2pt solid $dark-blue;
     }
@@ -61,7 +61,7 @@
     }
   }
 
-  &--outline--light-blue {
+  &--outline-light-blue {
     & .category__circle {
       border: 2pt solid $light-blue;
     }
@@ -71,7 +71,7 @@
     }
   }
 
-  &--outline--red {
+  &--outline-red {
     & .category__circle {
       border: 2pt solid $red;
     }
@@ -81,7 +81,7 @@
     }
   }
 
-  &--outline--orange {
+  &--outline-orange {
     & .category__circle {
       border: 2pt solid $orange;
     }
@@ -91,7 +91,7 @@
     }
   }
 
-  &--outline--yellow {
+  &--outline-yellow {
     & .category__circle {
       border: 2pt solid $yellow;
     }
@@ -101,7 +101,7 @@
     }
   }
 
-  &--outline--green {
+  &--outline-green {
     & .category__circle {
       border: 2pt solid $green;
     }
@@ -111,7 +111,7 @@
     }
   }
 
-  &--outline--black {
+  &--outline-black {
     & .category__circle {
       border: 2pt solid black;
     }

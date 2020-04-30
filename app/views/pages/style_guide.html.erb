@@ -205,7 +205,7 @@
   <h1 style="margin-top:20px;">Avatar</h1>
   <br>
   <h3>Base:</h3>
-  <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar dropdown-toggle") %>
+  <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar") %>
   <h1 style="margin-top:20px;">Logo</h1>
   <h3 style="margin-top:20px;">Base:</h3>
   <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
@@ -224,6 +224,34 @@
   <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
     <a class= "link" href="#">View Favour</a>
   </div>
+  <br>
+  <h1 style="margin-y:10px;">Favour Card</h1>
+  <h3 style="margin-y:20px;">Base:</h3>
+  <div class="favour-card">
+  </div>
+  <h3 style="margin-y:20px;">Index:</h3>
+
+  <div class="favour-card favour-card--shadow">
+    <div class="category favour-card__category category--type--groceries category--fill-orange">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="favour-card__header">
+      <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar") %>
+      <div class="pill favour-card__pill pill--outline-black">8 May</div>
+    </div>
+    <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+    <div class="location favour-card__location">
+      <img class="location__icon">
+      <p class="location__address">Eltham, VIC 3095</p>
+    </div>
+    <p class="favour-card__description">
+      Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+    </p>
+    <button class="button favour-card__button button--primary-fill">Help Out</button>
+  </div>
+
   <br>
 
 </div>

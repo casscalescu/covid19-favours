@@ -1,46 +1,61 @@
-<div class="container">
+<div class="main-container">
 	<!-- Buttons -->
 	<section>
-		<h4>Buttons</h4>
-		<div class="primary-button">
-			Help out
-		</div>
-	</section>
-	
-	<hr/>
-
-	<!-- Category Icons -->
-	<section>
-		<h4>Category Icons</h4>
-		<%= render "shared/groceries-icon" %>
-		<%= render "shared/pets-icon" %>
-		<%= render "shared/gardening-icon" %>
-		<%= render "shared/medicine-icon" %>
-		<%= render "shared/other-icon" %>
-	</section>
-	
-	<hr/>
-
-	<!-- Favour index card -->
-	<section>
-		<h4>Favour Index Card</h4>
-		<div class="favour-index-card">
-			<div class="favour-index-header">
-				<img class="card-user-image" src="https://source.unsplash.com/user/erondu">
-				<div class="card-completion-date">ASAP</div>
-				<div class="card-category groceries"></div>
-			</div>
-			<div class="favour-index-content">
-				<h4>Need help with my gardening</h4>
-				<p>Basic gardening - mowing front lawn and weed removal</p>
-			</div>
-			<div class="favour-index-footer">
-				<div class="primary-button float-right">Help out</div>
-			</div>
-		</div>
-
+    <h4>Buttons</h4>
+    <div class="button">Base Button</div>
+    <div class="button button--primary-fill">Button</div>
+    <div class="button button--primary-outline">Button</div>
 	</section>
 
 	<hr/>
+
+  <!-- Pills -->
+  <section>
+    <h4>Pills</h4>
+    <div class="pill">BASE PILL</div>
+    <div class="pill pill--fill-yellow">YELLOW</div>
+    <div class="pill pill--fill-orange">ORANGE</div>
+    <div class="pill pill--fill-red">RED</div>
+    <div class="pill pill--fill-green">GREEN</div>
+    <div class="pill pill--fill-light-blue">LIGHT BLUE</div>
+    <div class="pill pill--fill-dark-blue">DARK BLUE</div>
+    <div class="pill pill--fill-dark-gray">GRAY</div>
+
+    <div class="pill pill--outline-black">BLACK</div>
+    <div class="pill pill--outline-yellow">YELLOW</div>
+    <div class="pill pill--outline-orange">ORANGE</div>
+    <div class="pill pill--outline-red">RED</div>
+    <div class="pill pill--outline-green">GREEN</div>
+    <div class="pill pill--outline-light-blue">LIGHT BLUE</div>
+    <div class="pill pill--outline-dark-blue">DARK BLUE</div>
+    <div class="pill pill--outline-dark-gray">GRAY</div>
+  </section>
+
+  <hr/>
+
+  <!-- Rating -->
+  <section>
+    <h4>Rating</h4>
+    <div class="rating">
+      <div class="rating__icon rating__icon--yellow"></div>
+      <p class="rating__text">5.0 (23)</p>
+    </div>
+    <div class="rating">
+      <div class="rating__icon rating__icon--gray"></div>
+      <p class="rating__text">No reviews</p>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- Search -->
+  <section>
+    <h4>Search</h4>
+    <%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
+    <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search"} %>
+  <% end %>
+  </section>
+
+  <hr/>
 
 </div>

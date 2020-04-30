@@ -1,5 +1,34 @@
 <div class="main-container">
 
+  <!-- Buttons -->
+  <section>
+    <h4>Modal</h4>
+    <div class="favour-modal">
+      <div class="favour-modal__header">
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar dropdown-toggle favour-modal__avatar") %>
+        <div>
+          <h2 class="favour-modal__name">Cassandra</h2>
+          <div class="location favour-modal__location">
+            <img class="location__icon favour-modal__icon">
+            <p class="location__address favour-modal__address">Greensborough, VIC 3088</p>
+          </div>
+        </div>
+      </div>
+      <div class="favour-modal__pills">
+        <div class="pill favour-modal__pill pill--outline-black">Asap</div>
+        <div class="pill favour-modal__pill pill--outline-orange">Groceries</div>
+      </div>
+      <h3 class="favour-modal__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-modal__description">Ordered my weekly should and need someone to pick it up and bring it home for me...Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me...Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me.</p>
+      <div class="favour-modal__buttons">
+        <a class= "link favour-modal__link" href="#">View Favour</a>
+        <button class="button button--primary-fill favour-modal__button">Button</button>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
 	<!-- Buttons -->
 	<section>
     <h4>Buttons</h4>

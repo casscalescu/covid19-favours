@@ -1,5 +1,58 @@
 <div class="main-container">
 
+  <!-- Index grid -->
+  <section>
+    <h4>Index grid</h4>
+    <div class="main-container">
+      <div class="index-grid">
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
   <!-- Modal -->
   <section>
     <h4>Modal</h4>
@@ -296,7 +349,7 @@
         Need help mowing my front yard. It’s about 10m x 10m.
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(53).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message"><strong>Alex</strong> is helping!</p>
           <p class="favour-card__mobile">0434 888 696</p>
@@ -317,7 +370,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(50).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message"><strong>Taylor</strong> is helping!</p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -344,9 +397,9 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__applicants">
-        <%= cl_image_tag(User.find(50).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
-        <%= cl_image_tag(User.find(49).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
-        <%= cl_image_tag(User.find(54).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+        <%= cl_image_tag(User.find(41).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+        <%= cl_image_tag(User.find(42).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
       </div>
       <button class="button favour-card__button button--primary-outline">View & Accept Helpers (3)</button>
     </div>
@@ -390,7 +443,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(50).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message"><strong>Taylor</strong> assisted</p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -411,7 +464,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(50).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message"><strong>Taylor</strong> assisted</p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -488,7 +541,7 @@
         Need help mowing my front yard. It’s about 10m x 10m.
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(53).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">You're helping <strong>Alex</strong></p>
           <p class="favour-card__mobile">0434 888 696</p>
@@ -513,7 +566,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(50).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">You're helping <strong>Taylor</strong></p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -574,7 +627,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(50).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">You helped <strong>Taylor</strong></p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -595,7 +648,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(50).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">You helped <strong>Taylor</strong></p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -622,7 +675,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(50).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">Asked by <strong>Taylor</strong></p>
         </div>
@@ -648,7 +701,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(50).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">Asked by <strong>Taylor</strong></p>
         </div>

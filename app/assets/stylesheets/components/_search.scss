@@ -1,0 +1,16 @@
+.search {
+  width: 400px;
+  height: 40px;
+  border-radius: 24px;
+  padding: 0px 20px;
+  font-size: 14px;
+  border-color: $light-gray;
+  &:focus {
+    box-shadow: none;
+    border-color: $mid-gray;
+  }
+}
+
+label[for="query_location"] {
+  display: none;
+}

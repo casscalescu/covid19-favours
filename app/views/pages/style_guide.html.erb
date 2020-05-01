@@ -1,46 +1,714 @@
-<div class="container">
+<div class="main-container">
+
+  <!-- Index grid -->
+  <section>
+    <h4>Index grid</h4>
+    <div class="main-container">
+      <div class="index-grid">
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+        <div class="favour-card">
+          <div class="category favour-card__category category--type--groceries category--fill-orange">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- Modal -->
+  <section>
+    <h4>Modal</h4>
+    <div class="favour-modal">
+      <div class="favour-modal__header">
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar dropdown-toggle favour-modal__avatar") %>
+        <div>
+          <h2 class="favour-modal__name">Cassandra</h2>
+          <div class="location favour-modal__location">
+            <img class="location__icon favour-modal__icon">
+            <p class="location__address favour-modal__address">Greensborough, VIC 3088</p>
+          </div>
+        </div>
+      </div>
+      <div class="favour-modal__pills">
+        <div class="pill favour-modal__pill pill--outline-black">Asap</div>
+        <div class="pill favour-modal__pill pill--outline-orange">Groceries</div>
+      </div>
+      <h3 class="favour-modal__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-modal__description">Ordered my weekly should and need someone to pick it up and bring it home for me...Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me...Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me. Ordered my weekly should and need someone to pick it up and bring it home for me.</p>
+      <div class="favour-modal__buttons">
+        <a class= "link favour-modal__link" href="#">View Favour</a>
+        <button class="button button--primary-fill favour-modal__button">Button</button>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
 	<!-- Buttons -->
 	<section>
-		<h4>Buttons</h4>
-		<div class="primary-button">
-			Help out
-		</div>
-	</section>
-	
-	<hr/>
-
-	<!-- Category Icons -->
-	<section>
-		<h4>Category Icons</h4>
-		<%= render "shared/groceries-icon" %>
-		<%= render "shared/pets-icon" %>
-		<%= render "shared/gardening-icon" %>
-		<%= render "shared/medicine-icon" %>
-		<%= render "shared/other-icon" %>
-	</section>
-	
-	<hr/>
-
-	<!-- Favour index card -->
-	<section>
-		<h4>Favour Index Card</h4>
-		<div class="favour-index-card">
-			<div class="favour-index-header">
-				<img class="card-user-image" src="https://source.unsplash.com/user/erondu">
-				<div class="card-completion-date">ASAP</div>
-				<div class="card-category groceries"></div>
-			</div>
-			<div class="favour-index-content">
-				<h4>Need help with my gardening</h4>
-				<p>Basic gardening - mowing front lawn and weed removal</p>
-			</div>
-			<div class="favour-index-footer">
-				<div class="primary-button float-right">Help out</div>
-			</div>
-		</div>
-
+    <h4>Buttons</h4>
+    <button class="button">Button</button>
+    <br>
+    <br>
+    <button class="button button--primary-fill">Button</button>
+    <br>
+    <br>
+    <button class="button button--primary-outline">Button</button>
 	</section>
 
 	<hr/>
 
+  <!-- Pills -->
+  <section>
+    <h4>Pills</h4>
+    <div class="pill">BASE PILL</div>
+    <div class="pill pill--fill-yellow">YELLOW</div>
+    <div class="pill pill--fill-orange">ORANGE</div>
+    <div class="pill pill--fill-red">RED</div>
+    <div class="pill pill--fill-green">GREEN</div>
+    <div class="pill pill--fill-light-blue">LIGHT BLUE</div>
+    <div class="pill pill--fill-dark-blue">DARK BLUE</div>
+    <div class="pill pill--fill-mid-gray">GRAY</div>
+
+    <br>
+    <br>
+
+    <div class="pill pill--outline-black">BLACK</div>
+    <div class="pill pill--outline-yellow">YELLOW</div>
+    <div class="pill pill--outline-orange">ORANGE</div>
+    <div class="pill pill--outline-red">RED</div>
+    <div class="pill pill--outline-green">GREEN</div>
+    <div class="pill pill--outline-light-blue">LIGHT BLUE</div>
+    <div class="pill pill--outline-dark-blue">DARK BLUE</div>
+    <div class="pill pill--outline-mid-gray">GRAY</div>
+  </section>
+
+  <hr/>
+
+  <!-- Rating -->
+  <section>
+    <h4>Rating</h4>
+    <div class="rating">
+      <div class="rating__icon rating__icon--yellow"></div>
+      <p class="rating__text">5.0 (23)</p>
+    </div>
+    <div class="rating">
+      <div class="rating__icon rating__icon--gray"></div>
+      <p class="rating__text">No reviews</p>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- Search -->
+  <section>
+    <h4>Search</h4>
+    <%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
+    <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search"} %>
+  <% end %>
+  </section>
+
+  <hr/>
+
+  <h1>Category</h1>
+  <br>
+  <h3>Base:</h3>
+  <div class="category">
+    <div class="category__circle">
+      <img class="category__icon">
+    </div>
+  </div>
+  <h3 style="margin-top:20px;">Outline Black:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="category category--type--groceries category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pharmacy category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pets category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--gardening category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--chat category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--other category--outline-black">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+  </div>
+  <h3 style="margin-top:20px;">Outline Colour:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="category category--type--groceries category--outline-orange">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pharmacy category--outline-dark-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pets category--outline-light-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--gardening category--outline-green">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--chat category--outline-yellow">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--other category--outline-red">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+  </div>
+  <h3 style="margin-top:20px;">Fill Colour:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="category category--type--groceries category--fill-orange">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pharmacy category--fill-dark-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--pets category--fill-light-blue">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--gardening category--fill-green">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--chat category--fill-yellow">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="category category--type--other category--fill-red">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+  </div>
+  <h1 style="margin-top:20px;">Avatar</h1>
+  <br>
+  <h3>Base:</h3>
+  <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar") %>
+  <h1 style="margin-top:20px;">Logo</h1>
+  <h3 style="margin-top:20px;">Base:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <img class="logo">
+  </div>
+  <h1 style="margin-top:20px;">Logo</h1>
+  <h3 style="margin-top:20px;">Base:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <div class="location">
+      <img class="location__icon">
+      <p class="location__address">Greensborough, VIC 3088</p>
+    </div>
+  </div>
+  <h1 style="margin-top:20px;">Link</h1>
+  <h3 style="margin-top:20px;">Base:</h3>
+  <div style="display:flex;width:400px;justify-content:space-between;margin-top:20px;">
+    <a class= "link" href="#">View Favour</a>
+  </div>
+  <br>
+
+
+
+
+
+  <h1 style="margin-y:10px;">Favour Card</h1>
+  <h3 style="margin-y:20px;">Base:</h3>
+  <div class="favour-card">
+  </div>
+  <h3 style="margin:20px;">Index:</h3>
+
+  <div class="favour-card favour-card--shadow">
+    <div class="category favour-card__category category--type--groceries category--fill-orange">
+      <div class="category__circle">
+        <img class="category__icon">
+      </div>
+    </div>
+    <div class="favour-card__header">
+      <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar") %>
+      <div class="pill favour-card__pill pill--outline-black">8 May</div>
+    </div>
+    <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+    <div class="location favour-card__location">
+      <img class="location__icon">
+      <p class="location__address">Eltham, VIC 3095</p>
+    </div>
+    <p class="favour-card__description">
+      Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+    </p>
+    <button class="button favour-card__button button--primary-fill">Help Out</button>
+  </div>
+
+  <br>
+
+  <h3 style="margin:20px;">Dash, Recipient, Accepted:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--groceries category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message"><strong>Emily</strong> is helping!</p>
+          <p class="favour-card__mobile">0434 553 490</p>
+        </div>
+      </div>
+      <button class="button favour-card__button button--primary-outline">Mark as Done</button>
+    </div>
+
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--gardening category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-green">Today</div>
+      <h3 class="favour-card__title">Mow the front lawn</h3>
+      <p class="favour-card__description">
+        Need help mowing my front yard. It’s about 10m x 10m.
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message"><strong>Alex</strong> is helping!</p>
+          <p class="favour-card__mobile">0434 888 696</p>
+        </div>
+      </div>
+      <button class="button favour-card__button button--primary-outline">Mark as Done</button>
+    </div>
+
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--pharmacy category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-light-blue">Tomorrow</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message"><strong>Taylor</strong> is helping!</p>
+          <p class="favour-card__mobile">0432 696 969</p>
+        </div>
+      </div>
+      <button class="button favour-card__button button--primary-outline">Mark as Done</button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h3 style="margin:20px;">Dash, Recipient, Open w/ Applicants:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--groceries category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__applicants">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+        <%= cl_image_tag(User.find(41).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+        <%= cl_image_tag(User.find(42).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+      </div>
+      <button class="button favour-card__button button--primary-outline">View & Accept Helpers (3)</button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h3 style="margin:20px;">Dash, Recipient, Open:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--groceries category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <p class="favour-card__notice">No helpers yet</p>
+      <button class="button favour-card__button button--primary-outline">Edit Favour</button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h3 style="margin:20px;">Dash, Recipient, Completed:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--pharmacy category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-green">Completed</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message"><strong>Taylor</strong> assisted</p>
+          <p class="favour-card__mobile">0432 696 969</p>
+        </div>
+      </div>
+      <p class="favour-card__date favour-card__date--review">8 Mar '20</p>
+      <button class="button favour-card__button button--primary-outline">Review Taylor</button>
+    </div>
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--pharmacy category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-green">Completed</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message"><strong>Taylor</strong> assisted</p>
+          <p class="favour-card__mobile">0432 696 969</p>
+        </div>
+      </div>
+      <p class="favour-card__date">8 Mar '20</p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h3 style="margin:20px;">Dash, Recipient, Expired:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--pharmacy category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <p class="pill favour-card__pill pill--fill-red">Expired</p>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <p class="favour-card__date">8 Mar '20</p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <h3 style="margin:20px;">Dash, Helper, Accepted:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--groceries category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <div class="location favour-card__location">
+        <img class="location__icon">
+        <p class="location__address">Eltham, VIC 3095</p>
+      </div>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message">You're helping <strong>Emily</strong></p>
+          <p class="favour-card__mobile">0434 553 490</p>
+        </div>
+      </div>
+      <button class="button favour-card__button button--primary-outline">View Favour</button>
+    </div>
+
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--gardening category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-green">Today</div>
+      <h3 class="favour-card__title">Mow the front lawn</h3>
+      <div class="location favour-card__location">
+        <img class="location__icon">
+        <p class="location__address">Eltham, VIC 3095</p>
+      </div>
+      <p class="favour-card__description">
+        Need help mowing my front yard. It’s about 10m x 10m.
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message">You're helping <strong>Alex</strong></p>
+          <p class="favour-card__mobile">0434 888 696</p>
+        </div>
+      </div>
+      <button class="button favour-card__button button--primary-outline">View Favour</button>
+    </div>
+
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--chat category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-light-blue">Tomorrow</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <div class="location favour-card__location">
+        <img class="location__icon">
+        <p class="location__address">Eltham, VIC 3095</p>
+      </div>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message">You're helping <strong>Taylor</strong></p>
+          <p class="favour-card__mobile">0432 696 969</p>
+        </div>
+      </div>
+      <button class="button favour-card__button button--primary-outline">View Favour</button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <h3 style="margin:20px;">Dash, Helper, Pending:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--pets category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-light-blue">08 May</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <div class="location favour-card__location">
+        <img class="location__icon">
+        <p class="location__address">Eltham, VIC 3095</p>
+      </div>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message">You've submitted a request to help <strong>Emily</strong></p>
+        </div>
+      </div>
+      <div class="favour-card__buttons">
+        <button class="button favour-card__button favour-card__button--half-width button--primary-outline">View Favour</button>
+        <button class="button favour-card__button favour-card__button--half-width button--primary-outline">Delete Request</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h3 style="margin:20px;">Dash, Helper, Completed:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--pharmacy category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-green">Completed</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message">You helped <strong>Taylor</strong></p>
+          <p class="favour-card__mobile">0432 696 969</p>
+        </div>
+      </div>
+      <p class="favour-card__date favour-card__date--review">8 Mar '20</p>
+      <button class="button favour-card__button button--primary-outline">Review Taylor</button>
+    </div>
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--pharmacy category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-green">Completed</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message">You helped <strong>Taylor</strong></p>
+          <p class="favour-card__mobile">0432 696 969</p>
+        </div>
+      </div>
+      <p class="favour-card__date">8 Mar '20</p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h3 style="margin:20px;">Dash, Recipient, Declined:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--pharmacy category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-orange">Declined</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message">Asked by <strong>Taylor</strong></p>
+        </div>
+      </div>
+      <p class="favour-card__date">8 Mar '20</p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h3 style="margin:20px;">Dash, Recipient, Deleted:</h3>
+  <br>
+  <br>
+  <div style="display:flex;width:900px;justify-content:space-around;">
+    <div class="favour-card favour-card--outline">
+      <div class="category favour-card__category category--type--pharmacy category--outline-black">
+        <div class="category__circle">
+          <img class="category__icon">
+        </div>
+      </div>
+      <div class="pill favour-card__pill pill--fill-mid-gray">Deleted</div>
+      <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+      <p class="favour-card__description">
+        Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+      </p>
+      <div class="favour-card__contact">
+        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <div class="favour-card__contact-text">
+          <p class="favour-card__message">Asked by <strong>Taylor</strong></p>
+        </div>
+      </div>
+      <p class="favour-card__date">8 Mar '20</p>
+    </div>
+  </div>
+  <br>
+  <br>
 </div>

@@ -94,7 +94,7 @@
   <!-- User as a helper -->
   <% if current_user.helper? %>
     <% @helper_done_favours.each do |favour| %>
-      <% unless favour.reviews.where(subject: "Helper").exists? %>
+      <% unless favour.reviews.where(subject: "Recipient").exists? %>
         <div class="card">
           <p>Favour: <%= favour.title %></p>
           <p>You completed a favour for: <%= link_to favour.recipient.first_name, user_path(favour.recipient) %></p>
@@ -106,7 +106,7 @@
   <!-- User as a recipient -->
   <% if current_user.recipient? %>
     <% @recipient_done_favours.each do |favour| %>
-      <% unless favour.reviews.where(subject: "Recipient").exists? %>
+      <% unless favour.reviews.where(subject: "Helper").exists? %>
         <div class="card">
           <p>Favour: <%= favour.title %></p>
           <p>Completed by: <%= link_to favour.helper.first_name, user_path(favour.helper) %></p>

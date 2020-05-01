@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_235929) do
+ActiveRecord::Schema.define(version: 2020_04_20_045342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,8 @@ ActiveRecord::Schema.define(version: 2020_04_06_235929) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.text "bio"
+    t.float "recipient_rating_average"
+    t.float "helper_rating_average"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

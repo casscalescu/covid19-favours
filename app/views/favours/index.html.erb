@@ -1,74 +1,78 @@
-<%= simple_form_for :query, url: favours_path, method: "GET", html: { id: "search-location-form" } do |f| %>
-  <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", id: "address-input"} %>
-  <%# f.submit "Search", class: "primary-button" %>
-<% end %>
+<div class="main-container">
+  <%= simple_form_for :query, url: favours_path, method: "GET", html: { id: "search-location-form" } do |f| %>
+    <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", id: "address-input"} %>
+    <%# f.submit "Search", class: "primary-button" %>
+  <% end %>
 
-<%= "No favours nearby..." unless @nearby_favours %>  
+  <%= "No favours nearby..." unless @nearby_favours %>
 
-<div class="favours-index-container">
-<% @open_favours.each do |favour| %>
-  <div class="favour-index-card">
-    <div class="favour-index-header">
-      <!-- Favour User -->
-      <%= cl_image_tag(favour.recipient.photo.key, width: 80, height: 80, crop: :thumb, gravity: :face, class: "card-user-image") %>
-      <!-- Favour Completion -->
-      <div class="card-completion-date"><%= favour.completion_date.to_formatted_s(:rfc822) %></div>
-      <!-- Favour Category -->
-      <% case favour.category %>
-        <% when "Groceries" %>
-          <%= render "shared/groceries-icon" %>
-        <% when "Pets" %>
-          <%= render "shared/pets-icon" %>
-        <% when "Gardening" %>
-          <%= render "shared/gardening-icon" %>
-        <% when "Medicine" %>
-          <%= render "shared/medicine-icon" %>
-        <% when "Other" %>
-          <%= render "shared/other-icon" %>
-      <% end %>
-    </div>
-    <!-- Favour Content -->
-    <div class="favour-index-content">
-      <h4><%= favour.title %></h4>
-      <p><%= favour.description %></p>
-    </div>
-    <!-- Favour buttons -->
-    <div class="favour-index-footer">
-      <% if user_signed_in? %>
-        <!-- Apply for favour -->
-        <% unless current_user.applied?(favour) || favour.recipient == current_user %>
+  <div class="favours-container">
+  <% @open_favours.each do |favour| %>
+    <div class="card js-favour-index-card"
+      data-toggle="modal"
+      data-target="#favourIndexModal"
+      data-favour-recipient-photo="<%= favour.recipient.photo.key %>"
+      data-favour-recipient-name="<%= favour.recipient.first_name %>"
+      data-favour-completion="<%= favour.completion_date %>"
+      data-favour-category="<%= favour.category %>"
+      data-favour-title="<%= favour.title %>"
+      data-favour-description="<%= favour.description %>"
+    >
+
+      <div class="favour-index-header">
+        <!-- Favour User -->
+        <%= cl_image_tag(favour.recipient.photo.key, width: 80, height: 80, crop: :thumb, gravity: :face, class: "card-user-image") %>
+        <!-- Favour Completion -->
+        <div class="card-completion-date"><%= favour.completion_date.to_formatted_s(:rfc822) %></div>
+        <!-- Favour Category -->
+        <p><%= favour.category %></p>
+      </div>
+      <!-- Favour Content -->
+      <div class="favour-index-content">
+        <h4><%= favour.title %></h4>
+        <p><%= truncate(favour.description, :length => 160) %></p>
+      </div>
+      <!-- Favour buttons -->
+      <div class="favour-index-footer">
+        <% if user_signed_in? %>
+          <!-- Apply for favour -->
+          <% unless current_user.applied?(favour) || favour.recipient == current_user %>
+            <%= link_to "Help out", new_favour_favour_application_path(favour), class: 'primary-button float-right' %>
+          <% end %>
+          <!-- Already applied for favour -->
+          <% if current_user.applied?(favour) %>
+            <!-- Applied and pending -->
+            <% if current_user.application_status(favour) == "Pending" %>
+              <p class="badge float-right">You've already applied!</p>
+              <%= simple_form_for [favour, favour.favour_applications.where(applicant: current_user).take] do |f| %>
+                <%= f.hidden_field :status, value: "Withdrawn" %>
+                <%= f.button :submit, 'Withdraw', class: "primary-button float-right" %>
+              <% end %>
+            <!-- Applied and withdrawn -->
+            <% elsif current_user.application_status(favour) == "Withdrawn" %>
+              <p class="badge badge-warning">You've withdrawn your application</p>
+            <!-- Applied and rejected -->
+            <% elsif current_user.application_status(favour) == "Rejected" %>
+              <p class="badge badge-warning">Your application was rejected</p>
+            <% end %>
+          <% end %>
+          <!-- Edit favour -->
+          <% if favour.recipient == current_user %>
+            <% if favour.favour_applications.empty? %>
+              <%= link_to "Edit", edit_favour_path(favour), class: 'primary-button float-right' %>
+            <% else %>
+              <%= link_to "View Applications", favour_favour_applications_path(favour), class: 'primary-button float-right' %>
+            <% end %>
+          <% end %>
+        <!-- Apply button for users not signed in (redirects to sign in page first) -->
+        <% else %>
           <%= link_to "Help out", new_favour_favour_application_path(favour), class: 'primary-button float-right' %>
         <% end %>
-        <!-- Already applied for favour -->
-        <% if current_user.applied?(favour) %>
-          <!-- Applied and pending -->
-          <% if current_user.application_status(favour) == "Pending" %>
-            <p class="badge float-right">You've already applied!</p>
-            <%= simple_form_for [favour, favour.favour_applications.where(applicant: current_user).take] do |f| %>
-              <%= f.hidden_field :status, value: "Withdrawn" %>
-              <%= f.button :submit, 'Withdraw', class: "primary-button float-right" %>
-            <% end %>
-          <!-- Applied and withdrawn -->
-          <% elsif current_user.application_status(favour) == "Withdrawn" %>
-            <p class="badge badge-warning">You've withdrawn your application</p>
-          <!-- Applied and rejected -->
-          <% elsif current_user.application_status(favour) == "Rejected" %>
-            <p class="badge badge-warning">Your application was rejected</p>
-          <% end %>
-        <% end %>
-        <!-- Edit favour -->
-        <% if favour.recipient == current_user %>
-          <% if favour.favour_applications.empty? %>
-            <%= link_to "Edit", edit_favour_path(favour), class: 'primary-button float-right' %>
-          <% else %>
-            <%= link_to "View Applications", favour_favour_applications_path(favour), class: 'primary-button float-right' %>
-          <% end %>
-        <% end %>
-      <!-- Apply button for users not signed in (redirects to sign in page first) -->
-      <% else %>
-        <%= link_to "Help out", new_favour_favour_application_path(favour), class: 'primary-button float-right' %>
-      <% end %>
+      </div>
     </div>
+  <% end %>
   </div>
-<% end %>
 </div>
+
+<!-- Modal -->
+<%= render "favour-index-modal" %>

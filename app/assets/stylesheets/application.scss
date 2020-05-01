@@ -12,9 +12,3 @@
 @import "components/index";
 @import "pages/index";
 
-
-// Remove arrows from date inputs
-input[type=date]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    display: none;
-}

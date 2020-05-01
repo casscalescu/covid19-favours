@@ -1,0 +1,160 @@
+.category {
+  &__circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 28px;
+    height: 28px;
+    filter: invert(100%) sepia(0%) saturate(7449%) hue-rotate(325deg) brightness(107%) contrast(111%);
+  }
+
+  &--fill-dark-blue {
+    & .category__circle {
+      background-color: $dark-blue;
+    }
+  }
+
+  &--fill-light-blue {
+    & .category__circle {
+      background-color: $light-blue;
+    }
+  }
+
+  &--fill-red {
+    & .category__circle {
+      background-color: $red;
+    }
+  }
+
+  &--fill-orange {
+    & .category__circle {
+      background-color: $orange;
+    }
+  }
+
+  &--fill-yellow {
+    & .category__circle {
+      background-color: $yellow;
+    }
+  }
+
+  &--fill-green {
+    & .category__circle {
+      background-color: $green;
+    }
+  }
+
+  &--outline-dark-blue {
+    & .category__circle {
+      border: 2pt solid $dark-blue;
+    }
+
+    & .category__icon {
+      filter: invert(27%) sepia(77%) saturate(1527%) hue-rotate(204deg) brightness(94%) contrast(96%);
+    }
+  }
+
+  &--outline-light-blue {
+    & .category__circle {
+      border: 2pt solid $light-blue;
+    }
+
+    & .category__icon {
+      filter: invert(67%) sepia(20%) saturate(5353%) hue-rotate(183deg) brightness(95%) contrast(91%);
+    }
+  }
+
+  &--outline-red {
+    & .category__circle {
+      border: 2pt solid $red;
+    }
+
+    & .category__icon {
+      filter: invert(21%) sepia(72%) saturate(3950%) hue-rotate(14deg) brightness(107%) contrast(91%);
+    }
+  }
+
+  &--outline-orange {
+    & .category__circle {
+      border: 2pt solid $orange;
+    }
+
+    & .category__icon {
+      filter: invert(74%) sepia(9%) saturate(4473%) hue-rotate(337deg) brightness(102%) contrast(107%);
+    }
+  }
+
+  &--outline-yellow {
+    & .category__circle {
+      border: 2pt solid $yellow;
+    }
+
+    & .category__icon {
+      filter: invert(82%) sepia(45%) saturate(568%) hue-rotate(341deg) brightness(101%) contrast(104%);
+    }
+  }
+
+  &--outline-green {
+    & .category__circle {
+      border: 2pt solid $green;
+    }
+
+    & .category__icon {
+      filter: invert(77%) sepia(13%) saturate(1207%) hue-rotate(44deg) brightness(99%) contrast(87%);
+    }
+  }
+
+  &--outline-black {
+    & .category__circle {
+      border: 1.5pt solid black;
+    }
+
+    & .category__icon {
+      filter: none;
+    }
+  }
+
+  &--type--groceries {
+    & .category__icon {
+      content: asset-url('groceries-icon.svg');
+    }
+  }
+
+  &--type--pharmacy {
+    & .category__icon {
+      content: asset-url('pharmacy-icon.svg');
+    }
+  }
+
+  &--type--pets {
+    & .category__icon {
+      content: asset-url('pets-icon.svg');
+    }
+  }
+
+  &--type--gardening {
+    & .category__icon {
+      content: asset-url('gardening-icon.svg');
+    }
+  }
+
+  &--type--chat {
+    & .category__icon {
+      content: asset-url('chat-icon.svg');
+    }
+  }
+
+  &--type--other {
+    & .category__icon {
+      content: asset-url('other-icon.svg');
+    }
+  }
+}
+

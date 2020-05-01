@@ -1,16 +1,55 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Sanswght@400;700&display=swap');
+
+// To use a font file (.woff) uncomment following lines
+@font-face {
+  font-family: "Noto Sans";
+  src: font-url('NotoSans-Bold.eot');
+  src: font-url('NotoSans-Bold.eot?#iefix') format('embedded-opentype'),
+       font-url('NotoSans-Bold.woff') format('woff'),
+       font-url('NotoSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: font-url('NotoSans-Light.eot');
+  src: font-url('NotoSans-Light.eot?#iefix') format('embedded-opentype'),
+       font-url('NotoSans-Light.woff') format('woff'),
+       font-url('NotoSans-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: font-url('NotoSans-Medium.eot');
+  src: font-url('NotoSans-Medium.eot?#iefix') format('embedded-opentype'),
+       font-url('NotoSans-Medium.woff') format('woff'),
+       font-url('NotoSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: font-url('NotoSans-Regular.eot');
+  src: font-url('NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
+       font-url('NotoSans-Regular.woff') format('woff'),
+       font-url('NotoSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: font-url('NotoSans-SemiBold.eot');
+  src: font-url('NotoSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+       font-url('NotoSans-SemiBold.woff') format('woff'),
+       font-url('NotoSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+// $my-font: "Font Name";
 
 // Define fonts for body and headers
 $body-font: "Noto Sans", "Helvetica", "sans-serif";
 $headers-font: "Noto Sans", "Helvetica", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";

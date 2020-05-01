@@ -1,7 +1,7 @@
-<% if current_user.recipient? %>
+<% if current_user == @favour.recipient %>
   <h2>Leave a review for <%= @favour.helper.first_name %></h2>
 <% end %>
-<% if current_user.helper? %>
+<% if current_user == @favour.helper %>
   <h2>Leave a review for <%= @favour.recipient.first_name %></h2>
 <% end %>
 

@@ -53,6 +53,271 @@
 
   <hr/>
 
+  <!-- Dashboard grid/tabs -->
+  <br>
+  <br>
+  <section>
+    <h1>Dashboard tabs:</h1>
+    <br>
+    <br>
+    <h1 style="margin-left:40px">Your Favours</h1>
+    <div class="dashboard-tabs">
+      <div class="dashboard-tabs__labels">
+        <span data-tab-id="1" class="dashboard-tabs__label">Accepted</span>
+        <span data-tab-id="2" class="dashboard-tabs__label active">Open</span>
+        <span data-tab-id="3" class="dashboard-tabs__label">Archived</span>
+      </div>
+      <div data-tab-id="1" class="index-grid dashboard-tabs__content">
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--groceries category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <div class="favour-card__contact">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+            <div class="favour-card__contact-text">
+              <p class="favour-card__message"><strong>Emily</strong> is helping!</p>
+              <p class="favour-card__mobile">0434 553 490</p>
+            </div>
+          </div>
+          <button class="button favour-card__button button--primary-outline">Mark as Done</button>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--gardening category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-green">Today</div>
+          <h3 class="favour-card__title">Mow the front lawn</h3>
+          <p class="favour-card__description">
+            Need help mowing my front yard. It’s about 10m x 10m.
+          </p>
+          <div class="favour-card__contact">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+            <div class="favour-card__contact-text">
+              <p class="favour-card__message"><strong>Alex</strong> is helping!</p>
+              <p class="favour-card__mobile">0434 888 696</p>
+            </div>
+          </div>
+          <button class="button favour-card__button button--primary-outline">Mark as Done</button>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--pharmacy category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-light-blue">Tomorrow</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <div class="favour-card__contact">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+            <div class="favour-card__contact-text">
+              <p class="favour-card__message"><strong>Taylor</strong> is helping!</p>
+              <p class="favour-card__mobile">0432 696 969</p>
+            </div>
+          </div>
+          <button class="button favour-card__button button--primary-outline">Mark as Done</button>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--groceries category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <div class="favour-card__contact">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+            <div class="favour-card__contact-text">
+              <p class="favour-card__message"><strong>Emily</strong> is helping!</p>
+              <p class="favour-card__mobile">0434 553 490</p>
+            </div>
+          </div>
+          <button class="button favour-card__button button--primary-outline">Mark as Done</button>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--gardening category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-green">Today</div>
+          <h3 class="favour-card__title">Mow the front lawn</h3>
+          <p class="favour-card__description">
+            Need help mowing my front yard. It’s about 10m x 10m.
+          </p>
+          <div class="favour-card__contact">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+            <div class="favour-card__contact-text">
+              <p class="favour-card__message"><strong>Alex</strong> is helping!</p>
+              <p class="favour-card__mobile">0434 888 696</p>
+            </div>
+          </div>
+          <button class="button favour-card__button button--primary-outline">Mark as Done</button>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--pharmacy category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-light-blue">Tomorrow</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <div class="favour-card__contact">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+            <div class="favour-card__contact-text">
+              <p class="favour-card__message"><strong>Taylor</strong> is helping!</p>
+              <p class="favour-card__mobile">0432 696 969</p>
+            </div>
+          </div>
+          <button class="button favour-card__button button--primary-outline">Mark as Done</button>
+        </div>
+      </div>
+      <div data-tab-id="2" class="index-grid dashboard-tabs__content active">
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--groceries category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <div class="favour-card__applicants">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+          </div>
+          <button class="button favour-card__button button--primary-outline">View & Accept Helpers (3)</button>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--groceries category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <div class="favour-card__applicants">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+          </div>
+          <button class="button favour-card__button button--primary-outline">View & Accept Helpers (3)</button>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--groceries category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <p class="favour-card__notice">No helpers yet</p>
+          <button class="button favour-card__button button--primary-outline">Edit Favour</button>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--groceries category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <p class="favour-card__notice">No helpers yet</p>
+          <button class="button favour-card__button button--primary-outline">Edit Favour</button>
+        </div>
+      </div>
+      <div data-tab-id="3" class="index-grid dashboard-tabs__content">
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--pharmacy category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <p class="pill favour-card__pill pill--fill-red">Expired</p>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <p class="favour-card__date">8 Mar '20</p>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--pharmacy category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-green">Completed</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <div class="favour-card__contact">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+            <div class="favour-card__contact-text">
+              <p class="favour-card__message"><strong>Taylor</strong> assisted</p>
+              <p class="favour-card__mobile">0432 696 969</p>
+            </div>
+          </div>
+          <p class="favour-card__date favour-card__date--review">8 Mar '20</p>
+          <button class="button favour-card__button button--primary-outline">Review Taylor</button>
+        </div>
+        <div class="favour-card favour-card--outline">
+          <div class="category favour-card__category category--type--pharmacy category--outline-black">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+          <div class="pill favour-card__pill pill--fill-green">Completed</div>
+          <h3 class="favour-card__title">Pickup my groceries from Eltham Coles</h3>
+          <p class="favour-card__description">
+            Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
+          </p>
+          <div class="favour-card__contact">
+            <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+            <div class="favour-card__contact-text">
+              <p class="favour-card__message"><strong>Taylor</strong> assisted</p>
+              <p class="favour-card__mobile">0432 696 969</p>
+            </div>
+          </div>
+          <p class="favour-card__date">8 Mar '20</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <br>
+  <br>
+  <hr/>
+
   <!-- Modal -->
   <section>
     <h4>Modal</h4>
@@ -349,7 +614,7 @@
         Need help mowing my front yard. It’s about 10m x 10m.
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message"><strong>Alex</strong> is helping!</p>
           <p class="favour-card__mobile">0434 888 696</p>
@@ -370,7 +635,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message"><strong>Taylor</strong> is helping!</p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -397,9 +662,9 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__applicants">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
-        <%= cl_image_tag(User.find(41).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
-        <%= cl_image_tag(User.find(42).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--applicant") %>
       </div>
       <button class="button favour-card__button button--primary-outline">View & Accept Helpers (3)</button>
     </div>
@@ -443,7 +708,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message"><strong>Taylor</strong> assisted</p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -464,7 +729,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message"><strong>Taylor</strong> assisted</p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -541,7 +806,7 @@
         Need help mowing my front yard. It’s about 10m x 10m.
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">You're helping <strong>Alex</strong></p>
           <p class="favour-card__mobile">0434 888 696</p>
@@ -566,7 +831,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">You're helping <strong>Taylor</strong></p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -627,7 +892,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">You helped <strong>Taylor</strong></p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -648,7 +913,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">You helped <strong>Taylor</strong></p>
           <p class="favour-card__mobile">0432 696 969</p>
@@ -675,7 +940,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">Asked by <strong>Taylor</strong></p>
         </div>
@@ -701,7 +966,7 @@
         Ordered my weekly shop and need someone to pick it up and bring it home for me! :)
       </p>
       <div class="favour-card__contact">
-        <%= cl_image_tag(User.find(40).photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
+        <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar favour-card__avatar--contact") %>
         <div class="favour-card__contact-text">
           <p class="favour-card__message">Asked by <strong>Taylor</strong></p>
         </div>

@@ -1,0 +1,8 @@
+.index-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 74px;
+  grid-row-gap: 50px;
+  width: 820px;
+  margin: auto;
+}

@@ -1,7 +1,7 @@
 
 // Create UI Variables
-const tabs = document.querySelectorAll('.tab-label');
-const tabContents = document.querySelectorAll('.tab-content');
+const tabs = document.querySelectorAll('.dashboard-tabs__label');
+const tabContents = document.querySelectorAll('.dashboard-tabs__content');
 
 // Do something on click (add/remove active class)
 function changeTab(e) {

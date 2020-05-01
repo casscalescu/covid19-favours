@@ -6,6 +6,9 @@
   padding: 0px 14px;
   text-align: center;
   border: 1px solid $dark-blue;
+  &:focus {
+    outline: none;
+  }
   &:hover {
     border-color: $light-blue;
     transition: 0.3s;

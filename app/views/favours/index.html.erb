@@ -1,14 +1,16 @@
 <div class="main-container">
   <%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
     <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search"} %>
-    <%# f.submit "Search", class: "primary-button" %>
+    <!-- <button class="button button--primary-outline">
+      <%# f.button :submit, 'Search' %>
+    </button> -->
   <% end %>
 
   <%= "No favours nearby..." unless @nearby_favours %>
 
   <div class="grid">
   <% @open_favours.each do |favour| %>
-    <div class="favour-card favour-card--shadow js-favour-index-card"
+    <div class="favour-card favour-card--shadow favour-card--hover js-favour-index-card"
       data-toggle="modal"
       data-target="#favourIndexModal"
       data-favour-recipient-photo="<%= favour.recipient.photo.key %>"
@@ -17,6 +19,7 @@
       data-favour-category="<%= favour.category %>"
       data-favour-title="<%= favour.title %>"
       data-favour-description="<%= favour.description %>"
+      data-favour-address="<%= favour.address %>"
     >
 
       <!-- Favour Category -->
@@ -58,7 +61,7 @@
         <p class="location__address"><%= favour.address %></p>
       </div>
       <p class="favour-card__description">
-        <%= truncate(favour.description, :length => 160) %>
+        <%= truncate(favour.description, :length => 200) %>
       </p>
 
 
@@ -66,9 +69,11 @@
       <% if user_signed_in? %>
         <!-- Apply for favour -->
         <% unless current_user.applied?(favour) || favour.recipient == current_user %>
-          <button class="button favour-card__button button--primary-fill">
-            <%= link_to "Help out", new_favour_favour_application_path(favour) %>
-          </button>
+          <%= link_to new_favour_favour_application_path(favour) do %>
+            <button class="button favour-card__button button--primary-fill">
+              Help out
+            </button>
+          <% end %>
         <% end %>
         <!-- Already applied for favour -->
         <% if current_user.applied?(favour) %>
@@ -78,9 +83,7 @@
             <!-- Withdraw -->
             <%= simple_form_for [favour, favour.favour_applications.where(applicant: current_user).take] do |f| %>
               <%= f.hidden_field :status, value: "Withdrawn" %>
-              <button class="button favour-card__button button--primary-fill">
-                <%= f.button :submit, 'Withdraw' %>
-              </button>
+              <%= f.button :submit, 'Withdraw', class: 'button favour-card__button button--primary-fill' %>
             <% end %>
           <!-- Applied and withdrawn -->
           <% elsif current_user.application_status(favour) == "Withdrawn" %>
@@ -93,9 +96,11 @@
         <!-- Edit favour -->
         <% if favour.recipient == current_user %>
           <% if favour.favour_applications.empty? %>
-            <button class="button favour-card__button button--primary-fill">
-              <%= link_to "Edit", edit_favour_path(favour) %>
-            </button>
+            <%= link_to edit_favour_path(favour) do %>
+              <button class="button favour-card__button button--primary-fill">
+                Edit
+              </button>
+            <% end %>
           <% else %>
           <!-- View application -->
             <button class="button favour-card__button button--primary-fill">

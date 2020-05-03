@@ -20,10 +20,6 @@
   &--primary-fill {
     background-color: $dark-blue;
     color: white;
-    & a {
-      color: white;
-      text-decoration: none;
-    }
     &:hover {
       color: white;
       background-color: $light-blue;
@@ -36,4 +32,8 @@
       color: $light-blue;
     }
   }
+}
+
+a:hover {
+  text-decoration: none;
 }

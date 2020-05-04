@@ -13,12 +13,11 @@
 
   <div class="grid">
   <% @open_favours.each do |favour| %>
-    <div class="favour-card favour-card--shadow favour-card--hover js-favour-index-card"
+    <div class="favour-card favour-card--shadow favour-card--hover js-favour-card-index"
       data-toggle="modal"
-      data-target="#favourIndexModal"
-      data-favour-recipient-photo="<%= favour.recipient.photo.key %>"
-      data-favour-recipient-name="<%= favour.recipient.first_name %>"
-      data-favour-completion="<%= favour.completion_date %>"
+      data-favour-photo="<%= favour.recipient.photo.key %>"
+      data-favour-name="<%= favour.recipient.first_name %>"
+      data-favour-date="<%= favour.completion_date.to_formatted_s(:rfc822) %>"
       data-favour-category="<%= favour.category %>"
       data-favour-title="<%= favour.title %>"
       data-favour-description="<%= favour.description %>"
@@ -112,4 +111,4 @@
 </div>
 
 <!-- Modal -->
-<%= render "favour-index-modal" %>
+<%= render "favour-modal" %>

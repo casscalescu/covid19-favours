@@ -1,43 +1,82 @@
 .favour-modal {
-  height: 380px;
-  width: 380px;
-  border-radius: 14px;
-  background-color: white;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  &--hidden {
+    display: none;
+  }
+
+  &__content {
+    height: 380px;
+    width: 380px;
+    border-radius: 14px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  &__close {
+    content: asset-url('close-icon.svg');
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &__header {
     display: flex;
     height: 75px;
     padding: 15px;
     padding-bottom: 0;
   }
+
   &__avatar {
     height: 60px;
     width: 60px;
     margin-right: 12px;
   }
+
   &__name {
     font-size: 18px;
     font-weight: 600;
     margin-top: 8px;
   }
+
   &__icon {
     height: 16px;
   }
+
   &__address {
     font-size: 12px;
   }
+
   &__pills {
     margin: 18px 22px;
   }
+
   &__pill {
     margin-right: 10px;
   }
+
   &__title {
     font-size: 15px;
     font-weight: 400;
     margin: 0px 20px 14px 20px;
   }
+
   &__description {
     font-size: 13px;
     font-weight: 300;
@@ -45,16 +84,19 @@
     flex-grow: 1;
     overflow-y: auto;
   }
+
   &__buttons {
     display: flex;
     margin: 15px;
   }
+
   &__link {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 50%;
   }
+
   &__button {
     width: 50%;
   }

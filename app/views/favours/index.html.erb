@@ -1,9 +1,12 @@
 <div class="main-container">
+
   <%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
-    <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search"} %>
-    <!-- <button class="button button--primary-outline">
-      <%# f.button :submit, 'Search' %>
-    </button> -->
+    <div class="search">
+      <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search__bar"} %>
+      <%= button_tag(type: "submit", class: 'button button--primary-fill search__button') do %>
+        <img class="search__icon">
+      <% end %>
+    </div>
   <% end %>
 
   <%= "No favours nearby..." unless @nearby_favours %>
@@ -64,16 +67,11 @@
         <%= truncate(favour.description, :length => 200) %>
       </p>
 
-
       <!-- Favour buttons -->
       <% if user_signed_in? %>
         <!-- Apply for favour -->
         <% unless current_user.applied?(favour) || favour.recipient == current_user %>
-          <%= link_to new_favour_favour_application_path(favour) do %>
-            <button class="button favour-card__button button--primary-fill">
-              Help out
-            </button>
-          <% end %>
+          <%= link_to "Help out", new_favour_favour_application_path(favour), class: "button favour-card__button button--primary-fill" %>
         <% end %>
         <!-- Already applied for favour -->
         <% if current_user.applied?(favour) %>
@@ -83,7 +81,9 @@
             <!-- Withdraw -->
             <%= simple_form_for [favour, favour.favour_applications.where(applicant: current_user).take] do |f| %>
               <%= f.hidden_field :status, value: "Withdrawn" %>
-              <%= f.button :submit, 'Withdraw', class: 'button favour-card__button button--primary-fill' %>
+              <%= button_tag(type: "submit", class: 'button favour-card__button button--primary-fill') do %>
+                Withdraw
+              <% end %>
             <% end %>
           <!-- Applied and withdrawn -->
           <% elsif current_user.application_status(favour) == "Withdrawn" %>
@@ -96,23 +96,15 @@
         <!-- Edit favour -->
         <% if favour.recipient == current_user %>
           <% if favour.favour_applications.empty? %>
-            <%= link_to edit_favour_path(favour) do %>
-              <button class="button favour-card__button button--primary-fill">
-                Edit
-              </button>
-            <% end %>
+            <%= link_to "Edit", edit_favour_path(favour), class: "button favour-card__button button--primary-fill" %>
           <% else %>
-          <!-- View application -->
-            <button class="button favour-card__button button--primary-fill">
-              <%= link_to "View Applications", favour_favour_applications_path(favour) %>
-\            </button>
+          <!-- View applicants -->
+            <%= link_to "View Applicants", favour_favour_applications_path(favour), class: "button favour-card__button button--primary-fill" %>
           <% end %>
         <% end %>
       <!-- Apply button for users not signed in (redirects to sign in page first) -->
       <% else %>
-        <button class="button favour-card__button button--primary-fill">
-          <%= link_to "Help out", new_favour_favour_application_path(favour) %>
-        </button>
+        <%= link_to "Help out", new_favour_favour_application_path(favour), class: "button favour-card__button button--primary-fill" %>
       <% end %>
     </div>
   <% end %>

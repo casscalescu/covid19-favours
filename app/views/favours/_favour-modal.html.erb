@@ -1,7 +1,8 @@
 <div class="favour-modal favour-modal--hidden js-modal">
   <div class="favour-modal__content">
     <div class="favour-modal__header">
-      <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar dropdown-toggle favour-modal__avatar") %>
+      <%# cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar dropdown-toggle favour-modal__avatar") %>
+      <img src="" alt="" class="avatar favour-modal__avatar js-modal__image">
       <div>
         <h2 class="favour-modal__name js-modal__name"></h2>
         <div class="location favour-modal__location">

@@ -3,13 +3,13 @@ export const initModal =  () => {
   const favourCards = document.querySelectorAll('.js-favour-card-index');
   const favourModal = document.querySelector('.js-modal');
   const closeModal = document.querySelector('.js-modal__close');
+  const modalImage = favourModal.querySelector('.js-modal__image');
   const modalName = favourModal.querySelector('.js-modal__name');
   const modalAddress = favourModal.querySelector('.js-modal__address');
   const modalDate = favourModal.querySelector('.js-modal__date');
   const modalCategory = favourModal.querySelector('.js-modal__category');
   const modalTitle = favourModal.querySelector('.js-modal__title');
   const modalDescription = favourModal.querySelector('.js-modal__description');
-
 
   // Toggle modal
   const toggleModal = () => {
@@ -25,6 +25,7 @@ export const initModal =  () => {
 
       // Insert data onto modal
       card.addEventListener('click', () => {
+        modalImage.src = card.querySelector('.favour-card__avatar').src;
         modalName.innerText = card.dataset.favourName;
         modalAddress.innerText = card.dataset.favourAddress;
         modalDate.innerText = card.dataset.favourDate;

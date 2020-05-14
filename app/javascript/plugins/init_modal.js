@@ -12,6 +12,7 @@ export const initModal =  () => {
   const modalDescription = favourModal.querySelector('.js-modal__description');
   const modalViewFavour = favourModal.querySelector('.favour-modal__link');
   const modalButton = favourModal.querySelector('.favour-modal__button');
+  const modalButtons = favourModal.querySelector('.favour-modal__buttons');
 
   // Toggle modal
   const toggleModal = () => {
@@ -38,15 +39,48 @@ export const initModal =  () => {
         modalDescription.innerText = card.dataset.favourDescription;
 
         // Modal buttons
-        const cardButton = card.querySelector('.favour-card__button');
 
-        if(card.lastElementChild.tagName.toLowerCase() === 'a') {
-          modalViewFavour.href = card.dataset.favourLink;
-          modalButton.href = cardButton.href;
-          modalButton.innerText = cardButton.innerText;
+        // Clear buttons inner html
+        while(modalButtons.firstChild) {
+          modalButtons.removeChild(modalButtons.firstChild);
+        }
+
+        const cardButton = card.querySelector('.favour-card__button');
+        const cardMessage = card.querySelector('.favour-card__notice');
+
+        // View favour modal link
+
+        // Create link element
+        const link = document.createElement('a');
+        // Add class
+        link.className = 'link favour-modal__link';
+        // Add text
+        link.innerText = 'View Favour';
+        // Add href
+        link.setAttribute("href", card.dataset.favourLink);
+        // Append link to div
+        modalButtons.appendChild(link);
+
+        if(card.lastElementChild.classList.contains('favour-card__notice')) {
+          // Create p element
+          const message = document.createElement('p');
+          // Add class
+          message.className = 'favour-modal__notice';
+          // Add text
+          message.innerText = cardMessage.innerText;
+          // Append modal to div
+          modalButtons.appendChild(message);
         } else {
-          const buttons = favourModal.querySelector('.favour-modal__buttons');
-          // console.log(buttons);
+          // Create button element
+          const button = document.createElement('a');
+          // Add class
+          button.className = 'button button--primary-fill favour-modal__button';
+          // Add text
+          button.innerText = cardButton.innerText;
+          // Add href
+          button.setAttribute("href", cardButton.href);
+          // Append button to div
+          modalButtons.appendChild(button);
         }
 
 

@@ -1,0 +1,44 @@
+.form {
+  border: 1.5pt solid black;
+  margin: 16px auto;
+  width: 600px;
+  padding: 16px;
+  background-color: white;
+
+  &--text-wrapper {
+    margin: 16px;
+    padding: 8px;
+    border: 1.4px solid $mid-gray;
+    border-radius: 8px;
+    position: relative;
+    transition: border-color 0.2s ease-in-out,
+                color 0.2s ease-in-out;
+
+    &:focus-within {
+      border-color: $orange;
+      color: $orange;
+    }
+  }
+
+  &--text-label {
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    font-size: 10px;
+    background-color: white;
+    padding: 0 4px;
+  }
+
+  &--text-input {
+    border: none;
+  }
+}
+
+.form-control {
+  border: none;
+
+  &:focus {
+    border: none;
+    box-shadow: none;
+  }
+}

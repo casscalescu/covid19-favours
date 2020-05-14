@@ -17,7 +17,7 @@ export const initModal =  () => {
     // Insert data onto modal
     favourIndexCards.forEach((favourCard) => {
       favourCard.addEventListener("click", () => {
-        favourRecipientPhoto.src = favourCard.querySelector('.card-user-image').src
+        // favourRecipientPhoto.src = favourCard.querySelector('.card-user-image').src
         favourRecipientName.innerText = favourCard.dataset.favourRecipientName
         favourCompletion.innerText = favourCard.dataset.favourCompletion
         favourCategory.innerText = favourCard.dataset.favourCategory

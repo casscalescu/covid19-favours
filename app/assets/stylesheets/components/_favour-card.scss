@@ -7,6 +7,12 @@
   display: flex;
   flex-direction: column;
 
+  &--hover {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &__category {
     position: absolute;
     top: -14px;
@@ -55,7 +61,7 @@
   }
 
   &__title {
-    font-size: 14px;
+    font-size: 1.4em;
     font-weight: 500;
     margin: 8px 22px;
   }
@@ -65,7 +71,7 @@
   }
 
   &__description {
-    font-size: 12px;
+    font-size: 1.2em;
     font-weight: 300;
     margin: 14px 22px;
     flex: 1 0 auto;
@@ -86,13 +92,13 @@
 
   &__message {
     margin: 0;
-    font-size: 12px;
+    font-size: 1.2em;
     font-weight: 300;
   }
 
   &__mobile {
     margin: 0;
-    font-size: 12px;
+    font-size: 1.2em;
     font-weight: 500;
   }
 
@@ -103,10 +109,13 @@
   }
 
   &__notice {
-    font-size: 9px;
+    font-size: 0.9em;
     color: $light-text;
     margin: 0;
     text-align: center;
+    &--index {
+      margin-bottom: 8px;
+    }
   }
 
   &__buttons {
@@ -115,7 +124,8 @@
 
   &__button {
     margin: 8px;
-    font-size: 10px;
+    font-size: 1em;
+    width: 208px;
 
     &--half-width {
     flex: 1 0 auto;
@@ -127,7 +137,7 @@
   }
 
   &__date {
-    font-size: 9px;
+    font-size: 0.9em;
     text-transform: uppercase;
     text-align: center;
     margin: 8px 0 16px 0;

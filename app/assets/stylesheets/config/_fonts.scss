@@ -49,6 +49,11 @@
 
 // $my-font: "Font Name";
 
+// Set root font-size
+html {
+  font-size: 62.5%;
+}
+
 // Define fonts for body and headers
 $body-font: "Noto Sans", "Helvetica", "sans-serif";
 $headers-font: "Noto Sans", "Helvetica", "sans-serif";

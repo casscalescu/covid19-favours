@@ -100,4 +100,11 @@
   &__button {
     width: 50%;
   }
+
+  &__notice {
+    font-size: 0.9am;
+    color: $light-text;
+    margin: 0;
+    text-align: center;
+  }
 }

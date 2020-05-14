@@ -10,6 +10,8 @@ export const initModal =  () => {
   const modalCategory = favourModal.querySelector('.js-modal__category');
   const modalTitle = favourModal.querySelector('.js-modal__title');
   const modalDescription = favourModal.querySelector('.js-modal__description');
+  const modalViewFavour = favourModal.querySelector('.favour-modal__link');
+  const modalButton = favourModal.querySelector('.favour-modal__button');
 
   // Toggle modal
   const toggleModal = () => {
@@ -23,6 +25,8 @@ export const initModal =  () => {
     favourCards.forEach((card) => {
       card.addEventListener('click', toggleModal);
 
+
+
       // Insert data onto modal
       card.addEventListener('click', () => {
         modalImage.src = card.querySelector('.favour-card__avatar').src;
@@ -33,7 +37,24 @@ export const initModal =  () => {
         modalTitle.innerText = card.dataset.favourTitle;
         modalDescription.innerText = card.dataset.favourDescription;
 
-        // Change pill category colour
+        // Modal buttons
+        const cardButton = card.querySelector('.favour-card__button');
+
+        if(card.lastElementChild.tagName.toLowerCase() === 'a') {
+          modalViewFavour.href = card.dataset.favourLink;
+          modalButton.href = cardButton.href;
+          modalButton.innerText = cardButton.innerText;
+        } else {
+          const buttons = favourModal.querySelector('.favour-modal__buttons');
+          // console.log(buttons);
+        }
+
+
+
+        // Clear pill category outline color
+        modalCategory.classList.remove('pill--outline-orange', 'pill--outline-light-blue', 'pill--outline-green', 'pill--outline-dark-blue', 'pill--outline-red', 'pill--outline-yellow');
+
+        // Add pill category outline colour
         switch (card.dataset.favourCategory) {
           case 'Groceries':
             modalCategory.classList.add("pill--outline-orange");
@@ -54,7 +75,7 @@ export const initModal =  () => {
             modalCategory.classList.add("pill--outline-yellow");
         }
       })
-    })
+    });
 
     // Close modal
     closeModal.addEventListener('click', toggleModal);

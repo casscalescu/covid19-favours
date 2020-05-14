@@ -1,7 +1,6 @@
 <div class="favour-modal favour-modal--hidden js-modal">
   <div class="favour-modal__content">
     <div class="favour-modal__header">
-      <%# cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar dropdown-toggle favour-modal__avatar") %>
       <img src="" alt="" class="avatar favour-modal__avatar js-modal__image">
       <div>
         <h2 class="favour-modal__name js-modal__name"></h2>
@@ -18,9 +17,13 @@
     </div>
     <h3 class="favour-modal__title js-modal__title"></h3>
     <p class="favour-modal__description js-modal__description"></p>
+    <!-- <div class="favour-modal__buttons">
+      <a class="link favour-modal__link" href="#">View Favour</a>
+      <a class="button button--primary-fill favour-modal__button" href="#">Button</a>
+    </div> -->
     <div class="favour-modal__buttons">
-      <a class= "link favour-modal__link" href="#">View Favour</a>
-      <button class="button button--primary-fill favour-modal__button">Button</button>
+      <a class="link favour-modal__link" href="#">View Favour</a>
+      <p class="favour-modal__notice">Your application was rejected</p>
     </div>
   </div>
 </div>

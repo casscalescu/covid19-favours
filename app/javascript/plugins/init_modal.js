@@ -1,5 +1,5 @@
-export const initModal =  () => {
-  // Create UI variables
+export const initModal = () => {
+  // Define UI variables
   const favourCards = document.querySelectorAll('.js-favour-card-index');
   const favourModal = document.querySelector('.js-modal');
   const closeModal = document.querySelector('.js-modal__close');
@@ -10,25 +10,21 @@ export const initModal =  () => {
   const modalCategory = favourModal.querySelector('.js-modal__category');
   const modalTitle = favourModal.querySelector('.js-modal__title');
   const modalDescription = favourModal.querySelector('.js-modal__description');
+  const modalButtons = favourModal.querySelector('.favour-modal__buttons');
   const modalViewFavour = favourModal.querySelector('.favour-modal__link');
   const modalButton = favourModal.querySelector('.favour-modal__button');
-  const modalButtons = favourModal.querySelector('.favour-modal__buttons');
 
-  // Toggle modal
-  const toggleModal = () => {
-    favourModal.classList.toggle('favour-modal--hidden');
-  }
+  // Load all event listeners
+  loadEventListeners();
 
-  // Add event listeners
-  const attachListeners = () => {
-
-    // Open modal
+  // Load all event listeners
+  function loadEventListeners() {
     favourCards.forEach((card) => {
-      card.addEventListener('click', toggleModal);
 
+      // Open modal
+      card.addEventListener('click', toggleModal)
 
-
-      // Insert data onto modal
+      // Insert data into modal
       card.addEventListener('click', () => {
         modalImage.src = card.querySelector('.favour-card__avatar').src;
         modalName.innerText = card.dataset.favourName;
@@ -38,18 +34,38 @@ export const initModal =  () => {
         modalTitle.innerText = card.dataset.favourTitle;
         modalDescription.innerText = card.dataset.favourDescription;
 
-        // Modal buttons
+        // Clear category pill class
+        removeCategoryClass();
+
+        // Add category pill class
+        switch (card.dataset.favourCategory) {
+          case 'Groceries':
+            modalCategory.classList.add("pill--outline-orange");
+            break;
+          case 'Pets':
+            modalCategory.classList.add("pill--outline-light-blue");
+            break;
+          case 'Gardening':
+            modalCategory.classList.add("pill--outline-green");
+            break;
+          case 'Medicine':
+            modalCategory.classList.add("pill--outline-dark-blue");
+            break;
+          case 'Other':
+            modalCategory.classList.add("pill--outline-red");
+            break;
+          case 'Friendly Chat':
+            modalCategory.classList.add("pill--outline-yellow");
+        }
 
         // Clear buttons inner html
         while(modalButtons.firstChild) {
           modalButtons.removeChild(modalButtons.firstChild);
         }
 
+        // Modal view favour link
         const cardButton = card.querySelector('.favour-card__button');
         const cardMessage = card.querySelector('.favour-card__notice');
-
-        // View favour modal link
-
         // Create link element
         const link = document.createElement('a');
         // Add class
@@ -61,6 +77,7 @@ export const initModal =  () => {
         // Append link to div
         modalButtons.appendChild(link);
 
+        // If card contains a notice message
         if(card.lastElementChild.classList.contains('favour-card__notice')) {
           // Create p element
           const message = document.createElement('p');
@@ -83,36 +100,22 @@ export const initModal =  () => {
           modalButtons.appendChild(button);
         }
 
-
-
-        // Clear pill category outline color
-        modalCategory.classList.remove('pill--outline-orange', 'pill--outline-light-blue', 'pill--outline-green', 'pill--outline-dark-blue', 'pill--outline-red', 'pill--outline-yellow');
-
-        // Add pill category outline colour
-        switch (card.dataset.favourCategory) {
-          case 'Groceries':
-            modalCategory.classList.add("pill--outline-orange");
-            break;
-          case 'Pets':
-            modalCategory.classList.add("pill--outline-light-blue");
-            break;
-          case 'Gardening':
-            modalCategory.classList.add("pill--outline-green");
-            break;
-          case 'Medicine':
-            modalCategory.classList.add("pill--outline-dark-blue");
-            break;
-          case 'Other':
-            modalCategory.classList.add("pill--outline-red");
-            break;
-          case 'Friendly Chat':
-            modalCategory.classList.add("pill--outline-yellow");
-        }
       })
     });
 
     // Close modal
     closeModal.addEventListener('click', toggleModal);
   }
-  attachListeners();
+
+  // Toggle modal
+  function toggleModal() {
+    favourModal.classList.toggle('favour-modal--hidden');
+  }
+
+  // Clear category pill classes
+  function removeCategoryClass() {
+    modalCategory.classList.remove('pill--outline-orange', 'pill--outline-light-blue', 'pill--outline-green', 'pill--outline-dark-blue', 'pill--outline-red', 'pill--outline-yellow');
+  }
+
 }
+

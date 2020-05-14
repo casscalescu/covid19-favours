@@ -22,7 +22,7 @@ export const initModal = () => {
     favourCards.forEach((card) => {
 
       // Open modal
-      card.addEventListener('click', toggleModal)
+      card.addEventListener('click', toggleModalAndBody)
 
       // Insert data into modal
       card.addEventListener('click', () => {
@@ -59,9 +59,7 @@ export const initModal = () => {
         }
 
         // Clear buttons inner html
-        while(modalButtons.firstChild) {
-          modalButtons.removeChild(modalButtons.firstChild);
-        }
+        clearButtons();
 
         // Modal view favour link
         const cardButton = card.querySelector('.favour-card__button');
@@ -104,17 +102,25 @@ export const initModal = () => {
     });
 
     // Close modal
-    closeModal.addEventListener('click', toggleModal);
+    closeModal.addEventListener('click', toggleModalAndBody);
   }
 
-  // Toggle modal
-  function toggleModal() {
+  // Toggle modal and freeze body
+  function toggleModalAndBody() {
+    document.body.classList.toggle('body--freeze');
     favourModal.classList.toggle('favour-modal--hidden');
   }
 
   // Clear category pill classes
   function removeCategoryClass() {
     modalCategory.classList.remove('pill--outline-orange', 'pill--outline-light-blue', 'pill--outline-green', 'pill--outline-dark-blue', 'pill--outline-red', 'pill--outline-yellow');
+  }
+
+  // Clear buttons inner html
+  function clearButtons() {
+    while(modalButtons.firstChild) {
+      modalButtons.removeChild(modalButtons.firstChild);
+    }
   }
 
 }

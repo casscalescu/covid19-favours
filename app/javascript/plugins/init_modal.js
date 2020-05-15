@@ -1,7 +1,9 @@
 export const initModal = () => {
+
   // Define UI variables
   const favourCards = document.querySelectorAll('.js-favour-card-index');
   const favourModal = document.querySelector('.js-modal');
+  const modalContent = document.querySelector('.favour-modal__content');
   const closeModal = document.querySelector('.js-modal__close');
   const modalImage = favourModal.querySelector('.js-modal__image');
   const modalName = favourModal.querySelector('.js-modal__name');
@@ -17,12 +19,17 @@ export const initModal = () => {
   // Load all event listeners
   loadEventListeners();
 
-  // Load all event listeners
+  // Event listeners
   function loadEventListeners() {
     favourCards.forEach((card) => {
 
       // Open modal
-      card.addEventListener('click', toggleModalAndBody)
+      card.addEventListener('click', (e) => {
+        if(e.target === card.querySelector('.favour-card__button')) {
+          return
+        }
+        toggleModal();
+      })
 
       // Insert data into modal
       card.addEventListener('click', () => {
@@ -61,7 +68,7 @@ export const initModal = () => {
         // Clear buttons inner html
         clearButtons();
 
-        // Modal view favour link
+        // Add 'View Favour' link to modal
         const cardButton = card.querySelector('.favour-card__button');
         const cardMessage = card.querySelector('.favour-card__notice');
         // Create link element
@@ -75,7 +82,7 @@ export const initModal = () => {
         // Append link to div
         modalButtons.appendChild(link);
 
-        // If card contains a notice message
+        // Add Button or Message to modal
         if(card.lastElementChild.classList.contains('favour-card__notice')) {
           // Create p element
           const message = document.createElement('p');
@@ -97,16 +104,15 @@ export const initModal = () => {
           // Append button to div
           modalButtons.appendChild(button);
         }
-
       })
     });
 
     // Close modal
-    closeModal.addEventListener('click', toggleModalAndBody);
+    closeModal.addEventListener('click', toggleModal);
   }
 
   // Toggle modal and freeze body
-  function toggleModalAndBody() {
+  function toggleModal() {
     document.body.classList.toggle('body--freeze');
     favourModal.classList.toggle('favour-modal--hidden');
   }
@@ -122,6 +128,4 @@ export const initModal = () => {
       modalButtons.removeChild(modalButtons.firstChild);
     }
   }
-
 }
-

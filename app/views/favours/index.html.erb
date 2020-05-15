@@ -1,15 +1,5 @@
 <div class="main-container">
 
-<!--   <%# simple_form_for :query, url: favours_path, method: "GET" do |f| %>
-    <div class="search">
-      <%# f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search__bar"} %>
-      <%# button_tag(type: "submit", class: 'button button--primary-fill search__button') do %>
-        <img class="search__icon">
-      <%# end %>
-    </div>
-  <%# end %> -->
-
-
   <%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
     <%= f.input :location, placeholder: 'Search by location...', input_html: { class: "search"} %>
     <%= button_tag(type: "submit", class: 'search__button') do %>

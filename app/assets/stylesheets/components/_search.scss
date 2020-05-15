@@ -1,11 +1,15 @@
 .search {
   width: 385px;
   height: 44px;
+  border: $light-text solid 1px;
   border-radius: 24px;
   margin: auto;
   padding: 0px 40px;
   font-size: 1.1em;
   letter-spacing: 0.05em;
+  &::placeholder {
+    color: $light-text;
+  }
   &:focus {
     box-shadow: none;
     border-color: $mid-gray;

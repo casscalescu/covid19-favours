@@ -1,28 +1,26 @@
 <div class="main-container">
 
   <%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
-    <div class="search">
-      <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search__bar"} %>
-      <%= button_tag(type: "submit", class: 'button button--primary-fill search__button') do %>
-        <img class="search__icon">
-      <% end %>
-    </div>
+    <%= f.input :location, placeholder: 'Search by location...', input_html: { class: "search"} %>
+    <%= button_tag(type: "submit", class: 'search__button') do %>
+      <img class="search__icon">
+    <% end %>
   <% end %>
 
-  <%= "No favours nearby..." unless @nearby_favours %>
+  <p class="search__notice"><%= "No favours nearby..." unless @nearby_favours %></p>
 
-  <div class="grid">
+  <div class="grid grid--index">
   <% @open_favours.each do |favour| %>
-    <div class="favour-card favour-card--shadow favour-card--hover js-favour-index-card"
+    <div class="favour-card favour-card--shadow favour-card--hover js-favour-card-index"
       data-toggle="modal"
-      data-target="#favourIndexModal"
-      data-favour-recipient-photo="<%= favour.recipient.photo.key %>"
-      data-favour-recipient-name="<%= favour.recipient.first_name %>"
-      data-favour-completion="<%= favour.completion_date %>"
+      data-favour-photo="<%= favour.recipient.photo.key %>"
+      data-favour-name="<%= favour.recipient.first_name %>"
+      data-favour-date="<%= favour.completion_date.to_formatted_s(:rfc822) %>"
       data-favour-category="<%= favour.category %>"
       data-favour-title="<%= favour.title %>"
       data-favour-description="<%= favour.description %>"
       data-favour-address="<%= favour.address %>"
+      data-favour-link="<%= favour_path(favour) %>"
     >
 
       <!-- Favour Category -->
@@ -112,4 +110,4 @@
 </div>
 
 <!-- Modal -->
-<%= render "favour-index-modal" %>
+<%= render "favour-modal" %>

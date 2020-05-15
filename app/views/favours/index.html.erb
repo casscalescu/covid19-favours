@@ -1,17 +1,25 @@
 <div class="main-container">
 
-  <%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
+<!--   <%# simple_form_for :query, url: favours_path, method: "GET" do |f| %>
     <div class="search">
-      <%= f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search__bar"} %>
-      <%= button_tag(type: "submit", class: 'button button--primary-fill search__button') do %>
+      <%# f.input :location, placeholder: 'Search by location...', input_html: {value: "", class: "search__bar"} %>
+      <%# button_tag(type: "submit", class: 'button button--primary-fill search__button') do %>
         <img class="search__icon">
-      <% end %>
+      <%# end %>
     </div>
+  <%# end %> -->
+
+
+  <%= simple_form_for :query, url: favours_path, method: "GET" do |f| %>
+    <%= f.input :location, placeholder: 'Search by location...', input_html: { class: "search"} %>
+    <%= button_tag(type: "submit", class: 'search__button') do %>
+      <img class="search__icon">
+    <% end %>
   <% end %>
 
-  <%= "No favours nearby..." unless @nearby_favours %>
+  <p class="search__notice"><%= "No favours nearby..." unless @nearby_favours %></p>
 
-  <div class="grid">
+  <div class="grid grid--index">
   <% @open_favours.each do |favour| %>
     <div class="favour-card favour-card--shadow favour-card--hover js-favour-card-index"
       data-toggle="modal"

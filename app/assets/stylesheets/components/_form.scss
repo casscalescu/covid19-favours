@@ -1,38 +1,87 @@
 .form {
   border: 1.5pt solid black;
   margin: 16px auto;
+  font-size: 1rem;
+  color: $mid-gray;
   width: 600px;
   padding: 16px;
   background-color: white;
+  text-align: center;
 
   &--text-wrapper {
     margin: 16px;
     padding: 8px;
     border: 1.4px solid $mid-gray;
+    color: $mid-gray;
     border-radius: 8px;
     position: relative;
     transition: border-color 0.2s ease-in-out,
                 color 0.2s ease-in-out;
 
     &:focus-within {
-      border-color: $orange;
-      color: $orange;
+      border-color: $blue;
+      color: $blue;
+    }
+
+    &:hover {
+      border-color: black;
+      color: black;
     }
   }
 
   &--text-label {
     position: absolute;
-    top: -10px;
+    top: -8px;
     left: 16px;
-    font-size: 10px;
     background-color: white;
     padding: 0 4px;
   }
+
   &--text-input {
-    border: none;
+    &__lg {
+      min-height: calc(4.5em + 0.75rem + 2px);
+    }
+  }
+
+  &--upload-wrapper {
+    margin: 16px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &--upload-label-text {
+  }
+
+  &--upload-label {
+    // display: block;
+    // content: asset-url('upload.svg');
+    // width: 100px;
+    // margin: -14px auto 16px au
+
+    // // Preload image for hover
+    // &:after {
+    //   display: none;
+    //   content: asset-url('upload-hover.svg');
+    // }
+
+    // &:hover {
+    //   cursor: pointer;
+    //   content: asset-url('upload-hover.svg');
+    // }
+  }
+
+  &--upload-input {
+    // width: 0.1px;
+    // height: 0.1px;
+    // opacity: 0;
+    // overflow: hidden;
+    // position: absolute;
+    // z-index: -1;
   }
 }
 
+
+// Remove default simple form styles
 .form-control {
   border: none;
 

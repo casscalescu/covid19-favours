@@ -5,16 +5,16 @@ export const initModal = () => {
   const favourModal = document.querySelector('.js-modal');
   const modalContent = document.querySelector('.favour-modal__content');
   const closeModal = document.querySelector('.js-modal__close');
-  const modalImage = favourModal.querySelector('.js-modal__image');
-  const modalName = favourModal.querySelector('.js-modal__name');
-  const modalAddress = favourModal.querySelector('.js-modal__address');
-  const modalDate = favourModal.querySelector('.js-modal__date');
-  const modalCategory = favourModal.querySelector('.js-modal__category');
-  const modalTitle = favourModal.querySelector('.js-modal__title');
-  const modalDescription = favourModal.querySelector('.js-modal__description');
-  const modalButtons = favourModal.querySelector('.favour-modal__buttons');
-  const modalViewFavour = favourModal.querySelector('.favour-modal__link');
-  const modalButton = favourModal.querySelector('.favour-modal__button');
+  const modalImage = document.querySelector('.js-modal__image');
+  const modalName = document.querySelector('.js-modal__name');
+  const modalAddress = document.querySelector('.js-modal__address');
+  const modalDate = document.querySelector('.js-modal__date');
+  const modalCategory = document.querySelector('.js-modal__category');
+  const modalTitle = document.querySelector('.js-modal__title');
+  const modalDescription = document.querySelector('.js-modal__description');
+  const modalButtons = document.querySelector('.favour-modal__buttons');
+  const modalViewFavour = document.querySelector('.favour-modal__link');
+  const modalButton = document.querySelector('.favour-modal__button');
 
   // Load all event listeners
   loadEventListeners();
@@ -108,7 +108,7 @@ export const initModal = () => {
     });
 
     // Close modal
-    closeModal.addEventListener('click', toggleModal);
+    closeModal && closeModal.addEventListener('click', toggleModal);
   }
 
   // Toggle modal and freeze body

@@ -8,7 +8,7 @@
   background-color: white;
   text-align: center;
 
-  &--text-wrapper {
+  &__text-wrapper {
     margin: 16px;
     padding: 8px;
     border: 1.4px solid $mid-gray;
@@ -29,7 +29,7 @@
     }
   }
 
-  &--text-label {
+  &__text-label {
     position: absolute;
     top: -8px;
     left: 16px;
@@ -37,46 +37,71 @@
     padding: 0 4px;
   }
 
-  &--text-input {
+  &__text-input {
     &__lg {
       min-height: calc(4.5em + 0.75rem + 2px);
     }
   }
 
-  &--upload-wrapper {
+  &__upload-wrapper {
     margin: 16px;
     display: flex;
     justify-content: space-around;
   }
 
-  &--upload-label-text {
+  &__upload-label-text {
   }
 
-  &--upload-label {
-    // display: block;
-    // content: asset-url('upload.svg');
-    // width: 100px;
-    // margin: -14px auto 16px au
+  &__upload-label {
+    margin: -14px auto 16px auto;
 
-    // // Preload image for hover
-    // &:after {
-    //   display: none;
-    //   content: asset-url('upload-hover.svg');
-    // }
+    &--smiley {
+      width: 100px;
+      content: asset-url('upload.svg');
 
-    // &:hover {
-    //   cursor: pointer;
-    //   content: asset-url('upload-hover.svg');
-    // }
+      // Preload image for hover
+      &:after {
+        display: none;
+        content: asset-url('upload-hover.svg');
+      }
+
+      // Orange icon on hover
+      &:hover {
+        cursor: pointer;
+        content: asset-url('upload-hover.svg');
+      }
+    }
+
+    &--change-button {
+      font-size: 1em;
+      margin: 0 auto;
+      border-color: $mid-gray;
+
+      &:hover {
+        cursor: pointer;
+        color: black;
+        border-color: black;
+      }
+    }
   }
 
-  &--upload-input {
-    // width: 0.1px;
-    // height: 0.1px;
-    // opacity: 0;
-    // overflow: hidden;
-    // position: absolute;
-    // z-index: -1;
+  &__upload-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    position: absolute;
+  }
+
+  &__upload-image-preview {
+    display: none;
+    margin: 8px auto;
+    height: auto;
+    width: auto;
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  &__upload-file-name {
   }
 }
 

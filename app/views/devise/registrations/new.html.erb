@@ -5,60 +5,62 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <span class="form--upload-label-text">Upload a Photo*</span>
+      <span class="form__upload-label-text">Upload a Photo*</span>
       <%= f.input :photo, as: :file,
                   required: true,
                   autofocus: true,
-                  input_html: { class: "form--upload-input" },
-                  label_html: { class: "form--upload-label" },
-                  wrapper_html: { class: "form--upload-wrapper" } %>
+                  input_html: { class: "form__upload-input", accept: "image/*" },
+                  label_html: { class: "form__upload-label form__upload-label--smiley" },
+                  wrapper_html: { class: "form__upload-wrapper" } %>
+      <img src="#" class="form__upload-image-preview">
+      <span class="form__upload-file-name">No file chosen</span>
       <%= f.input :first_name,
                   required: true,
                   autofocus: true,
-                  input_html: { class: "form--text-input" },
-                  label_html: { class: "form--text-label" },
-                  wrapper_html: { class: "form--text-wrapper" } %>
+                  input_html: { class: "form__text-input" },
+                  label_html: { class: "form__text-label" },
+                  wrapper_html: { class: "form__text-wrapper" } %>
       <%= f.input :last_name,
                   required: true,
                   autofocus: true,
-                  input_html: { class: "form--text-input" },
-                  label_html: { class: "form--text-label" },
-                  wrapper_html: { class: "form--text-wrapper" } %>
+                  input_html: { class: "form__text-input" },
+                  label_html: { class: "form__text-label" },
+                  wrapper_html: { class: "form__text-wrapper" } %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email", class: "form--text-input" },
-                  label_html: { class: "form--text-label" },
-                  wrapper_html: { class: "form--text-wrapper" } %>
+                  input_html: { autocomplete: "email", class: "form__text-input" },
+                  label_html: { class: "form__text-label" },
+                  wrapper_html: { class: "form__text-wrapper" } %>
       <%= f.input :mobile,
                   required: true,
                   autofocus: true,
-                  input_html: { class: "form--text-input" },
-                  label_html: { class: "form--text-label" },
-                  wrapper_html: { class: "form--text-wrapper" } %>
+                  input_html: { class: "form__text-input" },
+                  label_html: { class: "form__text-label" },
+                  wrapper_html: { class: "form__text-wrapper" } %>
       <%= f.input :bio,
                   required: false,
                   autofocus: true,
-                  input_html: { class: "form--text-input form--text-input__lg" },
-                  label_html: { class: "form--text-label" },
-                  wrapper_html: { class: "form--text-wrapper" } %>
+                  input_html: { class: "form__text-input form__text-input--lg" },
+                  label_html: { class: "form__text-label" },
+                  wrapper_html: { class: "form__text-wrapper" } %>
       <%= f.input :address,
                   required: false,
                   autofocus: true,
-                  input_html: { class: "form--text-input" },
-                  label_html: { class: "form--text-label" },
-                  wrapper_html: { class: "form--text-wrapper" } %>
+                  input_html: { class: "form__text-input" },
+                  label_html: { class: "form__text-label" },
+                  wrapper_html: { class: "form__text-wrapper" } %>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password", class: "form--text-input" },
-                  label_html: { class: "form--text-label" },
-                  wrapper_html: { class: "form--text-wrapper" } %>
+                  input_html: { autocomplete: "new-password", class: "form__text-input" },
+                  label_html: { class: "form__text-label" },
+                  wrapper_html: { class: "form__text-wrapper" } %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password", class: "form--text-input" },
-                  label_html: { class: "form--text-label" },
-                  wrapper_html: { class: "form--text-wrapper" } %>
+                  input_html: { autocomplete: "new-password", class: "form__text-input" },
+                  label_html: { class: "form__text-label" },
+                  wrapper_html: { class: "form__text-wrapper" } %>
     </div>
 
     <div class="form-actions">

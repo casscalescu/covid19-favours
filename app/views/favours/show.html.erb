@@ -7,9 +7,15 @@
         <%= cl_image_tag(@favour.recipient.photo.key, class: "avatar main-container__avatar") %>
         <span class="main-container__recipient-details">
           <p class="main-container__name"><%= @favour.recipient.first_name %></p>
+          <!-- Rating -->
           <div class="rating">
-            <div class="rating__icon rating__icon--yellow"></div>
-            <p class="rating__text">5.0 (23)</p>
+            <% if @favour.recipient.recipient_reviews.empty? %>
+              <div class="rating__icon rating__icon--gray"></div>
+              <p class="rating__text rating__text--gray">No reviews</p>
+            <% else %>
+              <div class="rating__icon rating__icon--yellow"></div>
+              <p class="rating__text"><%= @favour.recipient.recipient_rating_average %> (<%= @favour.recipient.recipient_reviews.count %>)</p>
+            <% end %>
           </div>
         </span>
       </div>

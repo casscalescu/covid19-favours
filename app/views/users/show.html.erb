@@ -47,6 +47,7 @@
 	<!-- Reviews -->
 	<h4>Reviews:</h4>
 	<!-- Recipient reviews -->
+  <h4>Recipient reviews</h4>
 	<% if @user.recipient? %>
 		<% if @user.recipient_reviews.empty? %>
 			<p>No reviews yet</p>
@@ -64,6 +65,7 @@
 		<% end %>
 	<% end %>
 	<!-- Helper reviews -->
+  <h4>Helper reviews</h4>
 	<% if @user.helper? %>
 		<% if @user.helper_reviews.empty? %>
 			<p>No reviews yet</p>

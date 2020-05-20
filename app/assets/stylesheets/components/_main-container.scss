@@ -2,4 +2,74 @@
   width: 900px;
   margin: 0 auto;
   padding: 28px 0;
+
+  &__content {
+    width: 500px;
+    margin: 0 auto;
+  }
+
+  &__recipient-link {
+    color: black;
+    &:hover {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  &__recipient-content {
+    display: flex;
+    margin-bottom: 30px;
+  }
+
+  &__recipient-details {
+    align-self: center;
+  }
+
+  &__avatar {
+    margin-right: 8px;
+  }
+
+  &__name {
+    font-size: 1.2em;
+    margin: 0;
+    padding-left: 0.4em;
+  }
+
+  &__title {
+    font-size: 2.4em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+
+  &__pills {
+    display: flex;
+  }
+
+  &__pill {
+    margin-right: 8px;
+  }
+
+  &__description {
+    font-size: 1.4em;
+    margin: 26px 0;
+    font-weight: 300;
+  }
+
+  &__buttons {
+    display: flex;
+  }
+
+  &__button {
+    margin: 25px 0;
+    width: 100% !important;
+  }
+
+  &__notice {
+    // color: $dark-blue;
+    color: $light-text;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 300;
+  }
 }

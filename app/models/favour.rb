@@ -32,4 +32,9 @@ class Favour < ApplicationRecord
 
     self.status = "Accepted"
   end
+
+  def applicants_applied?
+    applications = self.favour_applications.where(status: "Pending") || self.favour_applications.where(status: "Accepted")
+    applications.length > 0 ? true : false
+  end
 end

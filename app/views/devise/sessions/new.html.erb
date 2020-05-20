@@ -1,24 +1,24 @@
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form form--shadow" } ) do |f| %>
-  <h2 class="form__title">
-    Welcome back!
-  </h2>
-  <%= f.input :email,
-              required: false,
-              autofocus: true,
-              input_html: { autocomplete: "email", class: "form__input-text" },
-              label_html: { class: "form__label-text" },
-              wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
-  <%= f.input :password,
-              required: false,
-              input_html: { autocomplete: "current-password", class: "form__input-text" },
-              label_html: { class: "form__label-text" },
-              wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
-  <%= f.button :submit, "Log in", class: "button button--primary-fill form__button" %>
-  <%= f.input :remember_me, as: :boolean,
-              wrapper_html: { class: "form__wrapper form__wrapper--remember-me" } if devise_mapping.rememberable? %>
-  <div class="form__footer">
-    <%= render "devise/shared/links" %>
-  </div>
-<% end %>
-
+<div class="main-container">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form form--shadow" } ) do |f| %>
+    <h2 class="form__title">
+      Welcome back!
+    </h2>
+    <%= f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email", class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password", class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.button :submit, "Log in", class: "button button--primary-fill form__button" %>
+    <%= f.input :remember_me, as: :boolean,
+                wrapper_html: { class: "form__wrapper form__wrapper--remember-me" } if devise_mapping.rememberable? %>
+    <div class="form__footer">
+      <%= render "devise/shared/links" %>
+    </div>
+  <% end %>
+</div>

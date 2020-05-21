@@ -1,6 +1,6 @@
 const name = document.querySelector('.form__file-name');
 const input = document.querySelector('.form__input-file');
-const label = document.querySelector('.form__label-upload');
+const label = document.querySelector('.form__label-file');
 const imgPreview = document.querySelector('.form__image-preview');
 
 const previewImage = (e) => {

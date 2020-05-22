@@ -60,15 +60,18 @@
 
   &__buttons {
     display: flex;
+    & form {
+      width: 100%;
+    }
   }
 
   &__button {
     margin-bottom: 25px;
     width: 100% !important;
 
-    &:nth-of-type(2) {
-        margin-left: 26px;
-      }
+    &:nth-of-type(1) {
+      margin-right: 20px;
+    }
   }
 
   &__notice {

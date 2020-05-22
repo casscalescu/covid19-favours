@@ -88,7 +88,7 @@
             <p class="favour-card__notice favour-card__notice--index">You've withdrawn your application</p>
           <!-- Applied and rejected -->
           <% elsif current_user.application_status(favour) == "Rejected" %>
-            <p class="favour-card__notice favour-card__notice--index">Your application was rejected</p>
+            <p class="favour-card__notice favour-card__notice--index">Your request to help was declined</p>
           <% end %>
         <% end %>
         <% if favour.recipient == current_user %>

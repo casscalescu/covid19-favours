@@ -1,11 +1,84 @@
-<h1>Create a favour</h1>
+<div class="main-container">
+  <%= simple_form_for(@favour, html: { class: "form" }) do |f| %>
+    <h2 class="form__title">
+      Ask a Favour
+    </h2>
+    <%= f.input :title,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :category,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-radio" },
+                label_html: { class: "form__label-radio" },
+                wrapper_html: { class: "form__wrapper form__wrapper--radio" } do %>
+      <% Favour.categories.each do |category|%>
+        <%= f.radio_button(:category, category) %>
+        <%= label_tag("favour_category_#{category.downcase}".to_sym, category) do %>
+          <div class="category
+            <% case category %>
+              <% when "Groceries" %>
+                category--type--groceries category--outline-orange
+              <% when "Pets" %>
+                category--type--pets category--outline-light-blue
+              <% when "Gardening" %>
+                category--type--gardening category--outline-green
+              <% when "Medicine" %>
+                category--type--pharmacy category--outline-dark-blue
+              <% when "Other" %>
+                category--type--other category--outline-red
+              <% when "Friendly Chat" %>
+                category--type--chat category--outline-yellow
+            <% end %>">
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%#= f.input :category,
+    #             as: :radio_buttons,
+    #             collection: Favour.categories,
+    #             required: true,
+    #             autofocus: true,
+    #             input_html: { class: "form__input-radio" },
+    #             label_html: { class: "form__label-radio" },
+    #             wrapper_html: { class: "form__wrapper form__wrapper--radio" } %>
+    <%= f.date_field :completion_date,
+                min: Date.today + 1,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-date" },
+                label_html: { class: "form__label-date" },
+                wrapper_html: { class: "form__wrapper form__wrapper--date" } %>
+    <%= f.input :description,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text form__input-text--lg" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :address,
+                label: "Post code",
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.button :submit, 'Create favour', class: "button button--primary-fill form__button" %>
+  <% end %>
+</div>
 
-<%= simple_form_for @favour do |f| %>
-	<p>Completion Date *</p>  <!-- Added this in temporarily -->
-  <%= f.date_field :completion_date, min: Date.today + 1, required: true %>
-  <%= f.input :category, as: :radio_buttons, collection: @favour.categories %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :address, label: "Location" %>
-  <%= f.button :submit, 'Create', class: "btn btn-primary" %>
-<% end %>
+
+<%#= form_for @post do |f| %>
+  <%#= f.collection_radio_buttons :author_id, Author.all, :id, :name_with_initial %>
+  <%#= f.submit %>
+<%# end %>
+
+
+<%#= f.input :role do %>
+  <%#= f.select :role, Role.all.map { |r| [r.name, r.id, { class: r.company.id }] }, include_blank: true %>
+<%# end %>

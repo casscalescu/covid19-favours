@@ -1,52 +1,83 @@
-<h2>Title: <%= @favour.title %></h2>
+<div class="main-container">
+  <div class="main-container__content">
 
-<p>Category: <%= @favour.category %></p>
-<p>Completion Date: <%= @favour.completion_date %></p>
-<p>Postcode: Pending - Geocoding</p>
+    <!-- Header - user details -->
+    <%= link_to user_path(@favour.recipient), class: "main-container__recipient-link" do %>
+      <div class="main-container__recipient-content">
+        <%= cl_image_tag(@favour.recipient.photo.key, class: "avatar main-container__avatar") %>
+        <span class="main-container__recipient-details">
+          <p class="main-container__name"><%= @favour.recipient.first_name %></p>
+          <!-- Rating -->
+          <div class="rating">
+            <% if @favour.recipient.recipient_reviews.empty? %>
+              <div class="rating__icon rating__icon--gray"></div>
+              <p class="rating__text">(0)</p>
+            <% else %>
+              <div class="rating__icon rating__icon--yellow"></div>
+              <p class="rating__text"><%= @favour.recipient.recipient_rating_average %> (<%= @favour.recipient.recipient_reviews.count %>)</p>
+            <% end %>
+          </div>
+        </span>
+      </div>
+    <% end %>
 
-<%= cl_image_tag(@favour.recipient.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face) %>
-<% if user_signed_in? %>
-  <p>Posted By: <%= link_to @favour.recipient.first_name, user_path(@favour.recipient) %></p>
-<% else %>
-  <p>Posted by: <%= @favour.recipient.first_name %></p>
-<% end %>
-<p>Recipient Rating: Pending - Review</p>
+    <!-- Favour content -->
+    <h2 class="main-container__title"><%= @favour.title %></h2>
+    <div class="main-container__pills">
+      <div class="pill pill--outline-black main-container__pill"><%= @favour.completion_date.to_formatted_s(:rfc822) %></div>
+      <div class="pill pill--outline-black main-container__pill"><%= @favour.address %></div>
+    </div>
+    <p class="main-container__description"><%= @favour.description %></p>
 
-<p>Description: <%= @favour.description %></p>
-
-<% if user_signed_in? %>
-	<!-- Apply for favour -->
-	<% unless current_user.applied?(@favour) || @favour.recipient == current_user %>
-    <%= link_to "Apply to Help", new_favour_favour_application_path(@favour), class: 'btn btn-primary' %>
-  <% end %>
-  <!-- Already applied for favour -->
-  <% if current_user.applied?(@favour) %>
-    <!-- Applied and pending -->
-    <% if current_user.application_status(@favour) == "Pending" %>
-      <p class="badge badge-success">You've already applied!</p>
-      <%= simple_form_for [@favour, @favour_application] do |f| %>
-        <%= f.hidden_field :status, value: "Withdrawn" %>
-        <%= f.button :submit, 'Withdraw Application', class: "btn btn-primary" %>
+    <!-- Favour buttons -->
+    <% if user_signed_in? %>
+      <!-- Apply for favour -->
+      <% unless current_user.applied?(@favour) || @favour.recipient == current_user %>
+        <%= link_to "I can help #{@favour.recipient.first_name}", new_favour_favour_application_path(@favour), class: "button button--primary-outline main-container__button" %>
       <% end %>
-    <!-- Applied and withdrawn -->
-    <% elsif current_user.application_status(@favour) == "Withdrawn" %>
-      <p class="badge badge-warning">You've withdrawn your application</p>
-    <!-- Applied and rejected -->
-    <% elsif current_user.application_status(@favour) == "Rejected" %>
-      <p class="badge badge-warning">Your application was rejected</p>
-    <% end %>
-  <% end %>
-  <!-- Edit favour -->
-  <% if @favour.recipient == current_user %>
-    <% if @favour.favour_applications.empty? %>
-      <%= link_to "Edit Favour", edit_favour_path(@favour), class: 'btn btn-primary' %>
+      <!-- Already applied for favour -->
+      <% if current_user.applied?(@favour) %>
+        <!-- Applied and pending -->
+        <% if current_user.application_status(@favour) == "Pending" %>
+          <p class="main-container__notice">You’ve submitted a request to help <%= @favour.recipient.first_name %>!</p>
+          <%= simple_form_for [@favour, @favour_application] do |f| %>
+            <%= f.hidden_field :status, value: "Withdrawn" %>
+            <%= f.button :submit, "Withdraw my request to help", class: "button button--primary-outline main-container__button" %>
+          <% end %>
+        <!-- Applied and withdrawn -->
+        <% elsif current_user.application_status(@favour) == "Withdrawn" %>
+          <p class="main-container__notice">You've withdrawn your application!</p>
+        <!-- Applied and rejected -->
+        <% elsif current_user.application_status(@favour) == "Rejected" %>
+          <p class="main-container__notice">Your request to help was declined</p>
+        <!-- Applied and accepted -->
+        <% elsif current_user.application_status(@favour) == "Accepted" %>
+          <p class="main-container__notice">You’re helping <%= @favour.recipient.first_name %> with this favour!</p>
+        <% end %>
+      <% end %>
+      <div class="main-container__buttons">
+        <% if @favour.recipient == current_user %>
+          <!-- Edit favour -->
+          <% unless @favour.applicants_applied? %>
+            <%= link_to "Edit Favour", edit_favour_path(@favour), class: "button button--primary-outline main-container__button" %>
+          <% else %>
+            <!-- View applicants -->
+            <%= link_to "View Applicants (#{@favour.favour_applications.count})", favour_favour_applications_path(@favour), class: "button button--primary-outline main-container__button" %>
+          <% end %>
+          <!-- Delete favour -->
+          <%= simple_form_for @favour do |f| %>
+            <%= f.hidden_field :status, value: "Deleted" %>
+            <%= f.button :submit, "Delete", class: "button button--primary-outline main-container__button" %>
+          <% end %>
+        <% end %>
+      </div>
+    <!-- Apply button for users not signed in (redirects to sign in page first) -->
     <% else %>
-      <%= link_to "View Applications", favour_favour_applications_path(@favour), class: 'btn btn-primary' %>
+      <%= link_to "Apply to Help", new_favour_favour_application_path(@favour), class: "button button--primary-outline main-container__button" %>
     <% end %>
-  <% end %>
-<!-- Apply button for users not signed in (redirects to sign in page first) -->
-<% else %>
-		<%= link_to "Apply to Help", new_favour_favour_application_path(favour), class: 'btn btn-primary' %>
-<% end %>
 
-<%= link_to "Back to all favours", favours_path, class: 'btn btn-primary' %>
+    <!-- Back to all favours -->
+    <%= link_to "< Back to all favours", favours_path, class: '' %>
+  </div>
+</div>
+

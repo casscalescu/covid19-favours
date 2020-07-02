@@ -13,9 +13,10 @@
     outline: none;
   }
   &:hover {
-    border-color: $light-blue;
+    color: white;
+    background-color: $dark-blue;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.4s;
   }
   &--primary-fill {
     background-color: $dark-blue;
@@ -23,13 +24,11 @@
     &:hover {
       color: white;
       background-color: $light-blue;
+      border-color: $light-blue;
     }
   }
   &--primary-outline {
     background-color: white;
     color: $dark-blue;
-    &:hover {
-      color: $light-blue;
-    }
   }
 }

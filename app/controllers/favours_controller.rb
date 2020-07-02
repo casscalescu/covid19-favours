@@ -15,6 +15,7 @@ class FavoursController < ApplicationController
 	end
 
 	def show
+    # raise
     @favour_application = @favour.favour_applications.where(applicant: current_user).take
 	end
 
@@ -47,6 +48,6 @@ class FavoursController < ApplicationController
   end
 
 	def favour_params
-    params.require(:favour).permit(:title, :description, :address, :category, :completion_date)
+    params.require(:favour).permit(:title, :description, :address, :category, :completion_date, :status)
   end
 end

@@ -88,16 +88,16 @@
             <p class="favour-card__notice favour-card__notice--index">You've withdrawn your application</p>
           <!-- Applied and rejected -->
           <% elsif current_user.application_status(favour) == "Rejected" %>
-            <p class="favour-card__notice favour-card__notice--index">Your application was rejected</p>
+            <p class="favour-card__notice favour-card__notice--index">Your request to help was declined</p>
           <% end %>
         <% end %>
-        <!-- Edit favour -->
         <% if favour.recipient == current_user %>
-          <% if favour.favour_applications.empty? %>
-            <%= link_to "Edit", edit_favour_path(favour), class: "button favour-card__button button--primary-fill" %>
-          <% else %>
-          <!-- View applicants -->
+          <% if favour.applicants_applied? %>
+            <!-- View applicants -->
             <%= link_to "View Applicants", favour_favour_applications_path(favour), class: "button favour-card__button button--primary-fill" %>
+          <% else %>
+            <!-- Edit favour -->
+            <%= link_to "Edit", edit_favour_path(favour), class: "button favour-card__button button--primary-fill" %>
           <% end %>
         <% end %>
       <!-- Apply button for users not signed in (redirects to sign in page first) -->

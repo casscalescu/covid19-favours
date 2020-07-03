@@ -16,6 +16,7 @@
                 wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
     <%= f.button :submit, "Log in", class: "button button--primary-fill form__button" %>
     <%= f.input :remember_me, as: :boolean,
+                label_html: { class: "form__label-check" },
                 wrapper_html: { class: "form__wrapper form__wrapper--remember-me" } if devise_mapping.rememberable? %>
     <div class="form__footer">
       <%= render "devise/shared/links" %>

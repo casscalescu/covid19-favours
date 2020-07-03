@@ -44,6 +44,7 @@
 
     &--remember-me {
       margin: 16px;
+      justify-content: center;
     }
   }
 
@@ -99,6 +100,11 @@
     height: 0.1px;
     opacity: 0;
     position: absolute;
+  }
+
+  &__label-check {
+    margin-left: 8px;
+    margin-top: 2px;
   }
 
   &__image-preview {

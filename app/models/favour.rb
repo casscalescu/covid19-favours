@@ -1,5 +1,5 @@
 class Favour < ApplicationRecord
-  CATEGORY = %w[Groceries Gardening Pets Medicine Friendly\ Chat Other]
+  CATEGORY = %w[Groceries Gardening Pets Pharmacy Chat Other]
   STATUS = %w[Open Accepted Done Expired Deleted]
 
   # Geocoded

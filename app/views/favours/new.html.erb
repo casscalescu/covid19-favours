@@ -43,14 +43,6 @@
         <% end %>
       </div>
     <% end %>
-    <%#= f.input :category,
-    #             as: :radio_buttons,
-    #             collection: Favour.categories,
-    #             required: true,
-    #             autofocus: true,
-    #             input_html: { class: "form__input-radio" },
-    #             label_html: { class: "form__label-radio" },
-    #             wrapper_html: { class: "form__wrapper form__wrapper--radio" } %>
     <%= f.date_field :completion_date,
                 min: Date.today + 1,
                 required: true,

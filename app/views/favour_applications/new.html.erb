@@ -1,12 +1,25 @@
-<h1>Apply to help <%= @favour.recipient.first_name %></h1>
-
-<h2>Title: <%= @favour.title %></h2>
-
-<p>Category: <%= @favour.category %></p>
-<p>Completion Date: <%= @favour.completion_date %></p>
-<p>Postcode: Pending - Geocoding</p>
-
-<%= simple_form_for [@favour, @favour_application] do |f| %>
-  <%= f.input :message %>
-  <%= f.button :submit, 'Apply', class: "btn btn-primary" %>
-<% end %>
+<div class="main-container">
+  <%= simple_form_for([@favour, @favour_application], html: { class: "form" }) do |f| %>
+    <%= f.error_notification %>
+    <h2 class="form__title">
+      Offer to help <%= @favour.recipient.first_name %>
+    </h2>
+    <div class="form__favour-info">
+      <h3>Favour: <%= @favour.title %></h3>
+      <br>
+      <p>Category: <%= @favour.category %></p>
+      <p>Completion Date: <%= @favour.completion_date %></p>
+      <p>Postcode: <%= @favour.address %></p>
+    </div>
+    <%= f.input :message,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text form__input-text--lg" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.button :submit, "Offer Help", class: "button button--primary-fill form__button" %>
+    <div class="form__footer">
+      <%= link_to "Back", :back, class: "link form__link" %>
+    </div>
+  <% end %>
+</div>

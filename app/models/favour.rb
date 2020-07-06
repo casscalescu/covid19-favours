@@ -1,5 +1,5 @@
 class Favour < ApplicationRecord
-  CATEGORY = %w[Groceries Gardening Pets Medicine Friendly\ Chat Other]
+  CATEGORY = %w[Groceries Gardening Pets Pharmacy Chat Other]
   STATUS = %w[Open Accepted Done Expired Deleted]
 
   # Geocoded
@@ -21,7 +21,7 @@ class Favour < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   # Simple form collections
-  def categories
+  def self.categories
   	CATEGORY
   end
 

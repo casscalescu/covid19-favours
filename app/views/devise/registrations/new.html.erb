@@ -1,45 +1,69 @@
-<div class="container">
-  <h2>Sign up</h2>
-
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="main-container">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form form--shadow" }) do |f| %>
     <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :first_name,
-                  required: true,
-                  autofocus: true %>
-      <%= f.input :last_name,
-                  required: true,
-                  autofocus: true %>
-      <%= f.input :photo, as: :file,
-                  required: true,
-                  autofocus: true %>
-      <%= f.input :bio,
-                  required: false,
-                  autofocus: true %>
-      <%= f.input :mobile,
-                  required: true,
-                  autofocus: true %>
-      <%= f.input :address,
-                  required: false,
-                  autofocus: true %>
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+    <h2 class="form__title">
+      Hello!<br>Sign up to get started!
+    </h2>
+    <span class="form__label-file-text">Upload a Photo*</span>
+    <img src="#" class="form__image-preview">
+    <span class="form__file-name"></span>
+    <%= f.input :photo, as: :file,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-file", accept: "image/*" },
+                label_html: { class: "form__label-file form__label-file--smiley" },
+                wrapper_html: { class: "form__wrapper form__wrapper--file" } %>
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email", class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :mobile,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :bio,
+                required: false,
+                autofocus: true,
+                input_html: { class: "form__input-text form__input-text--lg" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :address,
+                required: false,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password", class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password", class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.button :submit, "Create Account", class: "button button--primary-fill form__button" %>
+    <div class="form__footer">
+      <span class="form__message">Already have an account?</span>
+      <%= render "devise/shared/links" %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
 </div>

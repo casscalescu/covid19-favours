@@ -1,11 +1,74 @@
-<h1>Edit Profile</h1>
-
-<%= simple_form_for @user do |f| %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :bio %>
-  <%= f.input :mobile %>
-  <%= f.input :address %>
-  <%= f.button :submit, 'Update', class: "btn btn-primary" %>
-<% end %>
+<div class="main-container">
+  <%= simple_form_for(@user, html: { class: "form form--shadow" }) do |f| %>
+    <%= f.error_notification %>
+    <h2 class="form__title">
+      Edit your profile:
+    </h2>
+    <%= cl_image_tag @user.photo.key, :style => "display: block; margin: 20px auto 8px auto; height: auto; width: auto; max-width: 200px; max-height: 200px;", :class => "form__image-preview" %>
+    <span class="form__file-name"></span>
+    <%= f.input :photo, as: :file,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-file", accept: "image/*" },
+                label_html: { class: "form__label-file button form__label-file--change-button" },
+                label: "Change Photo",
+                wrapper_html: { class: "form__wrapper form__wrapper--file" } %>
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email", class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :mobile,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :bio,
+                required: false,
+                autofocus: true,
+                input_html: { class: "form__input-text form__input-text--lg" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :address,
+                required: false,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :password,
+                required: false,
+                hint: "Leave it blank if you don't want to change it",
+                input_html: { autocomplete: "new-password", class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :password_confirmation,
+                required: false,
+                input_html: { autocomplete: "new-password", class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :current_password,
+                hint: "We need your current password to confirm your changes",
+                required: true,
+                input_html: { autocomplete: "current-password" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.button :submit, "Save Changes", class: "button button--primary-fill form__button" %>
+    <div class="form__footer">
+      <%= link_to "Cancel", :back, class: "link form__link" %>
+    </div>
+  <% end %>
+</div>

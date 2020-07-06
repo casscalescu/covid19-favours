@@ -1,13 +1,28 @@
-<!-- Reviews -->
-<% if current_user == @favour.recipient %>
-  <h2>Leave a review for <%= @favour.helper.first_name %></h2>
-<% end %>
-<% if current_user == @favour.helper %>
-  <h2>Leave a review for <%= @favour.recipient.first_name %></h2>
-<% end %>
+<div class="main-container">
+  <%= simple_form_for([ @favour, @review ], html: { class: "form" }) do |f| %>
+    <%= f.error_notification %>
+    <h2 class="form__title">
+      <% if current_user == @favour.recipient %>
+        Leave a review for <%= @favour.helper.first_name %>
+      <% end %>
+      <% if current_user == @favour.helper %>
+        Leave a review for <%= @favour.recipient.first_name %>
+      <% end %>
+    </h2>
+    <%= f.input :description,
+                required: false,
+                autofocus: true,
+                input_html: { class: "form__input-text form__input-text--lg" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :rating,
+                required: false,
+                autofocus: true,
+                collection: 1..5,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.button :submit, "Submit Review", class: "button button--primary-fill form__button" %>
+  <% end %>
+</div>
 
-<%= simple_form_for [ @favour, @review ] do |f| %>
-  <%= f.input :description %>
-  <%= f.input :rating, collection: 1..5 %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>

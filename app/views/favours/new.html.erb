@@ -1,5 +1,6 @@
 <div class="main-container">
   <%= simple_form_for(@favour, html: { class: "form" }) do |f| %>
+    <%= f.error_notification %>
     <h2 class="form__title">
       Ask a Favour
     </h2>
@@ -73,14 +74,3 @@
     <%= f.button :submit, 'Create favour', class: "button button--primary-fill form__button" %>
   <% end %>
 </div>
-
-
-<%#= form_for @post do |f| %>
-  <%#= f.collection_radio_buttons :author_id, Author.all, :id, :name_with_initial %>
-  <%#= f.submit %>
-<%# end %>
-
-
-<%#= f.input :role do %>
-  <%#= f.select :role, Role.all.map { |r| [r.name, r.id, { class: r.company.id }] }, include_blank: true %>
-<%# end %>

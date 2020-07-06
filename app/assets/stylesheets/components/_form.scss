@@ -49,7 +49,10 @@
 
     &--radio {
       input[type="radio"] {
-        display: none;
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        position: absolute;
 
         &:checked + .form__label-category--groceries {
           & .category__circle {

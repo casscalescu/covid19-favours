@@ -1,0 +1,374 @@
+.form {
+  margin: 16px auto;
+  border-radius: 14px;
+  font-size: 1rem;
+  color: $mid-gray;
+  width: 500px;
+  padding: 16px;
+  background-color: white;
+  text-align: center;
+
+  &__title {
+    font-size: 2.4rem;
+    color: black;
+    margin: 24px auto;
+  }
+
+  &__wrapper {
+    margin: 32px;
+
+    &--text {
+      padding: 8px;
+      border: 1.4px solid $mid-gray;
+      color: $mid-gray;
+      border-radius: 8px;
+      position: relative;
+      transition: border-color 0.2s ease-in-out,
+                  color 0.2s ease-in-out;
+
+      &:hover {
+        border-color: black;
+        color: black;
+      }
+
+      &:focus-within {
+        border-color: $orange;
+        color: $orange;
+      }
+    }
+
+    &--file {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    &--remember-me {
+      margin: 16px;
+      justify-content: center;
+    }
+
+    &--radio {
+      input[type="radio"] {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        position: absolute;
+
+        &:checked + .form__label-category--groceries {
+          & .category__circle {
+            border: 2pt solid $orange;
+          }
+
+          & .category__icon {
+            filter: invert(74%) sepia(9%) saturate(4473%) hue-rotate(337deg) brightness(102%) contrast(107%);
+          }
+
+          & .form__label-category-text {
+            color: $orange;
+          }
+        }
+
+        &:checked + .form__label-category--pets {
+          & .category__circle {
+            border: 2pt solid $light-blue;
+          }
+
+          & .category__icon {
+            filter: invert(67%) sepia(20%) saturate(5353%) hue-rotate(183deg) brightness(95%) contrast(91%);
+          }
+
+          & .form__label-category-text {
+            color: $light-blue;
+          }
+        }
+
+        &:checked + .form__label-category--gardening {
+          & .category__circle {
+            border: 2pt solid $green;
+          }
+
+          & .category__icon {
+            filter: invert(77%) sepia(13%) saturate(1207%) hue-rotate(44deg) brightness(99%) contrast(87%);
+          }
+
+          & .form__label-category-text {
+            color: $green;
+          }
+        }
+
+        &:checked + .form__label-category--pharmacy {
+          & .category__circle {
+            border: 2pt solid $dark-blue;
+          }
+
+          & .category__icon {
+            filter: invert(27%) sepia(77%) saturate(1527%) hue-rotate(204deg) brightness(94%) contrast(96%);
+          }
+
+          & .form__label-category-text {
+            color: $dark-blue;
+          }
+        }
+
+        &:checked + .form__label-category--chat {
+          & .category__circle {
+            border: 2pt solid $yellow;
+          }
+
+          & .category__icon {
+            filter: invert(82%) sepia(45%) saturate(568%) hue-rotate(341deg) brightness(101%) contrast(104%);
+          }
+
+          & .form__label-category-text {
+            color: $yellow;
+          }
+        }
+
+        &:checked + .form__label-category--other {
+          & .category__circle {
+            border: 2pt solid $red;
+          }
+
+          & .category__icon {
+            filter: invert(21%) sepia(72%) saturate(3950%) hue-rotate(14deg) brightness(107%) contrast(91%);
+          }
+
+          & .form__label-category-text {
+            color: $red;
+          }
+        }
+      }
+
+      margin-bottom: 64px;
+    }
+  }
+
+  &__label-text {
+    position: absolute;
+    top: -8px;
+    left: 16px;
+    background-color: white;
+    padding: 0 4px;
+  }
+
+  &__input-text {
+    &--lg {
+      min-height: calc(6.5em + 0.75rem + 2px);
+    }
+  }
+
+  &__label-file {
+    margin: -10px auto 16px auto;
+
+    &--smiley {
+      width: 100px;
+      content: asset-url('upload.svg');
+
+      // Preload image for hover
+      &:after {
+        display: none;
+        content: asset-url('upload-hover.svg');
+      }
+
+      // Orange icon on hover
+      &:hover {
+        cursor: pointer;
+        content: asset-url('upload-hover.svg');
+      }
+    }
+
+    &--change-button {
+      font-size: 1em;
+      margin: 8px auto;
+      border-color: $mid-gray;
+
+      &:hover {
+        cursor: pointer;
+        color: black;
+        border-color: black;
+      }
+    }
+  }
+
+  &__label-radio {
+    display: block;
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 16px;
+  }
+
+  &__label-categories {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__label-category {
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--groceries {
+      &:hover {
+        & .category__circle {
+          border: 2pt solid $orange;
+        }
+
+        & .category__icon {
+          filter: invert(74%) sepia(9%) saturate(4473%) hue-rotate(337deg) brightness(102%) contrast(107%);
+        }
+
+        & .form__label-category-text {
+          color: $orange;
+        }
+      }
+    }
+
+    &--pets {
+      &:hover {
+        & .category__circle {
+          border: 2pt solid $light-blue;
+        }
+
+        & .category__icon {
+          filter: invert(67%) sepia(20%) saturate(5353%) hue-rotate(183deg) brightness(95%) contrast(91%);
+        }
+
+        & .form__label-category-text {
+          color: $light-blue;
+        }
+      }
+    }
+
+    &--gardening {
+      &:hover {
+        & .category__circle {
+          border: 2pt solid $green;
+        }
+
+        & .category__icon {
+          filter: invert(77%) sepia(13%) saturate(1207%) hue-rotate(44deg) brightness(99%) contrast(87%);
+        }
+
+        & .form__label-category-text {
+          color: $green;
+        }
+      }
+    }
+
+    &--pharmacy {
+      &:hover {
+        & .category__circle {
+          border: 2pt solid $dark-blue;
+        }
+
+        & .category__icon {
+          filter: invert(27%) sepia(77%) saturate(1527%) hue-rotate(204deg) brightness(94%) contrast(96%);
+        }
+
+        & .form__label-category-text {
+          color: $dark-blue;
+        }
+      }
+    }
+
+    &--chat {
+      &:hover {
+        & .category__circle {
+          border: 2pt solid $yellow;
+        }
+
+        & .category__icon {
+          filter: invert(82%) sepia(45%) saturate(568%) hue-rotate(341deg) brightness(101%) contrast(104%);
+        }
+
+        & .form__label-category-text {
+          color: $yellow;
+        }
+      }
+    }
+
+    &--other {
+      &:hover {
+        & .category__circle {
+          border: 2pt solid $red;
+        }
+
+        & .category__icon {
+          filter: invert(21%) sepia(72%) saturate(3950%) hue-rotate(14deg) brightness(107%) contrast(91%);
+        }
+
+        & .form__label-category-text {
+          color: $red;
+        }
+      }
+    }
+  }
+
+  &__label-category-text {
+    position: absolute;
+    left: 50%;
+    margin-top: 0.2em;
+    transform: translate(-50%, 0);
+  }
+
+
+  &__input-file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    position: absolute;
+  }
+
+  &__label-check {
+    margin-left: 8px;
+    margin-top: 2px;
+  }
+
+  &__image-preview {
+    display: none;
+    margin: 20px auto 8px auto;
+    height: auto;
+    width: auto;
+    max-width: 140px;
+    max-height: 140px;
+  }
+
+  &__button {
+    width: 80%;
+    height: 3em;
+    margin: 0 auto;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    margin: 24px auto;
+  }
+
+  &__message {
+    margin-right: 8px;
+  }
+
+  &__link {
+    &:first-of-type {
+      margin-right: 16px;
+    }
+  }
+
+  &--shadow {
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.09);
+  }
+}
+
+
+// Remove default simple form styles
+.form-control {
+  border: none;
+
+  &:focus {
+    border: none;
+    box-shadow: none;
+  }
+}

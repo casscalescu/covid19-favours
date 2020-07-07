@@ -10,8 +10,11 @@ class FavoursController < ApplicationController
 		@favour = Favour.new(favour_params)
 		@favour.recipient = current_user
 		@favour.status = "Open"
-		@favour.save
-		redirect_to favour_path(@favour)
+    if @favour.save
+      redirect_to favour_path(@favour)
+    else
+      render :new
+    end
 	end
 
 	def show

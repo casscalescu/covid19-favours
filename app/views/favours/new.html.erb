@@ -1,11 +1,68 @@
-<h1>Create a favour</h1>
-
-<%= simple_form_for @favour do |f| %>
-	<p>Completion Date *</p>  <!-- Added this in temporarily -->
-  <%= f.date_field :completion_date, min: Date.today + 1, required: true %>
-  <%= f.input :category, as: :radio_buttons, collection: @favour.categories %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :address, label: "Location" %>
-  <%= f.button :submit, 'Create', class: "btn btn-primary" %>
-<% end %>
+<div class="main-container">
+  <%= simple_form_for(@favour, html: { class: "form" }) do |f| %>
+    <%= f.error_notification %>
+    <h2 class="form__title">
+      Ask a Favour
+    </h2>
+    <%= f.input :title,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :category,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-radio" },
+                label_html: { class: "form__label-radio" },
+                wrapper_html: { class: "form__wrapper form__wrapper--radio" } do %>
+      <div class="form__label-categories">
+        <% Favour.categories.each do |category|%>
+          <%= f.radio_button(:category, category) %>
+          <%= label_tag("favour_category_#{category.downcase}".to_sym, category, class: "category category--type--#{category.downcase} category--outline-gray form__label-category form__label-category--#{category.downcase}") do %>
+            <div class="category__circle">
+              <img class="category__icon">
+            </div>
+            <span class="form__label-category-text">
+              <% case category %>
+              <% when "Groceries" %>
+                Groceries
+              <% when "Pets" %>
+                Pets
+              <% when "Gardening" %>
+                Gardening
+              <% when "Pharmacy" %>
+                Pharmacy
+              <% when "Chat" %>
+                Friendly Chat
+              <% when "Other" %>
+                Other
+              <% end %>
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= f.date_field :completion_date,
+                min: Date.today + 1,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-date" },
+                label_html: { class: "form__label-date" },
+                wrapper_html: { class: "form__wrapper form__wrapper--date" } %>
+    <%= f.input :description,
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text form__input-text--lg" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.input :address,
+                label: "Post code",
+                required: true,
+                autofocus: true,
+                input_html: { class: "form__input-text" },
+                label_html: { class: "form__label-text" },
+                wrapper_html: { class: "form__wrapper form__wrapper--text" } %>
+    <%= f.button :submit, 'Create favour', class: "button button--primary-fill form__button" %>
+  <% end %>
+</div>

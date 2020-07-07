@@ -121,6 +121,16 @@
     }
   }
 
+  &--outline-gray {
+    & .category__circle {
+      border: 2pt solid $mid-gray;
+    }
+
+    & .category__icon {
+      filter: invert(46%) sepia(0%) saturate(0%) hue-rotate(22deg) brightness(95%) contrast(89%);
+    }
+  }
+
   &--type--groceries {
     & .category__icon {
       content: asset-url('groceries-icon.svg');

@@ -24,7 +24,11 @@
     <!-- Favour content -->
     <h2 class="main-container__title"><%= @favour.title %></h2>
     <div class="main-container__pills">
-      <div class="pill pill--outline-black main-container__pill"><%= @favour.completion_date.to_formatted_s(:rfc822) %></div>
+      <% if @favour.completion_asap %>
+        <div class="pill pill--outline-black main-container__pill">ASAP</div>
+      <% else %>
+        <div class="pill pill--outline-black main-container__pill"><%= @favour.completion_date.to_formatted_s(:rfc822) %></div>
+      <% end %>
       <div class="pill pill--outline-black main-container__pill"><%= @favour.address %></div>
     </div>
     <p class="main-container__description"><%= @favour.description %></p>

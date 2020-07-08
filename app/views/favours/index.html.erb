@@ -15,7 +15,7 @@
       data-toggle="modal"
       data-favour-photo="<%= favour.recipient.photo.key %>"
       data-favour-name="<%= favour.recipient.first_name %>"
-      <% if favour.completion_asap? %>
+      <% if favour.completion_asap %>
         data-favour-date="ASAP"
       <% else %>
         data-favour-date="<%= favour.completion_date.to_formatted_s(:rfc822) %>"
@@ -53,7 +53,7 @@
         <!-- Favour User -->
         <%= cl_image_tag(favour.recipient.photo.key, crop: :thumb, gravity: :face, width: 500, height: 500, class: "avatar favour-card__avatar") %>
         <!-- Favour Completion -->
-        <% if favour.completion_asap %>
+        <% if favour.completion_asap == 'true' %>
           <div class="pill favour-card__pill pill--outline-black">ASAP</div>
         <% else %>
           <div class="pill favour-card__pill pill--outline-black"><%= favour.completion_date.to_formatted_s(:rfc822) %></div>

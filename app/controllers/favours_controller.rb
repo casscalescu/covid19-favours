@@ -18,7 +18,6 @@ class FavoursController < ApplicationController
 	end
 
 	def show
-    # raise
     @favour_application = @favour.favour_applications.where(applicant: current_user).take
 	end
 

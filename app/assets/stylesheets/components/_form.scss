@@ -313,6 +313,20 @@
     transform: translate(-50%, 0);
   }
 
+  &__input-asap {
+    &:checked + .form__label-asap {
+      color: white;
+      background-color: $dark-blue;
+      text-decoration: none;
+      transition: 0.4s;
+    }
+  }
+
+  &__label-asap {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
   &__input-file {
     width: 0.1px;

@@ -13,6 +13,7 @@ const revealDatePicker = (e) => {
 const initFavourDatePicker = () => {
   inputs.forEach((input) => {
     input.addEventListener('change', (revealDatePicker));
+    window.addEventListener('load', (revealDatePicker));
   });
 }
 

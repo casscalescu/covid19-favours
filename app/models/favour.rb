@@ -17,6 +17,8 @@ class Favour < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :address, presence: true
+  validates :completion_asap, presence: true
+  validates :date, presence: true, if: -> { !:completion_asap || require_validation }
 
   after_validation :geocode, if: :will_save_change_to_address?
 

@@ -43,13 +43,27 @@
         <% end %>
       </div>
     <% end %>
-    <%= f.date_field :completion_date,
-                min: Date.today + 1,
+    <%= f.input :completion_asap,
                 required: true,
                 autofocus: true,
-                input_html: { class: "form__input-date" },
-                label_html: { class: "form__label-date" },
-                wrapper_html: { class: "form__wrapper form__wrapper--date" } %>
+                label: "Completion date",
+                input_html: { class: "form__input-asap" },
+                label_html: { class: "form__label-radio" },
+                wrapper_html: { class: "form__wrapper form__wrapper--radio" } do %>
+      <%= f.radio_button :completion_asap, true, :checked => true, id: "favour_completion_asap_true", class: "form__input-asap" %>
+      <%= f.label :completion_asap_true, "ASAP", class: "form__label-asap button" %>
+      <%= f.radio_button :completion_asap, false, id: "favour_completion_asap_false", class: "form__input-asap" %>
+      <%= f.label :completion_asap_false, 'Select a Date', class: "form__label-asap button" %>
+    <% end %>
+    <div class="js-date-input">
+      <%= f.date_field :completion_date,
+                  min: Date.today + 1,
+                  required: true,
+                  autofocus: true,
+                  input_html: { class: "form__input-date" },
+                  label_html: { class: "form__label-date" },
+                  wrapper_html: { class: "form__wrapper form__wrapper--date" } %>
+    </div>
     <%= f.input :description,
                 required: true,
                 autofocus: true,

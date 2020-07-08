@@ -108,7 +108,8 @@ bob_favour_1 = Favour.create!(
   address: "#{bob.address}",
   status: "Open",
   recipient: bob,
-  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now)
+  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now),
+  completion_asap: 'false'
 )
 
 bob_favour_2 = Favour.create!(
@@ -119,7 +120,8 @@ bob_favour_2 = Favour.create!(
   status: "Accepted",
   recipient: bob,
   helper: ameya,
-  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now)
+  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now),
+  completion_asap: 'false'
 )
 
 jane_favour_1 = Favour.create!(
@@ -130,7 +132,8 @@ jane_favour_1 = Favour.create!(
   status: "Done",
   recipient: jane,
   helper: nikolai,
-  completion_date: Faker::Date.backward(days: 30)
+  completion_date: Faker::Date.backward(days: 30),
+  completion_asap: 'false'
 )
 
 jane_favour_2 = Favour.create!(
@@ -141,7 +144,8 @@ jane_favour_2 = Favour.create!(
   status: "Done",
   recipient: jane,
   helper: cassandra,
-  completion_date: Faker::Date.backward(days: 30)
+  completion_date: Faker::Date.backward(days: 30),
+  completion_asap: 'false'
 )
 
 jane_favour_3 = Favour.create!(
@@ -151,7 +155,8 @@ jane_favour_3 = Favour.create!(
   address: "#{jane.address}",
   status: "Open",
   recipient: jane,
-  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now)
+  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now),
+  completion_asap: 'false'
 )
 
 emily_favour_1 = Favour.create!(
@@ -161,7 +166,8 @@ emily_favour_1 = Favour.create!(
   address: "#{emily.address}",
   status: "Open",
   recipient: emily,
-  completion_date: Faker::Date.between(from: Date.today, to: 1.day.from_now)
+  completion_date: Faker::Date.between(from: Date.today, to: 1.day.from_now),
+  completion_asap: 'false'
 )
 
 emily_favour_2 = Favour.create!(
@@ -171,7 +177,8 @@ emily_favour_2 = Favour.create!(
   address: "#{emily.address}",
   status: "Open",
   recipient: emily,
-  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now)
+  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now),
+  completion_asap: 'false'
 )
 
 emily_favour_3 = Favour.create!(
@@ -181,7 +188,8 @@ emily_favour_3 = Favour.create!(
   address: "#{emily.address}",
   status: "Open",
   recipient: emily,
-  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now)
+  completion_date: Faker::Date.between(from: 1.week.from_now, to: 1.month.from_now),
+  completion_asap: 'false'
 )
 
 puts 'Creating Favour Applications...'

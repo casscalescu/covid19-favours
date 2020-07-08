@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_045342) do
+ActiveRecord::Schema.define(version: 2020_07_08_023753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_045342) do
     t.date "completion_date"
     t.float "latitude"
     t.float "longitude"
+    t.binary "completion_asap"
     t.index ["helper_id"], name: "index_favours_on_helper_id"
     t.index ["recipient_id"], name: "index_favours_on_recipient_id"
   end

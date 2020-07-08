@@ -313,6 +313,20 @@
     transform: translate(-50%, 0);
   }
 
+  &__input-asap {
+    &:checked + .form__label-asap {
+      color: white;
+      background-color: $dark-blue;
+      text-decoration: none;
+      transition: 0.4s;
+    }
+  }
+
+  &__label-asap {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
   &__input-file {
     width: 0.1px;
@@ -362,6 +376,22 @@
   }
 }
 
+// Date Picker JS
+.js-date-input {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: scale(0.8);
+  transition: 0.5s;
+
+  &__show {
+    opacity: 1;
+    max-height: 100px;
+    overflow: visible;
+    padding: 10px 20px;
+    transform: scale(1);
+  }
+}
 
 // Remove default simple form styles
 .form-control {

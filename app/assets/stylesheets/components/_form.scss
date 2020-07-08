@@ -362,6 +362,22 @@
   }
 }
 
+// Date Picker JS
+.js-date-input {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: scale(0.8);
+  transition: 0.5s;
+
+  &__show {
+    opacity: 1;
+    max-height: 100px;
+    overflow: visible;
+    padding: 10px 20px;
+    transform: scale(1);
+  }
+}
 
 // Remove default simple form styles
 .form-control {

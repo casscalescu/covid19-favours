@@ -43,14 +43,23 @@
         <% end %>
       </div>
     <% end %>
-    <%= f.collection_radio_buttons :completion_asap, [[true, 'ASAP'], [false, 'Select a Date']], :first, :last %>
-    <%= f.date_field :completion_date,
-                min: Date.today + 1,
-                required: true,
-                autofocus: true,
-                input_html: { class: "form__input-date" },
-                label_html: { class: "form__label-date" },
-                wrapper_html: { class: "form__wrapper form__wrapper--date" } %>
+    <%= f.input :completion_asap,
+                as: :radio_buttons,
+                collection: [[true, 'ASAP'], [false, 'Select a Date']],
+                label_method: :second,
+                value_method: :first,
+                input_html: { class: "form__input-asap" },
+                label_html: { class: "form__label-asap" },
+                wrapper_html: { class: "form__wrapper form__wrapper--asap" } %>
+    <div class="js-date-input">
+      <%= f.date_field :completion_date,
+                  min: Date.today + 1,
+                  required: true,
+                  autofocus: true,
+                  input_html: { class: "form__input-date" },
+                  label_html: { class: "form__label-date" },
+                  wrapper_html: { class: "form__wrapper form__wrapper--date" } %>
+    </div>
     <%= f.input :description,
                 required: true,
                 autofocus: true,

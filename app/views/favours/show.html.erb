@@ -22,7 +22,7 @@
     <% end %>
 
     <!-- Favour content -->
-    <h2 class="main-container__title"><%= @favour.title %></h2>
+    <h1 class="main-container__title"><%= @favour.title %></h1>
     <div class="main-container__pills">
       <div class="pill pill--outline-black main-container__pill"><%= @favour.completion_date.to_formatted_s(:rfc822) %></div>
       <div class="pill pill--outline-black main-container__pill"><%= @favour.address %></div>
@@ -77,7 +77,9 @@
     <% end %>
 
     <!-- Back to all favours -->
-    <%= link_to "< Back to all favours", favours_path, class: '' %>
+    <div class="main-container__content--center">
+      <%= link_to "Back", :back, class: "link" %>
+    </div>
   </div>
 </div>
 

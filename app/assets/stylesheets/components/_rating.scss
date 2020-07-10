@@ -1,6 +1,6 @@
 .rating {
   display: flex;
-  align-items: center;
+  align-items: end;
   font-size: 1.2em;
   &__icon {
     content: url(asset_path('star-icon.svg'));
@@ -13,6 +13,7 @@
   }
   &__text {
     margin-left: 4px;
+    font-size: 1em;
     margin-bottom: 0;
     color: $mid-gray;
   }

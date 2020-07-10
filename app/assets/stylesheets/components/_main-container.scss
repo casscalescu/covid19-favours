@@ -6,6 +6,10 @@
   &__content {
     width: 500px;
     margin: 0 auto;
+
+    &--center {
+      text-align: center;
+    }
   }
 
   &__recipient-link {
@@ -37,10 +41,12 @@
   }
 
   &__title {
-    font-size: 2.4em;
     margin-top: 0;
     margin-bottom: 15px;
-    font-weight: 500;
+  }
+
+  &__secondary-title {
+    margin-bottom: 18px;
   }
 
   &__pills {
@@ -80,5 +86,21 @@
     font-size: 1.2em;
     font-weight: 300;
     margin-bottom: 18px;
+  }
+
+  &__favours {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 30px;
+    grid-column-gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  &__rating {
+    padding: 22px 0;
+  }
+
+  &__card {
+    padding: 20px 0;
   }
 }

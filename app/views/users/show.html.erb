@@ -1,93 +1,117 @@
-<div class="container">
-	<!-- Display name -->
-	<h1>
-		<%= @user.first_name.capitalize %>
-		<% if current_user.shared_tasks?(@user) || @user == current_user %>
-		  <%= @user.last_name.capitalize %>
-		<% end %>
-	</h1>
+<div class="main-container">
+  <div class="main-container__content">
+    <div class="main-container__content--center">
+      <h1 class="main-container__title">
+      <%= @user.first_name.capitalize %>
+      <% if current_user.shared_tasks?(@user) || @user == current_user %>
+        <%= @user.last_name.capitalize %>
+      <% end %>
+      </h1>
+      <!-- Profile picture -->
+      <% if @user.photo.attachment.nil? %>
+        <%= image_tag "placeholder.png", alt: "Profile Picture", class: "avatar avatar--user-page" %>
+      <% else %>
+        <%= cl_image_tag @user.photo.key, class: "avatar avatar--user-page" %>
+      <% end %>
+    </div>
 
-	<!-- Profile picture -->
-	<% if @user.photo.attachment.nil? %>
-		  <%= image_tag "placeholder.png", alt: "Profile Picture", :style => "height: 300px; width: 300px; object-fit: cover; border-radius: 50%" %>
-		<% else %>
-		  <%= cl_image_tag @user.photo.key, :style => "height: 300px; width: 300px; object-fit: cover; border-radius: 50%" %>
-	<% end %>
+    <!-- Details -->
+    <div class="main-container__card">
+      <% unless @user.bio.nil? %>
+        <h3 class="main-container__secondary-title">About</h3>
+        <p><%= @user.bio %></p>
+      <% end %>
 
-	<!-- Details -->
-	<h4>Bio:</h4>
-	<%= @user.bio %>
 
-	<% if @user == current_user || current_user.shared_tasks?(@user) %>
-		<h4>Mobile:</h4>
-		<%= @user.mobile %>
-		<h4>Location:</h4>
-		<%= @user.address %>
-	<% end %>
+      <% if @user == current_user || current_user.shared_tasks?(@user) %>
+        <h3 class="main-container__secondary-title">Contact</h3>
+        <p><%= @user.mobile %></p>
+        <p><%= @user.address %></p>
+      <% end %>
 
-	<!-- Edit profile -->
-	<% if current_user == @user %>
-		<%= link_to "Edit profile", edit_user_path, class: 'btn btn-primary' %>
-	<% end %>
+      <!-- Edit profile -->
+      <% if current_user == @user %>
+        <%= link_to "Edit profile", edit_user_path, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
 
-	<!-- Favours -->
-	<% if @user.favours_asked.exists? && @user != current_user %>
-		<h4>Favours:</h4>
-		<% @user.open_favours.each do |favour| %>
-			<%= link_to favour_path(favour) do %>
-				<div class="card">
-					<p>Category: <%= favour.category %></p>
-					<p>Title: <%= favour.title %></p>
-					<p>Description: <%= favour.description %></p>
-				</div>
-			<% end %>
-		<% end %>
-	<% end %>
+    <% if @user == current_user || current_user.shared_tasks?(@user) %>
+      <hr/>
+    <% end %>
 
-	<!-- Reviews -->
-	<h4>Reviews:</h4>
-	<!-- Recipient reviews -->
-  <h4>Recipient reviews</h4>
-	<% if @user.recipient? %>
-		<% if @user.recipient_reviews.empty? %>
-			<p>No reviews yet</p>
-		<% else %>
-			<% @user.recipient_reviews.each do |review| %>
-				<p><%= review.description %></p>
-				<p>Rating: <%= review.rating %></p>
-				<p>Reviewed by: <%= review.helper.first_name %></p>
-				<hr/>
-			<% end %>
 
-      <p>Average:</p>
-      <%= @user.recipient_rating_average %>
+    <!-- Favours -->
+    <% if @user.favours_asked.exists? && @user.open_favours.exists? && @user != current_user %>
+      <h3 class="main-container__secondary-title">Favours</h3>
+      <div class="main-container__favours">
+        <% @user.open_favours.each do |favour| %>
+          <%# link_to favour_path(favour), class: "favour-card--link" do %>
+            <div class="favour-card favour-card--outline">
+              <div class="category favour-card__category category--type--groceries category--outline-black">
+                <div class="category__circle">
+                  <img class="category__icon">
+                </div>
+              </div>
+              <div class="pill favour-card__pill pill--fill-orange">ASAP</div>
+              <h3 class="favour-card__title"><%= favour.title %></h3>
+              <p class="favour-card__description"><%= truncate(favour.description, :length => 200) %></p>
+              <%= link_to "Help out", new_favour_favour_application_path(favour), class: "button favour-card__button button--primary-outline" %>
+            </div>
+          <%# end %>
+        <% end %>
+      </div>
+      <hr/>
+    <% end %>
 
-		<% end %>
-	<% end %>
-	<!-- Helper reviews -->
-  <h4>Helper reviews</h4>
-	<% if @user.helper? %>
-		<% if @user.helper_reviews.empty? %>
-			<p>No reviews yet</p>
-		<% else %>
-			<% @user.helper_reviews.each do |review| %>
-				<p><%= review.description %></p>
-				<p>Rating: <%= review.rating %></p>
-				<p>Reviewed by: <%= review.recipient.first_name %></p>
-				<hr/>
-			<% end %>
-
-      <p>Average:</p>
-      <%= @user.helper_rating_average %>
-
-		<% end %>
-	<% end %>
+    <!-- Reviews -->
+    <div class="main-container__card">
+      <h3 class="main-container__secondary-title"><%= @user.helper_reviews.count + @user.recipient_reviews.count %> reviews</h3>
+      <div class="review-tabs">
+        <div class="review-tabs__labels">
+          <span data-tab-id="1" class="review-tabs__label active">From recipients (<%= @user.helper_reviews.count %>)</span>
+          <span data-tab-id="2" class="review-tabs__label">From helpers (<%= @user.recipient_reviews.count %>)</span>
+        </div>
+        <div data-tab-id="1" class="review-tabs__content active">
+          <!-- Helper reviews -->
+          <% if @user.helper? %>
+            <% if @user.helper_reviews.empty? %>
+              <p style="margin-top: 24px;">No reviews yet</p>
+            <% else %>
+              <% @user.helper_reviews.each do |review| %>
+                <div class="main-container__rating">
+                  <div class="rating" style="margin-bottom: 8px;">
+                    <div class="rating__icon rating__icon--yellow"></div>
+                    <p class="rating__text"><%= review.rating %></p>
+                  </div>
+                  <p><%= review.recipient.first_name %></p>
+                  <p style="margin: 0;"><%= review.description %></p>
+                </div>
+                <hr/>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <div data-tab-id="2" class="review-tabs__content">
+          <!-- Recipient reviews -->
+          <% if @user.recipient? %>
+            <% if @user.recipient_reviews.empty? %>
+              <p style="margin-top: 24px;">No reviews yet</p>
+            <% else %>
+              <% @user.recipient_reviews.each do |review| %>
+                <div class="main-container__rating">
+                  <div class="rating" style="margin-bottom: 8px;">
+                    <div class="rating__icon rating__icon--yellow"></div>
+                    <p class="rating__text"><%= review.rating %></p>
+                  </div>
+                  <p><%= review.helper.first_name %></p>
+                  <p style="margin: 0;"><%= review.description %></p>
+                </div>
+                <hr/>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-
-
-
-
-

@@ -82,7 +82,7 @@
         <% if current_user.applied?(favour) %>
           <!-- Pending -->
           <% if current_user.application_status(favour) == "Pending" %>
-            <p class="favour-card__notice">You've already applied!</p>
+            <p class="favour-card__notice">You've submitted a request to help</p>
             <!-- Withdraw -->
             <%= simple_form_for [favour, favour.favour_applications.where(applicant: current_user).take] do |f| %>
               <%= f.hidden_field :status, value: "Withdrawn" %>

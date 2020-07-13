@@ -71,37 +71,23 @@ export const initModal = () => {
         // Add 'View Favour' link to modal
         const cardButton = card.querySelector('.favour-card__button');
         const cardMessage = card.querySelector('.favour-card__notice');
-        // Create link element
         const link = document.createElement('a');
-        // Add class
         link.className = 'link favour-modal__link';
-        // Add text
         link.innerText = 'View Favour';
-        // Add href
         link.setAttribute("href", card.dataset.favourLink);
-        // Append link to div
         modalButtons.appendChild(link);
 
         // Add Button or Message to modal
         if(card.lastElementChild.classList.contains('favour-card__notice')) {
-          // Create p element
           const message = document.createElement('p');
-          // Add class
           message.className = 'favour-modal__notice';
-          // Add text
           message.innerText = cardMessage.innerText;
-          // Append modal to div
           modalButtons.appendChild(message);
         } else {
-          // Create button element
           const button = document.createElement('a');
-          // Add class
           button.className = 'button button--primary-fill favour-modal__button';
-          // Add text
           button.innerText = cardButton.innerText;
-          // Add href
           button.setAttribute("href", cardButton.href);
-          // Append button to div
           modalButtons.appendChild(button);
         }
       })

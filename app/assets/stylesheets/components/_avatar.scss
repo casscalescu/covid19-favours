@@ -3,4 +3,10 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+
+  &--user-page {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 38px;
+  }
 }

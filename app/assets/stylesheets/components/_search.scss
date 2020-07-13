@@ -1,7 +1,7 @@
 .search {
   width: 385px;
   height: 44px;
-  border: $light-text solid 1px;
+  border: $light-text solid 1px !important;
   border-radius: 24px;
   margin: auto;
   padding: 0px 40px;
@@ -12,10 +12,10 @@
   }
   &:focus {
     box-shadow: none;
-    border-color: $mid-gray;
+    border-color: $mid-gray !important;
   }
   &:hover {
-    border-color: $mid-gray;
+    border-color: $mid-gray !important;
   }
 
   &__button {

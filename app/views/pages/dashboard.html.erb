@@ -1,4 +1,5 @@
-<div class="container">
+<div class="main-container">
+  <!-- Own Favours -->
   <div class="dashboard-tabs">
     <h1>Your Favours</h1>
     <div class="dashboard-tabs__labels">
@@ -7,62 +8,38 @@
       <a data-tab-id="3" class="dashboard-tabs__label">Archived</a>
     </div>
     <div data-tab-id="1" class="dashboard-tabs__content">
+      <div class="grid">
+      </div>
     </div>
     <div data-tab-id="2" class="dashboard-tabs__content active">
-      <h1>helllo there matey</h1>
+      <p>Own - Open</p>
     </div>
     <div data-tab-id="3" class="dashboard-tabs__content">
+      <p>Own - Archived</p>
     </div>
   </div>
-</div>
-<br>
-<br>
-<br>
-<h1>Skeleton Dashboard</h1>
-
-<!-- Review notification -->
-<div class="container">
-  <!-- User as a helper -->
-  <% if current_user.helper? %>
-    <% @helper_done_favours.each do |favour| %>
-      <% unless favour.reviews.where(subject: "Recipient").exists? %>
-        <div class="card">
-          <p>Favour: <%= favour.title %></p>
-          <p>You completed a favour for: <%= link_to favour.recipient.first_name, user_path(favour.recipient) %></p>
-          <%= link_to "Review", new_favour_review_path(favour), class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-  <!-- User as a recipient -->
-  <% if current_user.recipient? %>
-    <% @recipient_done_favours.each do |favour| %>
-      <% unless favour.reviews.where(subject: "Helper").exists? %>
-        <div class="card">
-          <p>Favour: <%= favour.title %></p>
-          <p>Completed by: <%= link_to favour.helper.first_name, user_path(favour.helper) %></p>
-          <%= link_to "Review", new_favour_review_path(favour), class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
-
-<!-- Favour about to expire notification -->
-<% unless @recipient_favours_expiring.empty? %>
-  <div class="container">
-    <h4>Favours about to expire:</h4>
-    <% @recipient_favours_expiring.each do |favour| %>
-      <div class="card">
-        <%= link_to "#{favour.title}", favour_path(favour) %>
-        <%= render 'favours/edit-date', favour: favour %>
-      </div>
-    <% end %>
+  <!-- Other's Favours -->
+  <div class="dashboard-tabs">
+    <h1>Favours You're Doing</h1>
+    <div class="dashboard-tabs__labels">
+      <a data-tab-id="1" class="dashboard-tabs__label">Accepted</a>
+      <a data-tab-id="2" class="dashboard-tabs__label active">Open</a>
+      <a data-tab-id="3" class="dashboard-tabs__label">Archived</a>
+    </div>
+    <div data-tab-id="1" class="dashboard-tabs__content">
+      <p>Others - Accepted</p>
+    </div>
+    <div data-tab-id="2" class="dashboard-tabs__content active">
+      <p>Others - Open</p>
+    </div>
+    <div data-tab-id="3" class="dashboard-tabs__content">
+      <p>Others - Archived</p>
+    </div>
   </div>
-<% end %>
-
-<!-- Dashboard -->
-<div class="container">
+  <br>
+  <br>
+  <br>
+  <h1>Skeleton Dashboard</h1>
   <!-- User as a helper -->
   <% if current_user.helper? %>
     <div class="helper-favours">
@@ -161,5 +138,40 @@
         <% end %>
       </div>
     </div>
+  <% end %>
+  <!-- Review notification -->
+  <!-- User as a helper -->
+  <% if current_user.helper? %>
+    <% @helper_done_favours.each do |favour| %>
+      <% unless favour.reviews.where(subject: "Recipient").exists? %>
+        <div class="card">
+          <p>Favour: <%= favour.title %></p>
+          <p>You completed a favour for: <%= link_to favour.recipient.first_name, user_path(favour.recipient) %></p>
+          <%= link_to "Review", new_favour_review_path(favour), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <!-- User as a recipient -->
+  <% if current_user.recipient? %>
+    <% @recipient_done_favours.each do |favour| %>
+      <% unless favour.reviews.where(subject: "Helper").exists? %>
+        <div class="card">
+          <p>Favour: <%= favour.title %></p>
+          <p>Completed by: <%= link_to favour.helper.first_name, user_path(favour.helper) %></p>
+          <%= link_to "Review", new_favour_review_path(favour), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <!-- Favour about to expire notification -->
+  <% unless @recipient_favours_expiring.empty? %>
+    <h4>Favours about to expire:</h4>
+    <% @recipient_favours_expiring.each do |favour| %>
+      <div class="card">
+        <%= link_to "#{favour.title}", favour_path(favour) %>
+        <%= render 'favours/edit-date', favour: favour %>
+      </div>
+    <% end %>
   <% end %>
 </div>
